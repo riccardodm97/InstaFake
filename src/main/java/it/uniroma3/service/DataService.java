@@ -247,7 +247,7 @@ public class DataService {
 		
 
 		//InstagramUser followed = SetSingleUserData(result);
-		
+		return c;
 		
 	}
 
