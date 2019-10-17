@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class InstagramUser {
+public class InstagramUserDB {
 
 	@Id
 	private String username;
@@ -30,9 +30,9 @@ public class InstagramUser {
 	
 	private String location;
 	
-	public InstagramUser() {}
+	public InstagramUserDB() {}
 
-	public InstagramUser(String username, long pk, String fullName, int num_followers, int num_following,
+	public InstagramUserDB(String username, long pk, String fullName, int num_followers, int num_following,
 			int num_posts, String bio, boolean isVerified, boolean isPrivate, String location) {
 		super();
 		this.username = username;

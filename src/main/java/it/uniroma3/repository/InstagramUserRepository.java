@@ -3,12 +3,12 @@ package it.uniroma3.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import it.uniroma3.model.InstagramUser;
+import it.uniroma3.model.InstagramUserDB;
 
 @Repository
-public interface InstagramUserRepository extends CrudRepository<InstagramUser, String> {
+public interface InstagramUserRepository extends CrudRepository<InstagramUserDB, String> {
 	
-	public InstagramUser findByPk(Long pk);
+	public InstagramUserDB findByPk(Long pk);
 	
 	public boolean existsByPk(Long pk);
 	

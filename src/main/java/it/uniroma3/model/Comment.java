@@ -20,7 +20,7 @@ public class Comment {
 	private long media_id;
 
 	@ManyToOne
-	private InstagramUser owner;  //se gia c'è inserisco il collegamento altrimenti devo salvare un nuovo user 
+	private InstagramUserDB owner;  //se gia c'è inserisco il collegamento altrimenti devo salvare un nuovo user 
 	
 	@Column(length=100000)
 	private String text;
@@ -29,7 +29,7 @@ public class Comment {
 	
 	public Comment() {}
 
-	public Comment(long pk, long media_id, InstagramUser owner, String text, Long created_at) {
+	public Comment(long pk, long media_id, InstagramUserDB owner, String text, Long created_at) {
 		super();
 		this.pk = pk;
 		this.media_id = media_id;
@@ -54,11 +54,11 @@ public class Comment {
 		this.media_id = media_id;
 	}
 
-	public InstagramUser getOwner() {
+	public InstagramUserDB getOwner() {
 		return owner;
 	}
 
-	public void setOwner(InstagramUser owner) {
+	public void setOwner(InstagramUserDB owner) {
 		this.owner = owner;
 	}
 

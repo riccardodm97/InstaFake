@@ -28,10 +28,14 @@ public class AppLogic {
 		System.out.println("su quale profilo vuoi eseguire la ricerca?\n");
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		String line= br.readLine();
+		br.close();
 		
 		//inizio la ricerca dell'account scelto
 		
 		this.dataservice.Search(line);
+		
+		//analizzo i dati ottenuti
+		
 		
 		
 		

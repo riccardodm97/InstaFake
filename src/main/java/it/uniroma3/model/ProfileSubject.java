@@ -17,17 +17,17 @@ public class ProfileSubject {
 	private String username;
 	
 	@OneToOne
-	private InstagramUser profile;
+	private InstagramUserDB profile;
 	
 	@ManyToMany
 	@JoinTable(name="followers", joinColumns={@JoinColumn(name="subject")}, 
 		       inverseJoinColumns={@JoinColumn(name="follower")})
-	private List<InstagramUser> followers;
+	private List<InstagramUserDB> followers;
 	
 	@ManyToMany
 	@JoinTable(name="following", joinColumns={@JoinColumn(name="subject")}, 
 	           inverseJoinColumns={@JoinColumn(name="following")})
-	private List<InstagramUser> following;
+	private List<InstagramUserDB> following;
 	
 	@OneToMany(mappedBy="owner")
 	private List<Media> posts;
@@ -38,7 +38,7 @@ public class ProfileSubject {
 		this.username=username;
 	}
 	
-	public ProfileSubject(String username, InstagramUser profile, List<InstagramUser> followers, List<InstagramUser> following,
+	public ProfileSubject(String username, InstagramUserDB profile, List<InstagramUserDB> followers, List<InstagramUserDB> following,
 			List<Media> posts) {
 		super();
 		this.username = username;
@@ -48,11 +48,11 @@ public class ProfileSubject {
 		this.posts = posts;
 	}
 
-	public InstagramUser getProfile() {
+	public InstagramUserDB getProfile() {
 		return profile;
 	}
 
-	public void setProfile(InstagramUser profile) {
+	public void setProfile(InstagramUserDB profile) {
 		this.profile = profile;
 	}
 
@@ -64,19 +64,19 @@ public class ProfileSubject {
 		this.username = username;
 	}
 
-	public List<InstagramUser> getFollowers() {
+	public List<InstagramUserDB> getFollowers() {
 		return followers;
 	}
 
-	public void setFollowers(List<InstagramUser> followers) {
+	public void setFollowers(List<InstagramUserDB> followers) {
 		this.followers = followers;
 	}
 
-	public List<InstagramUser> getFollowing() {
+	public List<InstagramUserDB> getFollowing() {
 		return following;
 	}
 
-	public void setFollowing(List<InstagramUser> following) {
+	public void setFollowing(List<InstagramUserDB> following) {
 		this.following = following;
 	}
 

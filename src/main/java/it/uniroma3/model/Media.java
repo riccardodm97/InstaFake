@@ -41,9 +41,10 @@ public class Media {
 	@ManyToMany
 	@JoinTable(name="likers", joinColumns={@JoinColumn(name="media_id")}, 
 			   inverseJoinColumns={@JoinColumn(name="username")})
-	private List<InstagramUser> likers;
+	private List<InstagramUserDB> likers;
 	
-	@OneToMany(mappedBy="media")
+	@OneToMany
+	@JoinColumn(name="media_pk")
 	private List<Comment> comments;
 	
 	public Media() {}
@@ -130,11 +131,11 @@ public class Media {
 	}
 	
 
-	public List<InstagramUser> getLikers() {
+	public List<InstagramUserDB> getLikers() {
 		return likers;
 	}
 
-	public void setLikers(List<InstagramUser> likers) {
+	public void setLikers(List<InstagramUserDB> likers) {
 		this.likers = likers;
 	}
 
