@@ -21,6 +21,7 @@ import org.brunocvcunha.instagram4j.requests.payload.InstagramUserSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import it.uniroma3.logic.Costants;
 import it.uniroma3.logic.InstaConfig;
 import it.uniroma3.model.Comment;
 import it.uniroma3.model.InstagramUserDB;
@@ -44,6 +45,9 @@ public class DataService {
 	
 	@Autowired 
 	private CommentService commentService;
+	
+	@Autowired 
+	private Costants cost;
 
 	private Instagram4j instagram;
 
@@ -112,13 +116,15 @@ public class DataService {
 		List<InstagramUserDB> followers=new ArrayList<>();                  //lista che inserisco nel db
 
 		String nextMaxId = null;
-		while (true) {
+		int i=0;
+		while (true && i<this.cost.getNum_cicli()) {
 			users = instagram.sendRequest(new InstagramGetUserFollowersRequest(userResult.getUser().getPk(), nextMaxId));
 			UserfollowersList.addAll(users.getUsers());
 			nextMaxId = users.getNext_max_id();
 			if (nextMaxId == null) {
 				break;
 			}
+			if(this.cost.isNum_cicli_valido()) i++;  
 		}
 
 

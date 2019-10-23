@@ -25,16 +25,19 @@ public class Comment {
 	@Column(length=100000)
 	private String text;
 	
+	private float trustworthiness;
+	
 	private LocalDateTime timestamp;
 	
 	public Comment() {}
 
-	public Comment(long pk, long media_id, InstagramUserDB owner, String text, Long created_at) {
+	public Comment(long pk, long media_id, InstagramUserDB owner, String text, Long created_at,float probability) {
 		super();
 		this.pk = pk;
 		this.media_id = media_id;
 		this.owner = owner;
 		this.text = text;
+		this.trustworthiness=probability;
 		this.setTimestamp(created_at);
 	}
 
@@ -68,6 +71,15 @@ public class Comment {
 
 	public void setText(String text) {
 		this.text = text;
+	}
+
+	
+	public float getTrustworthiness() {
+		return trustworthiness;
+	}
+
+	public void setTrustworthiness(float trustworthiness) {
+		this.trustworthiness = trustworthiness;
 	}
 
 	public LocalDateTime getTimestamp() {
