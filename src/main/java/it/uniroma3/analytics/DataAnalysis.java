@@ -16,6 +16,9 @@ public class DataAnalysis {
 	@Autowired
 	private CommentService commentService;
 	
+	@Autowired
+	private TextPreprocessing txtProcess;
+	
 	private JFastText jft;           //libreria per il machine learning sui commenti
 	
 	public void StartDataAnalysis() {
@@ -35,8 +38,8 @@ public class DataAnalysis {
 	public float TextClassification(String text) {
 		this.jft.loadModel("src/main/resources/models/supervised.model.bin");
 		//preprocessing
-		
-		JFastText.ProbLabel probLabel = jft.predictProba(text);
+		String processed_text= txtProcess.Process(text);
+		JFastText.ProbLabel probLabel = jft.predictProba(processed_text);
 		float prob=probLabel.logProb;
 		if(probLabel.label.equals("___label___true"))
 			prob=1-prob;
