@@ -23,6 +23,8 @@ public class DataAnalysis {
 	
 	public void StartDataAnalysis() {
 		
+		//analizzo i commenti estratti
+		this.AnalyzeComments();
 	}
 	
 	public void AnalyzeComments() {
@@ -36,13 +38,13 @@ public class DataAnalysis {
 	}
 	
 	public float TextClassification(String text) {
-		this.jft.loadModel("src/main/resources/models/supervised.model.bin");
+		this.jft.loadModel("src/main/resources/models/model_one.bin");
 		//preprocessing
-		String processed_text= txtProcess.Process(text);
-		JFastText.ProbLabel probLabel = jft.predictProba(processed_text);
+		String processed_text= txtProcess.Process(text);     
+		JFastText.ProbLabel probLabel = jft.predictProba(processed_text);     //predizione della label 
 		float prob=probLabel.logProb;
-		if(probLabel.label.equals("___label___true"))
-			prob=1-prob;
+		if(probLabel.label.equals("__label__false"))                        //se dalla label risulta che il commento è proabilmente fake
+			prob=1-prob;                                                      //allora il valore di attendibilità è 1-prob che sia falso     
 		return prob;
 	}
 }

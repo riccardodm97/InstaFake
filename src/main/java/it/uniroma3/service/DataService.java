@@ -291,6 +291,9 @@ public class DataService {
 		tmp.setNum_following(user.getFollowing_count());
 		tmp.setNum_posts(user.getMedia_count());
 		tmp.setLocation(user.getCity_name());
+		tmp.setExternal_url(user.getExternal_url());
+		tmp.setHas_anonymous_profile_pic(user.isHas_anonymous_profile_picture());
+		tmp.setNum_tags(user.getUsertags_count());
 
 		return tmp;
 

@@ -24,16 +24,23 @@ public class InstagramUserDB {
 	@Column(length=10000)
 	private String bio;
 	
+	private int num_tags;
+	
+	@Column(name="anonymous_pic")
+	private boolean has_anonymous_profile_pic;
+	
 	private boolean isVerified;
 	
 	private boolean isPrivate;
 	
 	private String location;
 	
+	private String external_url;
+	
 	public InstagramUserDB() {}
 
 	public InstagramUserDB(String username, long pk, String fullName, int num_followers, int num_following,
-			int num_posts, String bio, boolean isVerified, boolean isPrivate, String location) {
+			int num_posts, String bio, boolean isVerified, boolean isPrivate, String location,int tags, boolean anonymous_profile,String url) {
 		super();
 		this.username = username;
 		this.pk = pk;
@@ -45,6 +52,10 @@ public class InstagramUserDB {
 	 	this.isVerified = isVerified;
 		this.isPrivate = isPrivate;
 		this.location = location;
+		this.external_url= url;
+		this.num_tags= tags;
+		this.has_anonymous_profile_pic= anonymous_profile;
+		
 	}
 
 	public String getUsername() {
@@ -117,6 +128,30 @@ public class InstagramUserDB {
 
 	public void setPrivate(boolean isPrivate) {
 		this.isPrivate = isPrivate;
+	}
+
+	public int getNum_tags() {
+		return num_tags;
+	}
+
+	public void setNum_tags(int num_tags) {
+		this.num_tags = num_tags;
+	}
+
+	public boolean has_anonymous_profile_pic() {
+		return has_anonymous_profile_pic;
+	}
+
+	public void setHas_anonymous_profile_pic(boolean has_anonymous_profile_pic) {
+		this.has_anonymous_profile_pic = has_anonymous_profile_pic;
+	}
+
+	public String getExternal_url() {
+		return external_url;
+	}
+
+	public void setExternal_url(String external_url) {
+		this.external_url = external_url;
 	}
 
 	public String getLocation() {
