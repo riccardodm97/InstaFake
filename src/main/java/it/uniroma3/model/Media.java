@@ -9,8 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -38,10 +36,7 @@ public class Media {
 	@Column(nullable=true)
 	private String location;
 	
-	@ManyToMany
-	@JoinTable(name="likers", joinColumns={@JoinColumn(name="media_id")}, 
-			   inverseJoinColumns={@JoinColumn(name="username")})
-	private List<InstagramUserDB> likers;
+	private int likersAndfollowers;        //numero di persone che hanno messo like e seguono l'account (per uso futuro)
 	
 	@OneToMany
 	@JoinColumn(name="media_pk")
@@ -110,6 +105,14 @@ public class Media {
 		this.num_comments = num_comments;
 	}
 
+	public int getLikersAndfollowers() {
+		return likersAndfollowers;
+	}
+
+	public void setLikersAndfollowers(int likersAndfollowers) {
+		this.likersAndfollowers = likersAndfollowers;
+	}
+
 	public LocalDateTime getTimestamp() {
 		return timestamp;
 	}
@@ -130,15 +133,6 @@ public class Media {
 		this.location = location;
 	}
 	
-
-	public List<InstagramUserDB> getLikers() {
-		return likers;
-	}
-
-	public void setLikers(List<InstagramUserDB> likers) {
-		this.likers = likers;
-	}
-
 	public List<Comment> getComments() {
 		return comments;
 	}

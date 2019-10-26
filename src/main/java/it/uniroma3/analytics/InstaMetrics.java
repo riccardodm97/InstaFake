@@ -4,20 +4,25 @@ public final class InstaMetrics {
 
 	private final static int MAX_FOLLOWING=7500;   //numero massimo di account che instagram permette di seguire
 	
-	private final static int MAX_STAT_GENERIC_FOLLOWING=3000; //upperbound al numero di following per account generico basato su dati statistici
+	private final static int MAX_STAT_GENERIC_FOLLOWING=0; //upperbound al numero di following per account generico basato su dati statistici
 	
-	private final static int SUSPECT_STAT_GENERIC_FOLLOWING=2500;   //un numero di following superiore è sospetto per account medio
+	private final static int SUSPECT_STAT_GENERIC_FOLLOWING=0;   //un numero di following superiore è sospetto per account medio
 	
-	private final static int MAX_STAT_POPULAR_FOLLOWING=1500;     //upperbound al numero di following per account popolare(da 20k+) basato su dati statistici
+	private final static int MAX_STAT_POPULAR_FOLLOWING=0;     //upperbound al numero di following per account popolare(da 15k+) basato su dati statistici
 	
-	private final static int SUSPECT_STAT_POPULAR_FOLLOWING=1000;   //un numero di following superiore è sospetto per account popolare
+	private final static int SUSPECT_STAT_POPULAR_FOLLOWING=0;   //un numero di following superiore è sospetto per account popolare
 	
 	
-	//follower to following ffr ratio tra i 0 e i 15k follower
+	//follower to followinf ratio tra i 1000
 	
-	                                            //fake  <0.5
+	private final static float FFR_0=1F;
+	
+	
+	//follower to following ffr ratio tra i 1000 e i 15k follower
+	
+	                                            //molto sospetto  <0.5
 	private final static float FFR_1=0.5F;     
-	                                            //molto sospetto  tra 0.5 e 1
+	                                            //sospetto  tra 0.5 e 1
 	private final static float FFR_2=1F;       
 	                                            //normale  tra 1 e 2
 	private final static float FFR_3=2F;       
@@ -64,6 +69,9 @@ public final class InstaMetrics {
 	//like to comments rate per account con almeno 15k follower
 	
 	private final static float MAX_LTC=0.01F;         //massimo di ltc realistica
+	
+	
+	
 	
 	
 	

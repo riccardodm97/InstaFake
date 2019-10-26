@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import it.uniroma3.analytics.DataAnalysis;
 import it.uniroma3.service.AuthService;
 import it.uniroma3.service.DataService;
 
@@ -18,6 +19,9 @@ public class AppLogic {
 	@Autowired
 	private DataService dataservice;
 	
+	@Autowired
+	private DataAnalysis dataAnalysis;
+	
 	
 	public void Start() throws Exception {
 		System.out.println("Effettuo il login...");
@@ -25,7 +29,9 @@ public class AppLogic {
 		//effettuo il login
 		this.authservice.Log();
 		
-		System.out.println("su quale profilo vuoi eseguire la ricerca?\n");
+		//prendo in input l'username sul quale condurre la ricerca
+		
+		System.out.println("su quale profilo(username) vuoi eseguire la ricerca?\n");
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		String line= br.readLine();
 		br.close();
@@ -35,6 +41,13 @@ public class AppLogic {
 		this.dataservice.Search(line);
 		
 		//analizzo i dati ottenuti
+		
+		this.dataAnalysis.StartDataAnalysis();
+		
+		//faccio qualcosa con i risultati( li ho salvati ??)
+		
+		
+		
 		
 		
 		

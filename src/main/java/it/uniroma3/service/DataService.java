@@ -117,7 +117,7 @@ public class DataService {
 
 		String nextMaxId = null;
 		int i=0;
-		while (true && i<this.cost.getNum_cicli()) {
+		while (i<this.cost.getNum_cicli()) {
 			users = instagram.sendRequest(new InstagramGetUserFollowersRequest(userResult.getUser().getPk(), nextMaxId));
 			UserfollowersList.addAll(users.getUsers());
 			nextMaxId = users.getNext_max_id();
