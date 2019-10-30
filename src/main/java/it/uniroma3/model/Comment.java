@@ -25,7 +25,7 @@ public class Comment {
 	@Column(length=100000)
 	private String text;
 	
-	private double trustworthiness;
+	private double false_prob;
 	
 	private LocalDateTime timestamp;
 	
@@ -72,13 +72,12 @@ public class Comment {
 		this.text = text;
 	}
 
-	
-	public double getTrustworthiness() {
-		return trustworthiness;
+	public double getFalse_prob() {
+		return false_prob;
 	}
 
-	public void setTrustworthiness(double trustworthiness) {
-		this.trustworthiness = trustworthiness;
+	public void setFalse_prob(double false_prob) {
+		this.false_prob = false_prob;
 	}
 
 	public LocalDateTime getTimestamp() {

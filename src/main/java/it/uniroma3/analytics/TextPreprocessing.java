@@ -8,6 +8,9 @@ import com.vdurmont.emoji.EmojiManager;
 import com.vdurmont.emoji.EmojiParser;
 
 //utilizzo la libreria emoji-java
+//da migliorare il preprocessing del testo , eliminare le forme verbali contratte e le contrazioni in generale , le parole di
+//slang, unificare parole che indicano la stessa cosa e i plurali , separare la punteggiatura, rimuovere parole non chiave 
+//e caratteri di escape
 
 @Component
 public class TextPreprocessing {
@@ -16,7 +19,7 @@ public class TextPreprocessing {
 		String processed_text;
 		processed_text=this.substituteEmoji(text);
 		
-		processed_text.toLowerCase();  // metto la stringa tutta in minuscolo
+		processed_text=processed_text.toLowerCase();  // metto la stringa tutta in minuscolo
 		
 		processed_text=processed_text.trim().replaceAll("\\s+"," ");   //elimino i doppi spazi
 		
@@ -46,7 +49,7 @@ public class TextPreprocessing {
 
 		//inserisco la scritta [emoticon] nel testo tante volte quante erano le emoji in quello originale
 		for(int i=0;i<num_emoji;i++) {
-			processed_text.concat(" [emoticon]");
+			processed_text=processed_text.concat(" [emoticon]");
 		}
 
 		return processed_text;

@@ -1,14 +1,11 @@
 package it.uniroma3.service;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.uniroma3.model.InstagramUserDB;
 import it.uniroma3.model.ProfileSubject;
 import it.uniroma3.repository.ProfileSubjectRepository;
 

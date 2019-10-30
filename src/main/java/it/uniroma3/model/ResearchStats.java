@@ -23,6 +23,21 @@ public class ResearchStats {
 	@Column(name="avgHashtag")
 	private double avgHashtag_count;                     //average hashtag per post
 	
+	@Column(name="fakeComments")
+	private int fakeComments_count;                      //number of fake comments spotted on post retrived
+	
+	private double faketrueComment_ratio;                //number of fake comments on number of total comments
+	
+	@Column(name="avgFakeComments")
+	private double avgFakeComments_count;                //average fake comments per post
+	
+	private int suspect_followers_count;                 //number of followers that are suspect 
+	
+	private int suspect_following_count;                  //number of followed account that are suspect
+	
+	@Column(name="er")
+	private double engagement_rate;                      //engagement rate 
+	
 	@Column(name="avgLtc")
 	private double avgLtc_ratio;                         //average like to comment ratio
 	
@@ -32,22 +47,6 @@ public class ResearchStats {
 	
 	@Column(name="less1kf")
 	private int follow_less1kf;                          //number of followed account with less than 1k followers 
-	
-	@Column(name="fakeComments")
-	private int fakeComments_count;                      //number of fake comments spotted on post retrived
-	
-	private double faketrueComment_ratio;                //number of fake comments on number of total comments
-	
-	@Column(name="avgFakeComments")
-	private double avgFakeComments_count;                //average fake comments per post
-	
-	@Column(name="er")
-	private double engagement_rate;                      //engagement rate 
-	
-	private int suspect_followers_count;                 //number of followers that are suspect 
-	
-	private int suspect_following_count;                  //number of followed account that are suspect
-	
 	
 	
 	
