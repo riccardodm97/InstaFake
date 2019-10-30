@@ -12,11 +12,16 @@ public class ResearchStats {
 	@Id
 	private String username;
 	
+	private int post_count;                              //number of user's post retrived form instagram 
+	
 	@Column(name="avgComm")
 	private double avgComments_count;                    //average comments per post
 	
 	@Column(name="avgLike")
 	private double avgLike_count;                        //average like per post
+	
+	@Column(name="avgHashtag")
+	private double avgHashtag_count;                     //average hashtag per post
 	
 	@Column(name="avgLtc")
 	private double avgLtc_ratio;                         //average like to comment ratio
@@ -25,11 +30,13 @@ public class ResearchStats {
 	
 	private double lfr;                                  //like to follower ratio
 	
-	@Column(name="<1kf")
+	@Column(name="less1kf")
 	private int follow_less1kf;                          //number of followed account with less than 1k followers 
 	
 	@Column(name="fakeComments")
 	private int fakeComments_count;                      //number of fake comments spotted on post retrived
+	
+	private double faketrueComment_ratio;                //number of fake comments on number of total comments
 	
 	@Column(name="avgFakeComments")
 	private double avgFakeComments_count;                //average fake comments per post
@@ -39,15 +46,19 @@ public class ResearchStats {
 	
 	private int suspect_followers_count;                 //number of followers that are suspect 
 	
-	private int suspect_folowing_count;                  //number of followed account that are suspect
+	private int suspect_following_count;                  //number of followed account that are suspect
 	
-	@Column(name="avgHashtag")
-	private double avgHashtag_count;                     //average hashtag per post
+	
 	
 	
 	
 	public ResearchStats() {}
 
+	
+	public ResearchStats(String user) {
+		super();
+		this.username=user;
+	}
 
 
 	public String getUsername() {
@@ -60,6 +71,16 @@ public class ResearchStats {
 		this.username = username;
 	}
 
+
+
+	public int getPost_count() {
+		return post_count;
+	}
+
+
+	public void setPost_count(int post_count) {
+		this.post_count = post_count;
+	}
 
 
 	public double getAvgComments_count() {
@@ -134,6 +155,16 @@ public class ResearchStats {
 
 
 
+	public double getFaketrueComment_ratio() {
+		return faketrueComment_ratio;
+	}
+
+
+	public void setFaketrueComment_ratio(double faketrueComment_ratio) {
+		this.faketrueComment_ratio = faketrueComment_ratio;
+	}
+
+
 	public int getFakeComments_count() {
 		return fakeComments_count;
 	}
@@ -182,14 +213,14 @@ public class ResearchStats {
 
 
 
-	public int getSuspect_folowing_count() {
-		return suspect_folowing_count;
+	public int getSuspect_following_count() {
+		return suspect_following_count;
 	}
 
 
 
-	public void setSuspect_folowing_count(int suspect_folowing_count) {
-		this.suspect_folowing_count = suspect_folowing_count;
+	public void setSuspect_following_count(int suspect_folowing_count) {
+		this.suspect_following_count = suspect_folowing_count;
 	}
 
 

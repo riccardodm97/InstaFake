@@ -13,9 +13,15 @@ import com.vdurmont.emoji.EmojiParser;
 public class TextPreprocessing {
 	
 	public String Process(String text) {
-		String processed_text=null;
+		String processed_text;
 		processed_text=this.substituteEmoji(text);
 		
+		processed_text.toLowerCase();  // metto la stringa tutta in minuscolo
+		
+		processed_text=processed_text.trim().replaceAll("\\s+"," ");   //elimino i doppi spazi
+		
+		processed_text=processed_text.concat("\n");        //per il bug della libreria di machine learning
+	
 		return processed_text;
 	}
 	
@@ -23,7 +29,7 @@ public class TextPreprocessing {
 	//sostituisce ogni emoji nel testo con la scritta [emoticon]
 	public String substituteEmoji(String text) {
 		String processed_text=null;
-		processed_text=EmojiParser.replaceAllEmojis(text, "[emoticon]");
+		processed_text=EmojiParser.replaceAllEmojis(text, " [emoticon]");
 		return processed_text;
 	}
 

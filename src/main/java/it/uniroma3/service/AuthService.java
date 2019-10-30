@@ -19,7 +19,7 @@ public class AuthService {
 		Instagram4j instagram =instaconf.config();
 		try {
 			if(instagram.login().getStatus().equalsIgnoreCase("ok")){
-				System.out.println("Login effettuato con successo");
+				System.out.println("[Login effettuato con successo]");
 			}
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();

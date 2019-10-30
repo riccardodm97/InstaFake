@@ -256,7 +256,6 @@ public class DataService {
 	public Media SetSingleMediaData(InstagramFeedItem item,ProfileSubject p) {
 		Media media=new Media();
 		media.setPk(item.getPk());
-		media.setId(item.getId());
 		media.setNum_comments(item.getComment_count());
 		media.setNum_likes(item.getLike_count());
 		media.SetTimestamp(item.getTaken_at());

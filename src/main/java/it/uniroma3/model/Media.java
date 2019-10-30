@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,10 +17,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Media {
 	@Id
-	private Long pk;
-	
-	@Column(unique=true)
-	private String id;
+	private long pk;
 	
 	@ManyToOne
 	private ProfileSubject owner;
@@ -36,19 +34,16 @@ public class Media {
 	@Column(nullable=true)
 	private String location;
 	
-	private int likersAndfollowers;        //numero di persone che hanno messo like e seguono l'account (per uso futuro)
-	
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	@JoinColumn(name="media_pk")
 	private List<Comment> comments;
 	
 	public Media() {}
 
-	public Media(Long pk,String id, ProfileSubject owner, String caption, int num_likes, int num_comments, Long taken_at,
+	public Media(long pk, ProfileSubject owner, String caption, int num_likes, int num_comments, long taken_at,
 			String location) {
 		super();
 		this.pk = pk;
-		this.id=id;
 		this.owner = owner;
 		this.caption = caption;
 		this.num_likes = num_likes;
@@ -57,21 +52,14 @@ public class Media {
 		this.SetTimestamp(taken_at);
 	}
 
-	public Long getPk() {
+	public long getPk() {
 		return pk;
 	}
 	
-	public void setPk(Long pk) {
+	public void setPk(long pk) {
 		this.pk=pk;
 	}
 	
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public ProfileSubject getOwner() {
 		return owner;
@@ -105,14 +93,6 @@ public class Media {
 		this.num_comments = num_comments;
 	}
 
-	public int getLikersAndfollowers() {
-		return likersAndfollowers;
-	}
-
-	public void setLikersAndfollowers(int likersAndfollowers) {
-		this.likersAndfollowers = likersAndfollowers;
-	}
-
 	public LocalDateTime getTimestamp() {
 		return timestamp;
 	}
@@ -121,7 +101,7 @@ public class Media {
 		this.timestamp = date;
 	}
 	
-	public void SetTimestamp(Long taken_at) {
+	public void SetTimestamp(long taken_at) {
 		this.timestamp=LocalDateTime.ofInstant(Instant.ofEpochSecond(taken_at), ZoneOffset.UTC);  
 	}
 

@@ -1,5 +1,7 @@
 package it.uniroma3.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +19,10 @@ public class MediaService {
 	@Transactional
 	public Media inserisci(Media m) {
 		return this.mediaRepo.save(m);
+	}
+	
+	@Transactional
+	public List<Media> getAllMediaByOwnerUser(String username){
+		return this.mediaRepo.findAllByOwner_username(username);
 	}
 }

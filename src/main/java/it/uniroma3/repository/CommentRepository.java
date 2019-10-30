@@ -7,5 +7,4 @@ import it.uniroma3.model.Comment;
 
 public interface CommentRepository extends CrudRepository<Comment, Long> {
 	
-	
 }

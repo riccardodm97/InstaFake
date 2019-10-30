@@ -15,7 +15,9 @@ public final class InstaMetrics {
 	
 	//follower to followinf ratio tra i 1000
 	
-	private final static float FFR_0=1F;
+	private final static float MINFFR_0=0F;
+	
+	private final static float MAXFFR_0=0F;
 	
 	
 	//follower to following ffr ratio tra i 1000 e i 15k follower
@@ -45,7 +47,7 @@ public final class InstaMetrics {
 	private final static float LFR_TOMAX=0.02F;              //oltre 500k follower
 	
 	
-	private final static float SUSPECT_LFR_DEVIATION=0.15F;     //scostamento(negativo) di lfr rispetto allo standard che risulta sospetto
+	private final static float SUSPECT_LFR_DEVIATION=0.2F;     //scostamento(negativo) di lfr rispetto allo standard che risulta sospetto
 	
 	private final static float SUSPETCT_LIKE_DEVIATION=0.4F;    //scostamento(positivo) di like rispetto alla media dei post che risulta sospetto
 	
@@ -59,8 +61,6 @@ public final class InstaMetrics {
 	                                               //alto er  tra 3.5 3 6%
 	private final static float ER_3=0.06F;        
 	                                               //ottimo er  oltre 6%
-	
-	//troppo basso non influenza troppo alto con troppi pochi follower falsificato
 	
 	//hashtag
 	

@@ -42,7 +42,7 @@ public class AppLogic {
 		
 		//analizzo i dati ottenuti
 		
-		this.dataAnalysis.StartDataAnalysis();
+		this.dataAnalysis.StartDataAnalysis(line);
 		
 		//faccio qualcosa con i risultati( li ho salvati ??)
 		
