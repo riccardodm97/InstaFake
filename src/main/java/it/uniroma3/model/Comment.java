@@ -17,7 +17,7 @@ public class Comment {
 	
 	//potrei mettere il riferimento o inserire un media_id che avrebbe la stessa funzione dato che 
 	//nel json del commento mi viene passato anche l'id del post a cui si riferisce ( che dovrei inserire a mano)
-	private long media_id;
+	//private long media_id;
 
 	@ManyToOne
 	private InstagramUserDB owner;  //se gia c'è inserisco il collegamento altrimenti devo salvare un nuovo user 
@@ -31,10 +31,9 @@ public class Comment {
 	
 	public Comment() {}
 
-	public Comment(long pk, long media_id, InstagramUserDB owner, String text, Long created_at) {
+	public Comment(long pk, InstagramUserDB owner, String text, Long created_at) {
 		super();
 		this.pk = pk;
-		this.media_id = media_id;
 		this.owner = owner;
 		this.text = text;
 		this.setTimestamp(created_at);
@@ -46,14 +45,6 @@ public class Comment {
 
 	public void setPk(long pk) {
 		this.pk = pk;
-	}
-
-	public long getMedia_id() {
-		return media_id;
-	}
-
-	public void setMedia_id(long media_id) {
-		this.media_id = media_id;
 	}
 
 	public InstagramUserDB getOwner() {

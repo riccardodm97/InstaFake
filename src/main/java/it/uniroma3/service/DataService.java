@@ -157,13 +157,15 @@ public class DataService {
 		List<InstagramUserDB> following=new ArrayList<>();                  //lista che inserisco nel db
 
 		String nextMaxId = null;
-		while (true) {
+		int i=0;
+		while (i<this.cost.getNum_cicli()) {
 			users = instagram.sendRequest(new InstagramGetUserFollowingRequest(userResult.getUser().getPk(), nextMaxId));
 			UserfollowingList.addAll(users.getUsers());
 			nextMaxId = users.getNext_max_id();
 			if (nextMaxId == null) {
 				break;
 			}
+			if(this.cost.isNum_cicli_valido()) i++;  
 		}
 
 		//salvo i dati di ogni following
@@ -238,7 +240,7 @@ public class DataService {
 	
 	public Comment SetSingleCommentData(InstagramComment ic) throws Exception {
 		Comment c=new Comment();
-		c.setMedia_id(ic.getMedia_id());
+		//c.setMedia_id(ic.getMedia_id());
 		c.setPk(ic.getPk());;
 		c.setText(ic.getText());
 		c.setTimestamp(ic.getCreated_at());

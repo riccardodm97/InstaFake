@@ -98,8 +98,8 @@ public class DataAnalysis {
 	
 	public void commentsDataProcess(int num_fake,int num_comm) {
 		this.rs.setFakeComments_count(num_fake);
-		this.rs.setAvgFakeComments_count(num_fake/this.rs.getPost_count());
-		this.rs.setFaketrueComment_ratio(num_fake/num_comm);
+		this.rs.setAvgFakeComments_count(num_fake/(double) this.rs.getPost_count());
+		this.rs.setFaketotComment_ratio(num_fake/(double)num_comm);
 	}
 	
 	public void FollowingAnalysis() {
@@ -107,7 +107,10 @@ public class DataAnalysis {
 		List<InstagramUserDB> following=this.ps.getFollowing();
 		for(InstagramUserDB user: following) {
 			double value=this.AnalyzeUser(user);
-			if(value>=0.65) fake_following+=1;
+			if(value>=0.65) {                                                      //soglia del 65 % di suspect
+				fake_following+=1;
+				System.out.println(user.getUsername());
+			}
 			value=0;
 		}
 		this.rs.setSuspect_following_count(fake_following);
@@ -118,7 +121,7 @@ public class DataAnalysis {
 		List<InstagramUserDB> followers=this.ps.getFollowers();
 		for(InstagramUserDB user: followers) {
 			double value=this.AnalyzeUser(user);
-			if(value>=0.6) fake_followers+=1;
+			if(value>=0.65) fake_followers+=1;                                     //mettere una soglia diversa????
 			value=0;
 		}
 		this.rs.setSuspect_followers_count(fake_followers);
@@ -129,16 +132,16 @@ public class DataAnalysis {
 		if(user.isVerified()) return 0;    //se l'account è verificato lo considero comunque genuino
 		if(user.getNum_following()!=0) {
 			double ratio=user.getNum_followers()/user.getNum_following();
-			if(user.getNum_followers()<=2000 && ratio<=0.5) value+=0.1;
+			if(user.getNum_followers()<=2000 && ratio<=0.4) value+=0.1;
 		}
-		if(user.getNum_following()>=1500 && user.getNum_following()<3000) value+=0.05;
-		if(user.getNum_following()>=3000) value+=0.1;
-		if(user.getNum_posts()<=5) value+=0.1;
+		if(user.getNum_following()>=1500 && user.getNum_following()<3000) value+=0.1;
+		if(user.getNum_following()>=3000) value+=0.2;
+		if(user.getNum_posts()<=5) value+=0.15;
 		if(user.getNum_posts()>5 && user.getNum_posts()<=10) value+=0.05;
 		if(user.has_anonymous_profile_pic()) value+=0.3;
 		if(!StringUtils.hasText(user.getBio())) value+=0.2;
-		if(user.isPrivate()) value+=0.025;
-		if(user.getNum_tags()<=5) value+=0.05;
+		if(user.isPrivate()) value+=0.05;
+		if(!user.isPrivate() && user.getNum_tags()<=5) value+=0.1;
 		return value;
 	}
 	
@@ -154,7 +157,7 @@ public class DataAnalysis {
 			double prob=this.TextClassification(c.getText());     //per ogni commento setto il livello di attendibilità 
 			c.setFalse_prob(prob);
 			this.commentService.inserisci(c);
-			if(prob>=0.7) num_fake_per_post+=1;
+			if(prob>=0.75) num_fake_per_post+=1;                   //soglia del 75% di suspect
 		}
 		return num_fake_per_post;
 	}

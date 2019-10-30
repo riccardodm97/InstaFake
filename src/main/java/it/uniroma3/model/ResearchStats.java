@@ -26,7 +26,7 @@ public class ResearchStats {
 	@Column(name="fakeComments")
 	private int fakeComments_count;                      //number of fake comments spotted on post retrived
 	
-	private double faketrueComment_ratio;                //number of fake comments on number of total comments
+	private double faketotComment_ratio;                //number of fake comments on number of total comments
 	
 	@Column(name="avgFakeComments")
 	private double avgFakeComments_count;                //average fake comments per post
@@ -154,13 +154,13 @@ public class ResearchStats {
 
 
 
-	public double getFaketrueComment_ratio() {
-		return faketrueComment_ratio;
+	public double getFaketotComment_ratio() {
+		return faketotComment_ratio;
 	}
 
 
-	public void setFaketrueComment_ratio(double faketrueComment_ratio) {
-		this.faketrueComment_ratio = faketrueComment_ratio;
+	public void setFaketotComment_ratio(double faketotComment_ratio) {
+		this.faketotComment_ratio = faketotComment_ratio;
 	}
 
 

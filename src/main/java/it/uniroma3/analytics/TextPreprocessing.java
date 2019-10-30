@@ -10,7 +10,7 @@ import com.vdurmont.emoji.EmojiParser;
 //utilizzo la libreria emoji-java
 //da migliorare il preprocessing del testo , eliminare le forme verbali contratte e le contrazioni in generale , le parole di
 //slang, unificare parole che indicano la stessa cosa e i plurali , separare la punteggiatura, rimuovere parole non chiave 
-//e caratteri di escape
+//e caratteri di escape, rimuovere tag (parole con chiocciola)
 
 @Component
 public class TextPreprocessing {
