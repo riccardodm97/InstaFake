@@ -44,7 +44,7 @@ public class AppLogic {
 		
 		this.dataAnalysis.StartDataAnalysis(line);
 		
-		//faccio qualcosa con i risultati( li ho salvati ??)
+		//faccio qualcosa con i risultati
 		
 		
 		

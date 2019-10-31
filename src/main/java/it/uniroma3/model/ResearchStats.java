@@ -46,7 +46,7 @@ public class ResearchStats {
 	private double lfr;                                  //like to follower ratio
 	
 	@Column(name="less1kf")
-	private int follow_less1kf;                          //number of followed account with less than 1k followers 
+	private int follow_less1kf;                          //number of followed account with less than 1k followers and private account
 	
 	
 	

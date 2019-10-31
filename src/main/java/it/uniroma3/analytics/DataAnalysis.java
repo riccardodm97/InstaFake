@@ -59,7 +59,8 @@ public class DataAnalysis {
 		//analizzo i post estratti e i relativi commenti
 		this.StudyMediaData();
 		
-		//inserisco i dati riguardo i commenti fake
+		//conto il numero di account privati con meno di 1k followers che l'utente segue
+		this.less1kprivateFollowing();
 		
 		//salvo nel db i dati analizzati
 		this.researchService.inserisci(rs);
@@ -88,12 +89,21 @@ public class DataAnalysis {
 		this.rs.setAvgLike_count(num_likes/num_posts);
 		this.rs.setAvgHashtag_count(num_hashtag/num_posts);
 		if(num_comm>0) this.commentsDataProcess(num_tot_fake,num_comm);
+		this.engagementRate_calc(num_likes, num_comm, num_posts);
 	}
 	
 	
 	//conto il numero di hashtag per caption di un post
 	public int extractAndCountHashtag(String text) {
 		return StringUtils.countOccurrencesOf(text, "#");
+	}
+	
+	public void engagementRate_calc(int tot_likes_count,int tot_comm_count,int post_count) {
+		double er=0;
+		int followers_count=this.ps.getProfile().getNum_followers();
+		if(followers_count==0) followers_count=1;
+		er=((tot_comm_count+tot_likes_count)/post_count)/followers_count;
+		this.rs.setEngagement_rate(er);
 	}
 	
 	public void commentsDataProcess(int num_fake,int num_comm) {
@@ -145,6 +155,14 @@ public class DataAnalysis {
 		return value;
 	}
 	
+	public void less1kprivateFollowing() {
+		int numero=0;
+		for(InstagramUserDB user:this.ps.getFollowing()) {
+			if(user.getNum_followers()<=1000 && user.isPrivate()) numero++;
+		}
+		this.rs.setFollow_less1kf(numero);
+	}
+	
 	
 	//determino quanti commenti fake ci sono 
 
@@ -171,8 +189,8 @@ public class DataAnalysis {
 		//inserisco il valore della label false
 		if(probLabelList.get(0).label.equals("__label__false")) prob=Math.exp(probLabelList.get(0).logProb);
 		else prob=Math.exp(probLabelList.get(1).logProb);
-		System.out.printf("\nThe label of '%s' is '%s' with probability %f\n",
-		        processed_text, probLabelList.get(0).label, Math.exp(probLabelList.get(0).logProb));
+		/*System.out.printf("\nThe label of '%s' is '%s' with probability %f\n",
+		        processed_text, probLabelList.get(0).label, Math.exp(probLabelList.get(0).logProb));*/
 		return prob;
 	}
 }
