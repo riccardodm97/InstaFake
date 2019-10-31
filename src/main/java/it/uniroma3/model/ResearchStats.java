@@ -38,16 +38,15 @@ public class ResearchStats {
 	@Column(name="er")
 	private double engagement_rate;                      //engagement rate 
 	
+	@Column(name="less1kf")
+	private int follow_less1kf;                          //number of followed account with less than 1k followers and private account
+	
 	@Column(name="avgLtc")
 	private double avgLtc_ratio;                         //average like to comment ratio
 	
 	private double ffr;                                  //follower to following ratio
 	
 	private double lfr;                                  //like to follower ratio
-	
-	@Column(name="less1kf")
-	private int follow_less1kf;                          //number of followed account with less than 1k followers and private account
-	
 	
 	
 	

@@ -62,6 +62,10 @@ public class DataAnalysis {
 		//conto il numero di account privati con meno di 1k followers che l'utente segue
 		this.less1kprivateFollowing();
 		
+		//calcolo ffr e lfr
+		this.lfr_calc();
+		this.ffr_calc();
+		
 		//salvo nel db i dati analizzati
 		this.researchService.inserisci(rs);
 	}
@@ -88,7 +92,10 @@ public class DataAnalysis {
 		this.rs.setAvgComments_count(num_comm/num_posts);
 		this.rs.setAvgLike_count(num_likes/num_posts);
 		this.rs.setAvgHashtag_count(num_hashtag/num_posts);
-		if(num_comm>0) this.commentsDataProcess(num_tot_fake,num_comm);
+		if(num_comm>0) {
+			this.rs.setAvgLtc_ratio(rs.getAvgLike_count()/rs.getAvgComments_count());
+			this.commentsDataProcess(num_tot_fake,num_comm);
+		}
 		this.engagementRate_calc(num_likes, num_comm, num_posts);
 	}
 	
@@ -97,12 +104,26 @@ public class DataAnalysis {
 	public int extractAndCountHashtag(String text) {
 		return StringUtils.countOccurrencesOf(text, "#");
 	}
+	public void ffr_calc() {
+		double ratio=0;
+		int followers_count=this.ps.getProfile().getNum_followers();
+		int following_count=this.ps.getProfile().getNum_following();
+		if(followers_count==0) followers_count=1;
+		ratio=followers_count/(double)following_count;
+		this.rs.setFfr(ratio);	
+	}
+	
+	public void lfr_calc() {
+		int followers_count=this.ps.getProfile().getNum_followers();
+		double ratio=this.rs.getAvgLike_count()/followers_count;
+		this.rs.setLfr(ratio);
+	}
 	
 	public void engagementRate_calc(int tot_likes_count,int tot_comm_count,int post_count) {
 		double er=0;
 		int followers_count=this.ps.getProfile().getNum_followers();
 		if(followers_count==0) followers_count=1;
-		er=((tot_comm_count+tot_likes_count)/post_count)/followers_count;
+		er=((tot_comm_count+tot_likes_count)/post_count)/(double)followers_count;
 		this.rs.setEngagement_rate(er);
 	}
 	
@@ -142,7 +163,7 @@ public class DataAnalysis {
 		if(user.isVerified()) return 0;    //se l'account è verificato lo considero comunque genuino
 		if(user.getNum_following()!=0) {
 			double ratio=user.getNum_followers()/user.getNum_following();
-			if(user.getNum_followers()<=2000 && ratio<=0.4) value+=0.1;
+			if(user.getNum_followers()<=2000 && ratio<=0.5) value+=0.1;
 		}
 		if(user.getNum_following()>=1500 && user.getNum_following()<3000) value+=0.1;
 		if(user.getNum_following()>=3000) value+=0.2;
