@@ -38,8 +38,8 @@ public class ResearchStats {
 	@Column(name="er")
 	private double engagement_rate;                      //engagement rate 
 	
-	@Column(name="less1kf")
-	private int follow_less1kf;                          //number of followed account with less than 1k followers and private account
+	@Column(name="less1kfandprivate")
+	private int less1kfandprivate;                          //number of followed account with less than 1k followers and private account
 	
 	@Column(name="avgLtc")
 	private double avgLtc_ratio;                         //average like to comment ratio
@@ -47,6 +47,8 @@ public class ResearchStats {
 	private double ffr;                                  //follower to following ratio
 	
 	private double lfr;                                  //like to follower ratio
+	
+	private double cfr;                                  //comment to followers ratio
 	
 	
 	
@@ -139,18 +141,25 @@ public class ResearchStats {
 		this.lfr = lfr;
 	}
 
-
-
-	public int getFollow_less1kf() {
-		return follow_less1kf;
+	
+	public double getCfr() {
+		return cfr;
 	}
 
 
-
-	public void setFollow_less1kf(int follow_less1kf) {
-		this.follow_less1kf = follow_less1kf;
+	public void setCfr(double cfr) {
+		this.cfr = cfr;
 	}
 
+
+	public int getLess1kfandprivate() {
+		return less1kfandprivate;
+	}
+
+
+	public void setLess1kfandprivate(int less1kfandprivate) {
+		this.less1kfandprivate = less1kfandprivate;
+	}
 
 
 	public double getFaketotComment_ratio() {

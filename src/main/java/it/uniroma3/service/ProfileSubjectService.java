@@ -30,6 +30,11 @@ public class ProfileSubjectService {
 		return ps;
 	}
 	
+	@Transactional
+	public boolean esiste(String username) {
+		return this.profSubRepo.existsById(username);
+	}
+	
 	
 	
 }
