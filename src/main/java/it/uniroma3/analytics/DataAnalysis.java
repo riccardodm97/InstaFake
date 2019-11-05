@@ -43,7 +43,12 @@ public class DataAnalysis {
 	private ProfileSubject ps;       //profilo su cui si è basata la ricerca
 
 	public void StartDataAnalysis(String user) {
-
+		
+		if(!this.profileService.esiste(user)) {
+			System.out.println("\n[non esiste ancora una ricerca su questo username, prima creala]\n");
+			return ;
+		}
+		
 		//ricerco il profilo di cui ho estratto i dati 
 		this.ps=this.profileService.cercaPerUsername(user);
 

@@ -16,10 +16,14 @@ import com.vdurmont.emoji.EmojiParser;
 public class TextPreprocessing {
 	
 	public String Process(String text) {
+		
 		String processed_text;
+		
 		processed_text=this.substituteEmoji(text);
 		
 		processed_text=processed_text.toLowerCase();  // metto la stringa tutta in minuscolo
+		
+		processed_text=processed_text.replaceAll("$@", "tag");   //rimuovo tutti i tag
 		
 		processed_text=processed_text.trim().replaceAll("\\s+"," ");   //elimino i doppi spazi
 		

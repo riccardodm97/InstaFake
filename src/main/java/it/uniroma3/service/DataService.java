@@ -3,6 +3,7 @@ package it.uniroma3.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 import org.brunocvcunha.instagram4j.Instagram4j;
 import org.brunocvcunha.instagram4j.requests.InstagramGetMediaCommentsRequest;
@@ -21,12 +22,12 @@ import org.brunocvcunha.instagram4j.requests.payload.InstagramUserSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.uniroma3.logic.Costants;
 import it.uniroma3.logic.InstaConfig;
 import it.uniroma3.model.Comment;
 import it.uniroma3.model.InstagramUserDB;
 import it.uniroma3.model.Media;
 import it.uniroma3.model.ProfileSubject;
+import it.uniroma3.model.Status;
 
 @Service
 public class DataService {
@@ -47,7 +48,9 @@ public class DataService {
 	private CommentService commentService;
 
 	@Autowired 
-	private Costants cost;
+	private StatusService statusService;
+
+	private Status status;
 
 	private Instagram4j instagram;                                           //api instagram4j
 
@@ -57,8 +60,35 @@ public class DataService {
 		//prendo l'istanza singleton della classe instagram delle api per poterla utilizzare
 		this.instagram =instaconf.config();
 
+		if(this.profileService.esiste(account)) {
+			
+			Status s=this.statusService.cercaPerUsernameSubject(account);
+			
+			if(s.getNextFollower().equals("finito") && s.getNextFollowing().equals("finito")) {
+				System.out.println("\n[la ricerca è gia completa su questo account]\n");
+				return ;
+			}
+			
+			this.completaRicerca(account);
+		}
+
+		else this.primaRicerca(account);
+		
+		return ;
+	}
+
+	public void primaRicerca(String account) throws Exception{
+
+		//creo il nuovo log da cui partire per completare la ricerca
+		this.status=new Status(account);
+
 		//prendo i dati dell'account instagram su cui sto conducendo la ricerca
 		InstagramSearchUsernameResult userResult= FetchSubjectData(account);
+
+		//salvo il soggetto della ricerca
+		ProfileSubject ps=new ProfileSubject();
+		ps.setUsername(userResult.getUser().getUsername());
+		this.profileService.inserisci(ps);
 
 		//prendo i dati dei follower dell'utente 
 		List<InstagramUserDB> followers= FetchFollowersData(userResult);
@@ -66,53 +96,133 @@ public class DataService {
 		//prendo i dati degli utenti che il soggetto della ricerca segue (following)
 		List<InstagramUserDB> following= FetchFollowingData(userResult); 
 
+		//salvo il log (status) per completare la ricerca
+		this.statusService.inserisci(status);
 
-		//salvo i dati del soggetto della ricerca
-		ProfileSubject ps=new ProfileSubject();
-		
-		InstagramUserDB user=SetSingleUserData(userResult.getUser());
-		
-		ps.setUsername(userResult.getUser().getUsername());
-		
-		ps.setProfile(user);
-		
-		ps.setFollowers(followers);
-		
-		ps.setFollowing(following);
-
-		this.profileService.inserisci(ps);
-
-		
 		//prendo i dati relativi ai post dell'utente
 		ProfileSubject p=this.profileService.cercaPerUsername(userResult.getUser().getUsername());
 		List<Media> media=FetchMediaData(p,userResult);
 
-		
-		//aggiorno il soggetto della ricerca con i post appena ottenuti
-		p.setPosts(media);
-		
-		this.profileService.inserisci(p);
 
-		//test
-		/*System.out.println("ID for "+ userResult.getUser().getFull_name() + " is " + userResult.getUser().getPk());
-		System.out.println("Number of followers: " + userResult.getUser().getFollower_count());
-		System.out.println("Number of following: "+userResult.getUser().getFollowing_count());
-		System.out.println("Number of posts: "+userResult.getUser().getMedia_count());
-		System.out.println(userResult.getUser().getBiography());*/
+		//salvo i dati del soggetto della ricerca
+		InstagramUserDB user=SetSingleUserData(userResult.getUser());
+
+		p.setProfile(user);
+
+		p.setFollowers(followers);
+
+		p.setFollowing(following);
+
+		p.setPosts(media);
+
+		this.profileService.inserisci(p);
+		
+		return ;
+
+	}
+
+	public void completaRicerca(String account) throws Exception{
+
+		this.status = this.statusService.cercaPerUsernameSubject(account);
+
+		ProfileSubject ps=this.profileService.cercaPerUsername(account);
+
+		List<InstagramUserDB> followers_limited= this.filterList(ps.getFollowers(),status.getNextFollower());
+
+		if(followers_limited.isEmpty()) {
+
+			List<InstagramUserDB> following_limited= this.filterList(ps.getFollowing(),status.getNextFollowing());
+
+			if(!following_limited.isEmpty()) {
+
+				this.FetchUserData(following_limited);
+
+				this.status.setNextFollowing(following_limited.get(following_limited.size()-1).getUsername());
+			}
+			else {
+				//aggiornare status , cosa mettere ?? se username inesistente problemi ??
+				
+				this.status.setNextFollower("finito");   //ball_pythons_123
+				
+				this.status.setNextFollowing("finito");         //edumorey
+				
+			}
+		}
+
+		else {
+
+			this.FetchUserData(followers_limited);
+
+			this.status.setNextFollower(followers_limited.get(followers_limited.size()-1).getUsername());
+
+		}
+		
+		this.statusService.inserisci(status);
+		
+		return ;
+	}
+
+	public List<InstagramUserDB> filterList(List<InstagramUserDB> usersList,String nextUsername) {
+
+		int index=0;
+
+		for(InstagramUserDB user: usersList) {
+			if(user.getUsername().equals(nextUsername)) {
+				index=usersList.indexOf(user);
+				break;
+			}
+		}
+
+		List<InstagramUserDB> usersLimited = usersList.stream().skip(index).limit(1000).collect(Collectors.toList());
+		
+		//debug
+		
+		System.out.println("\n"+usersLimited.size()+"elementi nella lista:");
+		
+		for(InstagramUserDB i:usersLimited) {
+			System.out.println("["+i.getUsername()+"]");   
+		}
+		
+		//fine debug
+		
+		if(usersLimited.size()==1) usersLimited.clear();   //per evitare di avere sempre un elemento nella lista
+		
+		return usersLimited;
+
+	}
+
+	public void FetchUserData(List<InstagramUserDB> users_limit ) throws Exception{
+
+		//salvo i dati di ogni following
+		InstagramSearchUsernameResult result;
+
+		for (InstagramUserDB user: users_limit) {
+
+			result = instagram.sendRequest(new InstagramSearchUsernameRequest(user.getUsername()));
+
+			InstagramUserDB userDB = SetSingleUserData(result.getUser()); //setto i dati di ogni followed (following)
+
+			this.instaUserDBService.inserisci(userDB);
+
+			TimeUnit.SECONDS.sleep(1); //simula l'uso di un utente
+
+		}
+		
+		return;
 
 	}
 
 	public InstagramSearchUsernameResult FetchSubjectData(String account) {
 
 		InstagramSearchUsernameResult userResult=null;
-		
+
 		try {
 			userResult = this.instagram.sendRequest(new InstagramSearchUsernameRequest(account));
-		
+
 			InstagramUserDB user=SetSingleUserData(userResult.getUser());
-			
+
 			this.instaUserDBService.inserisci(user);
-		
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -125,45 +235,28 @@ public class DataService {
 		InstagramGetUserFollowersResult users;
 
 		List<InstagramUserSummary> UserfollowersList=new ArrayList<>();   //lista che aggiorno prendendo i follower dalle api
-		List<InstagramUserDB> followers=new ArrayList<>();                  //lista che inserisco nel db
 
 		String nextMaxId = null;
-		int i=0;
-		
-		while (i<this.cost.getNum_cicli()) {
-		
+
+		while (true) {
+
 			users = instagram.sendRequest(new InstagramGetUserFollowersRequest(userResult.getUser().getPk(), nextMaxId));
-			
+
 			System.out.println("[fetched followers: "+users.getUsers().size()+"]");
-			
+
 			UserfollowersList.addAll(users.getUsers());
-			
+
 			nextMaxId = users.getNext_max_id();
-			
+
 			if (nextMaxId == null) {
 				break;
 			}
-			
-			if(this.cost.isNum_cicli_valido()) i++;  
-		}
-
-
-		//salvo i dati di ogni follower
-		InstagramSearchUsernameResult result;
-
-		for (InstagramUserSummary ius : UserfollowersList) {
-
-			result = instagram.sendRequest(new InstagramSearchUsernameRequest(ius.getUsername()));
-
-			InstagramUserDB follower = SetSingleUserData(result.getUser()); //setto i dati di ogni follower 
-
-			followers.add(follower);
-
-			this.instaUserDBService.inserisci(follower);  //inserisco il singolo follower nel db 
-
-			TimeUnit.SECONDS.sleep(1); //simula l'uso di un utente
 
 		}
+
+		List<InstagramUserDB> followers=this.insertSingleUser(UserfollowersList);               //lista che inserisco nel db
+
+		this.status.setNextFollower(followers.get(0).getUsername());
 
 		return followers;
 
@@ -174,45 +267,48 @@ public class DataService {
 		InstagramGetUserFollowersResult users;
 
 		List<InstagramUserSummary> UserfollowingList=new ArrayList<>();   //lista che aggiorno prendendo i follower dalle api
-		List<InstagramUserDB> following=new ArrayList<>();                  //lista che inserisco nel db
 
 		String nextMaxId = null;
-		int i=0;
-		
-		while (i<this.cost.getNum_cicli()) {
-			
+
+		while (true) {
+
 			users = instagram.sendRequest(new InstagramGetUserFollowingRequest(userResult.getUser().getPk(), nextMaxId));
-			
+
+			System.out.println("[fetched following: "+users.getUsers().size()+"]");
+
 			UserfollowingList.addAll(users.getUsers());
-			
+
 			nextMaxId = users.getNext_max_id();
-			
+
 			if (nextMaxId == null) {
 				break;
 			}
-			
-			if(this.cost.isNum_cicli_valido()) i++;  
-		}
-
-		//salvo i dati di ogni following
-		InstagramSearchUsernameResult result;
-
-		for (InstagramUserSummary ius : UserfollowingList) {
-
-			result = instagram.sendRequest(new InstagramSearchUsernameRequest(ius.getUsername()));
-
-			InstagramUserDB followed = SetSingleUserData(result.getUser()); //setto i dati di ogni followed (following)
-
-			following.add(followed);
-
-			this.instaUserDBService.inserisci(followed);
-
-			TimeUnit.SECONDS.sleep(1); //simula l'uso di un utente
 
 		}
+
+		List<InstagramUserDB> following=this.insertSingleUser(UserfollowingList);                //lista che inserisco nel db
+
+		this.status.setNextFollowing(following.get(0).getUsername());
 
 		return following;
 
+	}
+
+	public List<InstagramUserDB> insertSingleUser(List<InstagramUserSummary> userList){
+
+		List<InstagramUserDB> list=new ArrayList<>();    
+
+		for (InstagramUserSummary ius : userList) {
+
+			InstagramUserDB user = new InstagramUserDB(ius.getUsername(),ius.getPk());
+
+			list.add(user);
+
+			this.instaUserDBService.inserisci(user);  //inserisco il singolo follower nel db 
+
+		}
+
+		return list;
 	}
 
 	//non prende tutti i post appositamente potrebbero essere troppi (da pensare)
@@ -225,11 +321,11 @@ public class DataService {
 
 		//salvo i post dell'utente
 		for(InstagramFeedItem item: lista) {
-			
+
 			Media m=SetSingleMediaData(item,p);
-			
+
 			media.add(m);
-			
+
 			this.mediaService.inserisci(m);
 		}
 
@@ -239,9 +335,10 @@ public class DataService {
 	public List<Comment> FetchComments(String id) throws Exception{
 
 		List<Comment> comments=new ArrayList<>();
+
 		String nextMaxId = null;
 		do {
-			
+
 			InstagramGetMediaCommentsRequest request = new InstagramGetMediaCommentsRequest(id, nextMaxId);
 			InstagramGetMediaCommentsResult commentsResult = instagram.sendRequest(request);
 
@@ -272,32 +369,9 @@ public class DataService {
 		return comments;
 	}
 
-	public Comment SetSingleCommentData(InstagramComment ic) throws Exception {
-
-		Comment c=new Comment();
-
-		//c.setMedia_id(ic.getMedia_id());
-
-		c.setPk(ic.getPk());;
-
-		c.setText(ic.getText());
-
-		c.setTimestamp(ic.getCreated_at());
-
-		//devo salvare l'owner
-		InstagramSearchUsernameResult result = instagram.sendRequest(new InstagramSearchUsernameRequest(ic.getUser().getUsername()));
-		InstagramUserDB user=SetSingleUserData(result.getUser());
-
-		this.instaUserDBService.inserisci(user);
-
-		//lo setto come owner del commento
-		c.setOwner(user);
-
-		return c;
-
-	}
 
 	public Media SetSingleMediaData(InstagramFeedItem item,ProfileSubject p) {
+
 		Media media=new Media();
 
 		media.setPk(item.getPk());
@@ -327,6 +401,32 @@ public class DataService {
 
 		return media;
 	}
+
+	public Comment SetSingleCommentData(InstagramComment ic) throws Exception {
+
+		Comment c=new Comment();
+
+		//c.setMedia_id(ic.getMedia_id());
+
+		c.setPk(ic.getPk());;
+
+		c.setText(ic.getText());
+
+		c.setTimestamp(ic.getCreated_at());
+
+		//devo salvare l'owner
+		InstagramSearchUsernameResult result = instagram.sendRequest(new InstagramSearchUsernameRequest(ic.getUser().getUsername()));
+		InstagramUserDB user=SetSingleUserData(result.getUser());
+
+		this.instaUserDBService.inserisci(user);
+
+		//lo setto come owner del commento
+		c.setOwner(user);
+
+		return c;
+
+	}
+
 
 	public InstagramUserDB SetSingleUserData(InstagramUser user) {
 
@@ -361,6 +461,5 @@ public class DataService {
 		return tmp;
 
 	}
-
 
 }

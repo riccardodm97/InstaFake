@@ -38,6 +38,15 @@ public class InstagramUserDB {
 	private String external_url;
 	
 	public InstagramUserDB() {}
+	
+	public InstagramUserDB(String username,long pk) {
+		
+		super();
+		
+		this.username = username;
+		
+		this.pk = pk;
+	}
 
 	public InstagramUserDB(String username, long pk, String fullName, int num_followers, int num_following,
 			int num_posts, String bio, boolean isVerified, boolean isPrivate, String location,int tags, boolean anonymous_profile,String url) {

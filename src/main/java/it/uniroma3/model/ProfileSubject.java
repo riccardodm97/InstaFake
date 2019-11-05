@@ -9,6 +9,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderColumn;
 
 @Entity
 public class ProfileSubject {
@@ -20,11 +21,13 @@ public class ProfileSubject {
 	private InstagramUserDB profile;
 	
 	@ManyToMany
+	@OrderColumn
 	@JoinTable(name="followers", joinColumns={@JoinColumn(name="subject")}, 
 		       inverseJoinColumns={@JoinColumn(name="follower")})
 	private List<InstagramUserDB> followers;
 	
 	@ManyToMany
+	@OrderColumn
 	@JoinTable(name="following", joinColumns={@JoinColumn(name="subject")}, 
 	           inverseJoinColumns={@JoinColumn(name="following")})
 	private List<InstagramUserDB> following;
