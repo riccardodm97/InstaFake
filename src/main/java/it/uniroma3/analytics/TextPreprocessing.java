@@ -23,7 +23,7 @@ public class TextPreprocessing {
 		
 		processed_text=processed_text.toLowerCase();  // metto la stringa tutta in minuscolo
 		
-		processed_text=processed_text.replaceAll("$@", "tag");   //rimuovo tutti i tag
+		processed_text=processed_text.replaceAll("\\@[A-Za-z0-9_.,!\"'/$]*", "tag ");   //rimuovo tutti i tag
 		
 		processed_text=processed_text.trim().replaceAll("\\s+"," ");   //elimino i doppi spazi
 		
