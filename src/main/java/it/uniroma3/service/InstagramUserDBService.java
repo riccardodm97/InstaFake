@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.model.InstagramUserDB;
-import it.uniroma3.repository.InstagramUserRepository;
+import it.uniroma3.repository.InstagramUserDBRepository;
 
 @Service
-public class InstagramUserService {
+public class InstagramUserDBService {
 	
 	@Autowired
-	private InstagramUserRepository instaURepo;;
+	private InstagramUserDBRepository instaURepo;;
 	
 	@Transactional
 	public InstagramUserDB inserisci(InstagramUserDB u) {

@@ -35,21 +35,21 @@ public class DataService {
 	private InstaConfig instaconf;
 
 	@Autowired 
-	private InstagramUserService instaUService;
+	private InstagramUserDBService instaUserDBService;
 
 	@Autowired
 	private ProfileSubjectService profileService;
-	
+
 	@Autowired
 	private MediaService mediaService;
-	
+
 	@Autowired 
 	private CommentService commentService;
-	
+
 	@Autowired 
 	private Costants cost;
 
-	private Instagram4j instagram;
+	private Instagram4j instagram;                                           //api instagram4j
 
 
 	public void Search(String account) throws Exception {
@@ -69,22 +69,30 @@ public class DataService {
 
 		//salvo i dati del soggetto della ricerca
 		ProfileSubject ps=new ProfileSubject();
-		InstagramUserDB user=SetSingleUserData(userResult.getUser());
-		ps.setUsername(userResult.getUser().getUsername());
-		ps.setProfile(user);
-		ps.setFollowers(followers);
-		ps.setFollowing(following);
 		
+		InstagramUserDB user=SetSingleUserData(userResult.getUser());
+		
+		ps.setUsername(userResult.getUser().getUsername());
+		
+		ps.setProfile(user);
+		
+		ps.setFollowers(followers);
+		
+		ps.setFollowing(following);
+
 		this.profileService.inserisci(ps);
 
+		
 		//prendo i dati relativi ai post dell'utente
 		ProfileSubject p=this.profileService.cercaPerUsername(userResult.getUser().getUsername());
 		List<Media> media=FetchMediaData(p,userResult);
+
 		
 		//aggiorno il soggetto della ricerca con i post appena ottenuti
 		p.setPosts(media);
-		this.profileService.inserisci(p);
 		
+		this.profileService.inserisci(p);
+
 		//test
 		/*System.out.println("ID for "+ userResult.getUser().getFull_name() + " is " + userResult.getUser().getPk());
 		System.out.println("Number of followers: " + userResult.getUser().getFollower_count());
@@ -97,10 +105,14 @@ public class DataService {
 	public InstagramSearchUsernameResult FetchSubjectData(String account) {
 
 		InstagramSearchUsernameResult userResult=null;
+		
 		try {
 			userResult = this.instagram.sendRequest(new InstagramSearchUsernameRequest(account));
+		
 			InstagramUserDB user=SetSingleUserData(userResult.getUser());
-			this.instaUService.inserisci(user);
+			
+			this.instaUserDBService.inserisci(user);
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -117,13 +129,21 @@ public class DataService {
 
 		String nextMaxId = null;
 		int i=0;
+		
 		while (i<this.cost.getNum_cicli()) {
+		
 			users = instagram.sendRequest(new InstagramGetUserFollowersRequest(userResult.getUser().getPk(), nextMaxId));
+			
+			System.out.println("[fetched followers: "+users.getUsers().size()+"]");
+			
 			UserfollowersList.addAll(users.getUsers());
+			
 			nextMaxId = users.getNext_max_id();
+			
 			if (nextMaxId == null) {
 				break;
 			}
+			
 			if(this.cost.isNum_cicli_valido()) i++;  
 		}
 
@@ -139,7 +159,7 @@ public class DataService {
 
 			followers.add(follower);
 
-			this.instaUService.inserisci(follower);  //inserisco il singolo follower nel db 
+			this.instaUserDBService.inserisci(follower);  //inserisco il singolo follower nel db 
 
 			TimeUnit.SECONDS.sleep(1); //simula l'uso di un utente
 
@@ -158,13 +178,19 @@ public class DataService {
 
 		String nextMaxId = null;
 		int i=0;
+		
 		while (i<this.cost.getNum_cicli()) {
+			
 			users = instagram.sendRequest(new InstagramGetUserFollowingRequest(userResult.getUser().getPk(), nextMaxId));
+			
 			UserfollowingList.addAll(users.getUsers());
+			
 			nextMaxId = users.getNext_max_id();
+			
 			if (nextMaxId == null) {
 				break;
 			}
+			
 			if(this.cost.isNum_cicli_valido()) i++;  
 		}
 
@@ -179,7 +205,7 @@ public class DataService {
 
 			following.add(followed);
 
-			this.instaUService.inserisci(followed);
+			this.instaUserDBService.inserisci(followed);
 
 			TimeUnit.SECONDS.sleep(1); //simula l'uso di un utente
 
@@ -188,112 +214,148 @@ public class DataService {
 		return following;
 
 	}
-	
+
 	//non prende tutti i post appositamente potrebbero essere troppi (da pensare)
 	public List<Media> FetchMediaData(ProfileSubject p,InstagramSearchUsernameResult userResult) throws Exception{
-		
+
 		InstagramFeedResult feed= instagram.sendRequest(new InstagramUserFeedRequest(userResult.getUser().getPk()));
 		List<InstagramFeedItem> lista=feed.getItems();
-		
+
 		List<Media> media=new ArrayList<>();
 
 		//salvo i post dell'utente
 		for(InstagramFeedItem item: lista) {
+			
 			Media m=SetSingleMediaData(item,p);
+			
 			media.add(m);
+			
 			this.mediaService.inserisci(m);
 		}
-		
+
 		return media;
 	}
-	
+
 	public List<Comment> FetchComments(String id) throws Exception{
-		
+
 		List<Comment> comments=new ArrayList<>();
 		String nextMaxId = null;
-        do {
-            InstagramGetMediaCommentsRequest request = new InstagramGetMediaCommentsRequest(id, nextMaxId);
-            InstagramGetMediaCommentsResult commentsResult = instagram.sendRequest(request);
+		do {
+			
+			InstagramGetMediaCommentsRequest request = new InstagramGetMediaCommentsRequest(id, nextMaxId);
+			InstagramGetMediaCommentsResult commentsResult = instagram.sendRequest(request);
 
-            List<InstagramComment> Instacomments = commentsResult.getComments();
+			List<InstagramComment> Instacomments = commentsResult.getComments();
 
-            String lastComment = null;
+			String lastComment = null;
 
-            for (InstagramComment Instacomment : Instacomments) {
-                    Comment c=SetSingleCommentData(Instacomment);
-                    comments.add(c);
-                   
-                    //salvo ogni commento
-                    this.commentService.inserisci(c);
-                    
-                    if(lastComment == null) lastComment = String.valueOf(Instacomment.getPk());
-                    
-                    TimeUnit.SECONDS.sleep(1);
-                    
-            }
-            nextMaxId = commentsResult.getNext_max_id();
-            if(nextMaxId != null) nextMaxId = lastComment;
-        } while(nextMaxId != null);
-        
-        return comments;
+			for (InstagramComment Instacomment : Instacomments) {
+
+				Comment c=SetSingleCommentData(Instacomment);
+
+				comments.add(c);
+
+				//salvo ogni commento
+				this.commentService.inserisci(c);
+
+				if(lastComment == null) lastComment = String.valueOf(Instacomment.getPk());
+
+				TimeUnit.SECONDS.sleep(1);
+
+			}
+			nextMaxId = commentsResult.getNext_max_id();
+
+			if(nextMaxId != null) nextMaxId = lastComment;
+
+		} while(nextMaxId != null);
+
+		return comments;
 	}
-	
+
 	public Comment SetSingleCommentData(InstagramComment ic) throws Exception {
+
 		Comment c=new Comment();
+
 		//c.setMedia_id(ic.getMedia_id());
+
 		c.setPk(ic.getPk());;
+
 		c.setText(ic.getText());
+
 		c.setTimestamp(ic.getCreated_at());
+
 		//devo salvare l'owner
 		InstagramSearchUsernameResult result = instagram.sendRequest(new InstagramSearchUsernameRequest(ic.getUser().getUsername()));
 		InstagramUserDB user=SetSingleUserData(result.getUser());
-		this.instaUService.inserisci(user);
+
+		this.instaUserDBService.inserisci(user);
+
 		//lo setto come owner del commento
 		c.setOwner(user);
-		
+
 		return c;
-		
+
 	}
 
 	public Media SetSingleMediaData(InstagramFeedItem item,ProfileSubject p) {
 		Media media=new Media();
+
 		media.setPk(item.getPk());
+
 		media.setNum_comments(item.getComment_count());
+
 		media.setNum_likes(item.getLike_count());
+
 		media.SetTimestamp(item.getTaken_at());
+
 		if(item.getLocation()!=null)
 			media.setLocation(item.getLocation().getCity());
+
 		if(item.getCaption()!=null)
 			media.setCaption(item.getCaption().getText());
+
 		media.setOwner(p);
-		
+
 		List<Comment> comments=null;
 		try {
 			comments=FetchComments(item.getId());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		media.setComments(comments);
-		
+
 		return media;
 	}
 
 	public InstagramUserDB SetSingleUserData(InstagramUser user) {
 
 		InstagramUserDB tmp=new InstagramUserDB();
+
 		tmp.setUsername(user.getUsername());
+
 		tmp.setFullName(user.getFull_name());
+
 		tmp.setPk(user.getPk());
+
 		tmp.setPrivate(user.is_private);
+
 		tmp.setVerified(user.is_verified);
+
 		tmp.setBio(user.getBiography());
+
 		tmp.setNum_followers(user.getFollower_count());
+
 		tmp.setNum_following(user.getFollowing_count());
+
 		tmp.setNum_posts(user.getMedia_count());
+
 		tmp.setLocation(user.getCity_name());
+
 		tmp.setExternal_url(user.getExternal_url());
+
 		tmp.setHas_anonymous_profile_pic(user.isHas_anonymous_profile_picture());
+
 		tmp.setNum_tags(user.getUsertags_count());
 
 		return tmp;

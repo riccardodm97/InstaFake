@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import it.uniroma3.model.InstagramUserDB;
 
 @Repository
-public interface InstagramUserRepository extends CrudRepository<InstagramUserDB, String> {
+public interface InstagramUserDBRepository extends CrudRepository<InstagramUserDB, String> {
 	
 	public InstagramUserDB findByPk(Long pk);
 	

@@ -28,17 +28,12 @@ public class AppLogic {
 
 
 	public void Start() throws Exception {
-		System.out.println("Effettuo il login...");
-
-		//effettuo il login
-		this.authservice.Log();
 
 		//prendo in input l'username sul quale condurre la ricerca
 
 		System.out.println("su quale profilo(username) vuoi eseguire la ricerca?\n");
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		String line= br.readLine();
-		//br.close();
 
 
 		//possibilità di eseguire solo l'analisi (es: stessa ricerca metriche diverse)
@@ -53,25 +48,38 @@ public class AppLogic {
 
 			switch(scelta) {
 			case "1":
+				
+				System.out.println("Effettuo il login...");
+				this.authservice.Log();                                             //effettuo il login
+				
 				this.dataservice.Search(line);                                      //inizio la ricerca dell'account scelto
+				
 				this.dataAnalysis.StartDataAnalysis(line);                          //analizzo i dati ottenuti
 				break;
+			
 			case "2":
-				this.dataAnalysis.StartDataAnalysis(line);                          //analizzo i dati ottenuti
+				
+				this.dataAnalysis.StartDataAnalysis(line);                          //analizzo i dati precedentemente ottenuti
 				break;
+			
 			default:
+				
 				System.out.println("eseguo solo l'analisi");
 				this.dataAnalysis.StartDataAnalysis(line);		
 			}
 		}
-		
+
 		else {
+			
 			br.close();
 			
+			System.out.println("Effettuo il login...");
+			this.authservice.Log();                                             //effettuo il login
+
 			this.dataservice.Search(line);                                      //inizio la ricerca dell'account scelto
-			
+
 			this.dataAnalysis.StartDataAnalysis(line);                          //analizzo i dati ottenuti
-			
+
 		}
 
 		//faccio qualcosa con i risultati
