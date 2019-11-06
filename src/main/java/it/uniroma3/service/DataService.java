@@ -142,9 +142,9 @@ public class DataService {
 			else {
 				//aggiornare status , cosa mettere ?? se username inesistente problemi ??
 				
-				this.status.setNextFollower("finito");   //ball_pythons_123
+				this.status.setNextFollower("finito");  
 				
-				this.status.setNextFollowing("finito");         //edumorey
+				this.status.setNextFollowing("finito");         
 				
 			}
 		}
@@ -156,6 +156,8 @@ public class DataService {
 			this.status.setNextFollower(followers_limited.get(followers_limited.size()-1).getUsername());
 
 		}
+		
+		System.out.println("[questa parte della ricerca è terminata]\n");
 		
 		this.statusService.inserisci(status);
 		
@@ -177,7 +179,7 @@ public class DataService {
 		
 		//debug
 		
-		System.out.println("\n"+usersLimited.size()+"elementi nella lista:");
+		System.out.println("\n"+usersLimited.size()+" elementi nella lista:");
 		
 		for(InstagramUserDB i:usersLimited) {
 			System.out.println("["+i.getUsername()+"]");   
@@ -316,7 +318,9 @@ public class DataService {
 
 		InstagramFeedResult feed= instagram.sendRequest(new InstagramUserFeedRequest(userResult.getUser().getPk()));
 		List<InstagramFeedItem> lista=feed.getItems();
-
+		
+		System.out.println("[fetched post items: "+lista.size()+"]");
+		
 		List<Media> media=new ArrayList<>();
 
 		//salvo i post dell'utente
@@ -341,9 +345,11 @@ public class DataService {
 
 			InstagramGetMediaCommentsRequest request = new InstagramGetMediaCommentsRequest(id, nextMaxId);
 			InstagramGetMediaCommentsResult commentsResult = instagram.sendRequest(request);
-
+			
 			List<InstagramComment> Instacomments = commentsResult.getComments();
 
+			System.out.println("[fetched comments: "+Instacomments.size()+"]");
+			
 			String lastComment = null;
 
 			for (InstagramComment Instacomment : Instacomments) {
@@ -406,8 +412,6 @@ public class DataService {
 
 		Comment c=new Comment();
 
-		//c.setMedia_id(ic.getMedia_id());
-
 		c.setPk(ic.getPk());;
 
 		c.setText(ic.getText());
@@ -415,13 +419,13 @@ public class DataService {
 		c.setTimestamp(ic.getCreated_at());
 
 		//devo salvare l'owner
-		InstagramSearchUsernameResult result = instagram.sendRequest(new InstagramSearchUsernameRequest(ic.getUser().getUsername()));
+		/*InstagramSearchUsernameResult result = instagram.sendRequest(new InstagramSearchUsernameRequest(ic.getUser().getUsername()));
 		InstagramUserDB user=SetSingleUserData(result.getUser());
 
 		this.instaUserDBService.inserisci(user);
 
 		//lo setto come owner del commento
-		c.setOwner(user);
+		c.setOwner(user);*/
 
 		return c;
 

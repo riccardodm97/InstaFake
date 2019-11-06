@@ -35,14 +35,14 @@ public class ResearchStats {
 	
 	private int suspect_following_count;                  //number of followed account that are suspect
 	
-	@Column(name="er")
-	private double engagement_rate;                      //engagement rate 
-	
 	@Column(name="less1kfandprivate")
 	private int less1kfandprivate;                          //number of followed account with less than 1k followers and private account
 	
 	@Column(name="avgLtc")
 	private double avgLtc_ratio;                         //average like to comment ratio
+	
+	@Column(name="er")
+	private double engagement_rate;                      //engagement rate 
 	
 	private double ffr;                                  //follower to following ratio
 	

@@ -17,6 +17,7 @@ import it.uniroma3.service.CommentService;
 import it.uniroma3.service.MediaService;
 import it.uniroma3.service.ProfileSubjectService;
 import it.uniroma3.service.ResearchStatsService;
+import it.uniroma3.service.StatusService;
 
 @Component
 public class DataAnalysis {
@@ -35,6 +36,9 @@ public class DataAnalysis {
 
 	@Autowired
 	private ProfileSubjectService profileService;
+	
+	@Autowired 
+	private StatusService statusService;
 
 	private JFastText jft;           //libreria per il machine learning sui commenti
 
@@ -47,6 +51,13 @@ public class DataAnalysis {
 		if(!this.profileService.esiste(user)) {
 			System.out.println("\n[non esiste ancora una ricerca su questo username, prima creala]\n");
 			return ;
+		}
+		
+		if(!statusService.cercaPerUsernameSubject(user).getNextFollower().equals("finito") ||
+				!statusService.cercaPerUsernameSubject(user).getNextFollowing().equals("finito")) {
+			System.out.println("\n[la ricerca su questo user non è finita, alcuni dati potrebbero mancare, prima terminala]\n");
+			return ;
+			
 		}
 		
 		//ricerco il profilo di cui ho estratto i dati 
@@ -159,6 +170,7 @@ public class DataAnalysis {
 
 	//like to followers ratio calculation
 	public void lfr_calc() {
+		
 		int followers_count=this.ps.getProfile().getNum_followers();
 
 		double ratio=this.rs.getAvgLike_count()/followers_count;
@@ -168,6 +180,7 @@ public class DataAnalysis {
 
 	//comment to followers ratio calculation
 	public void cfr_calc(){
+		
 		int followers_count= this.ps.getProfile().getNum_followers();
 
 		double ratio=this.rs.getAvgComments_count()/followers_count;
@@ -178,6 +191,7 @@ public class DataAnalysis {
 
 	//engagement rate calculation
 	public void engagementRate_calc(int tot_likes_count,int tot_comm_count,int post_count) {
+		
 		double er=0;
 
 		int followers_count=this.ps.getProfile().getNum_followers();
