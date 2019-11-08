@@ -61,19 +61,19 @@ public class DataService {
 		this.instagram =instaconf.config();
 
 		if(this.profileService.esiste(account)) {
-			
+
 			Status s=this.statusService.cercaPerUsernameSubject(account);
-			
+
 			if(s.getNextFollower().equals("finito") && s.getNextFollowing().equals("finito")) {
 				System.out.println("\n[la ricerca è gia completa su questo account]\n");
 				return ;
 			}
-			
+
 			this.completaRicerca(account);
 		}
 
 		else this.primaRicerca(account);
-		
+
 		return ;
 	}
 
@@ -116,7 +116,7 @@ public class DataService {
 		p.setPosts(media);
 
 		this.profileService.inserisci(p);
-		
+
 		return ;
 
 	}
@@ -141,11 +141,11 @@ public class DataService {
 			}
 			else {
 				//aggiornare status , cosa mettere ?? se username inesistente problemi ??
-				
+
 				this.status.setNextFollower("finito");  
-				
+
 				this.status.setNextFollowing("finito");         
-				
+
 			}
 		}
 
@@ -156,11 +156,11 @@ public class DataService {
 			this.status.setNextFollower(followers_limited.get(followers_limited.size()-1).getUsername());
 
 		}
-		
+
 		System.out.println("[questa parte della ricerca è terminata]\n");
-		
+
 		this.statusService.inserisci(status);
-		
+
 		return ;
 	}
 
@@ -176,19 +176,19 @@ public class DataService {
 		}
 
 		List<InstagramUserDB> usersLimited = usersList.stream().skip(index).limit(1000).collect(Collectors.toList());
-		
+
 		//debug
-		
+
 		System.out.println("\n"+usersLimited.size()+" elementi nella lista:");
-		
+
 		for(InstagramUserDB i:usersLimited) {
 			System.out.println("["+i.getUsername()+"]");   
 		}
-		
+
 		//fine debug
-		
+
 		if(usersLimited.size()==1) usersLimited.clear();   //per evitare di avere sempre un elemento nella lista
-		
+
 		return usersLimited;
 
 	}
@@ -201,15 +201,18 @@ public class DataService {
 		for (InstagramUserDB user: users_limit) {
 
 			result = instagram.sendRequest(new InstagramSearchUsernameRequest(user.getUsername()));
+		
+			if(!result.getStatus().equals("fail")) {
 
-			InstagramUserDB userDB = SetSingleUserData(result.getUser()); //setto i dati di ogni followed (following)
+				InstagramUserDB userDB = SetSingleUserData(result.getUser()); //setto i dati di ogni followed (following)
 
-			this.instaUserDBService.inserisci(userDB);
+				this.instaUserDBService.inserisci(userDB);
+			}
 
 			TimeUnit.SECONDS.sleep(1); //simula l'uso di un utente
 
 		}
-		
+
 		return;
 
 	}
@@ -318,9 +321,9 @@ public class DataService {
 
 		InstagramFeedResult feed= instagram.sendRequest(new InstagramUserFeedRequest(userResult.getUser().getPk()));
 		List<InstagramFeedItem> lista=feed.getItems();
-		
+
 		System.out.println("[fetched post items: "+lista.size()+"]");
-		
+
 		List<Media> media=new ArrayList<>();
 
 		//salvo i post dell'utente
@@ -345,11 +348,11 @@ public class DataService {
 
 			InstagramGetMediaCommentsRequest request = new InstagramGetMediaCommentsRequest(id, nextMaxId);
 			InstagramGetMediaCommentsResult commentsResult = instagram.sendRequest(request);
-			
+
 			List<InstagramComment> Instacomments = commentsResult.getComments();
 
 			System.out.println("[fetched comments: "+Instacomments.size()+"]");
-			
+
 			String lastComment = null;
 
 			for (InstagramComment Instacomment : Instacomments) {

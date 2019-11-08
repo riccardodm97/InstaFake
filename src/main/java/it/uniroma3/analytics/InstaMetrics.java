@@ -83,30 +83,30 @@ public final class InstaMetrics {
 	private final static double MAX_LTC=0.01;         //massimo di ltc realistica esatto!! ragazzo
 	
 	
-	public double LFR_an(double lfr,int follower_count) {
+	public double CFR_an(double cfr,int follower_count) {
 		
 		double deviation;
 		
 		if(follower_count<=1000) {
-			deviation=this.CFR_deviation(lfr, InstaMetrics.CFR_TO1K);
+			deviation=this.CFR_deviation(cfr, InstaMetrics.CFR_TO1K);
 		}else if(follower_count<=10000) {
-			deviation=this.CFR_deviation(lfr, InstaMetrics.CFR_TO10K);
+			deviation=this.CFR_deviation(cfr, InstaMetrics.CFR_TO10K);
 		}else if(follower_count<=100000) {
-			deviation=this.CFR_deviation(lfr, InstaMetrics.CFR_TO100K);
+			deviation=this.CFR_deviation(cfr, InstaMetrics.CFR_TO100K);
 		}else {
-			deviation=this.CFR_deviation(lfr, InstaMetrics.CFR_TO1M);
+			deviation=this.CFR_deviation(cfr, InstaMetrics.CFR_TO1M);
 		}
 		
 		return deviation;
 	}
 	
-	public double LFR_deviation(double actual_cfr,double expected_cfr) {
+	public double CFR_deviation(double actual_cfr,double expected_cfr) {
 		
 		return expected_cfr-actual_cfr;
 	}
 	
 	
-public double CFR_an(double lfr,int follower_count) {
+public double LFR_an(double lfr,int follower_count) {
 		
 		double deviation;
 		
@@ -127,7 +127,7 @@ public double CFR_an(double lfr,int follower_count) {
 		return deviation;
 	}
 	
-	public double CFR_deviation(double actual_lfr,double expected_lfr) {
+	public double LFR_deviation(double actual_lfr,double expected_lfr) {
 		
 		return expected_lfr-actual_lfr;
 	}
