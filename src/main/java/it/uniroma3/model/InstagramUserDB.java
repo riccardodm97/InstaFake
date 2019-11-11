@@ -9,47 +9,49 @@ public class InstagramUserDB {
 
 	@Id
 	private String username;
-	
+
 	@Column(nullable=false,unique=true)
 	private long pk;
-	
+
 	private String fullName;
-	
+
 	private int num_followers;
-	
+
 	private int num_following;
-	
+
 	private int num_posts;
-	
+
 	@Column(length=10000)
 	private String bio;
-	
+
 	private int num_tags;
-	
+
 	@Column(name="anonymous_pic")
 	private boolean has_anonymous_profile_pic;
-	
+
 	private boolean isVerified;
-	
+
 	private boolean isPrivate;
-	
+
 	private String location;
-	
+
 	private String external_url;
-	
+
 	public InstagramUserDB() {}
-	
+
 	public InstagramUserDB(String username,long pk) {
-		
+
 		super();
-		
+
 		this.username = username;
-		
+
 		this.pk = pk;
 	}
 
+
 	public InstagramUserDB(String username, long pk, String fullName, int num_followers, int num_following,
 			int num_posts, String bio, boolean isVerified, boolean isPrivate, String location,int tags, boolean anonymous_profile,String url) {
+
 		super();
 		this.username = username;
 		this.pk = pk;
@@ -58,13 +60,13 @@ public class InstagramUserDB {
 		this.num_following = num_following;
 		this.num_posts = num_posts;
 		this.bio = bio;
-	 	this.isVerified = isVerified;
+		this.isVerified = isVerified;
 		this.isPrivate = isPrivate;
 		this.location = location;
 		this.external_url= url;
 		this.num_tags= tags;
 		this.has_anonymous_profile_pic= anonymous_profile;
-		
+
 	}
 
 	public String getUsername() {
@@ -170,5 +172,5 @@ public class InstagramUserDB {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	
+
 }

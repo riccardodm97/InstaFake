@@ -212,7 +212,7 @@ public class DataAnalysis {
 		for(InstagramUserDB user: following) {
 			double value=this.AnalyzeUser(user);
 
-			if(value>=0.65) {                                                      //soglia del 65 % di suspect
+			if(value>=0.60) {                                                      //soglia del 65 % di suspect
 				fake_following+=1;
 				System.out.println(user.getUsername()+" con "+ value);
 			}
@@ -229,7 +229,7 @@ public class DataAnalysis {
 
 		for(InstagramUserDB user: followers) {
 			double value=this.AnalyzeUser(user);
-			if(value>=0.65) fake_followers+=1;                                     //mettere una soglia diversa????
+			if(value>=0.75) fake_followers+=1;                                     //mettere una soglia diversa????
 			value=0;                                                               //pesarlo diversamente dopo??
 		}
 
@@ -242,6 +242,8 @@ public class DataAnalysis {
 
 		if(user.isVerified()) return 0;    //se l'account è verificato lo considero comunque genuino
 
+		if(user.getFullName().equals("fail")) return 0;     //se non ho potuto ottenere i dati non lo considero 
+		
 		if(user.getNum_following()!=0) {
 
 			double ratio=user.getNum_followers()/(double) user.getNum_following();
@@ -320,7 +322,7 @@ public class DataAnalysis {
 
 			this.commentService.inserisci(c);
 
-			if(prob>=0.75) num_fake_per_post+=1;                   //soglia del 75% di suspect
+			if(prob>=0.80) num_fake_per_post+=1;                   //soglia del 75% di suspect
 		}
 		
 		return num_fake_per_post;

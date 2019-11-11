@@ -202,12 +202,19 @@ public class DataService {
 
 			result = instagram.sendRequest(new InstagramSearchUsernameRequest(user.getUsername()));
 		
+			InstagramUserDB userDB;                     //utente da aggiornare con i dati da insta
+			
 			if(!result.getStatus().equals("fail")) {
 
-				InstagramUserDB userDB = SetSingleUserData(result.getUser()); //setto i dati di ogni followed (following)
-
-				this.instaUserDBService.inserisci(userDB);
+				userDB = SetSingleUserData(result.getUser()); //setto i dati di ogni followed (following)
 			}
+			else {
+				userDB= new InstagramUserDB(user.getUsername(),user.getPk());  //se un utente non esiste più su insta, o se ci sono stati problemi nel fetch dei dati
+				
+				userDB.setFullName("fail");
+			}
+			
+			this.instaUserDBService.inserisci(userDB);
 
 			TimeUnit.SECONDS.sleep(1); //simula l'uso di un utente
 
@@ -441,8 +448,11 @@ public class DataService {
 
 		tmp.setUsername(user.getUsername());
 
-		tmp.setFullName(user.getFull_name());
-
+		if(user.getFull_name().length()>254) {
+			tmp.setFullName("too long");
+		}
+		else tmp.setFullName(user.getFull_name());
+		
 		tmp.setPk(user.getPk());
 
 		tmp.setPrivate(user.is_private);
@@ -458,8 +468,11 @@ public class DataService {
 		tmp.setNum_posts(user.getMedia_count());
 
 		tmp.setLocation(user.getCity_name());
-
-		tmp.setExternal_url(user.getExternal_url());
+		
+		if(user.getExternal_url().length()>254) {
+			tmp.setExternal_url("too long");                          //se l'url contenuto nella bio è troppo lungo per poter essere salvato nel db
+		}
+		else tmp.setExternal_url(user.getExternal_url());
 
 		tmp.setHas_anonymous_profile_pic(user.isHas_anonymous_profile_picture());
 
