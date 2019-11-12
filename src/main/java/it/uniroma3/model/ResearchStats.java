@@ -14,6 +14,8 @@ public class ResearchStats {
 	
 	private int post_count;                              //number of user's post retrived form instagram 
 	
+	private int followers_count;
+	
 	@Column(name="avgComm")
 	private double avgComments_count;                    //average comments per post
 	
@@ -80,6 +82,16 @@ public class ResearchStats {
 
 	public void setPost_count(int post_count) {
 		this.post_count = post_count;
+	}
+
+
+	public int getFollowers_count() {
+		return followers_count;
+	}
+
+
+	public void setFollowers_count(int followers_count) {
+		this.followers_count = followers_count;
 	}
 
 

@@ -157,7 +157,7 @@ public class DataService {
 
 		}
 
-		System.out.println("[questa parte della ricerca è terminata]\n");
+		System.out.println("\n[questa parte della ricerca è terminata]\n");
 
 		this.statusService.inserisci(status);
 

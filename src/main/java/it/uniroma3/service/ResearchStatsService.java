@@ -19,4 +19,9 @@ public class ResearchStatsService {
 		return this.researchrepo.save(rs);
 	}
 	
+	@Transactional
+	public ResearchStats trovaPerUsername(String username) {
+		return this.researchrepo.findById(username).get();
+	}
+	
 }

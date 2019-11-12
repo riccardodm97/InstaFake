@@ -85,7 +85,7 @@ public class DataAnalysis {
 		this.lfr_calc();
 		this.ffr_calc();
 		this.cfr_calc();
-
+		
 		//salvo nel db i dati analizzati
 		this.researchService.inserisci(rs);
 	}
@@ -165,6 +165,8 @@ public class DataAnalysis {
 		ratio=followers_count/(double)following_count;
 
 		this.rs.setFfr(ratio);	
+		
+		this.rs.setFollowers_count(followers_count);
 	}
 
 

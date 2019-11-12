@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import it.uniroma3.analytics.DataAnalysis;
+import it.uniroma3.analytics.FinalResult;
 import it.uniroma3.service.AuthService;
 import it.uniroma3.service.DataService;
 
@@ -34,7 +35,7 @@ public class AppLogic {
 		String scelta= br.readLine();
 		
 		
-		String account;
+		String account=null;
 		
 		switch(scelta) {
 		case "1":
@@ -60,12 +61,18 @@ public class AppLogic {
 			
 		default:
 			
-			br.close();
 			System.out.println("[invalid input]\n");
+			br.close();
+			return ;
 			
 		}
 		
-		//faccio qualcosa con i risultati ottenuti
+		//stampo i risultati ottenuti
+		
+		FinalResult fr=new FinalResult();
+		fr.printResults(account);
+		
+		
 		return ;
 		
 	}
