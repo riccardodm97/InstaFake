@@ -16,6 +16,8 @@ public class ResearchStats {
 	
 	private int followers_count;
 	
+	private int following_count;
+	
 	@Column(name="avgComm")
 	private double avgComments_count;                    //average comments per post
 	
@@ -92,6 +94,16 @@ public class ResearchStats {
 
 	public void setFollowers_count(int followers_count) {
 		this.followers_count = followers_count;
+	}
+
+
+	public int getFollowing_count() {
+		return following_count;
+	}
+
+
+	public void setFollowing_count(int following_count) {
+		this.following_count = following_count;
 	}
 
 

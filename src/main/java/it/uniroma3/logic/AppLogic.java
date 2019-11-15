@@ -22,6 +22,9 @@ public class AppLogic {
 
 	@Autowired
 	private DataAnalysis dataAnalysis;
+	
+	@Autowired
+	private FinalResult finalResult;
 
 
 	public void Start() throws Exception {
@@ -57,6 +60,8 @@ public class AppLogic {
 			this.dataAnalysis.StartDataAnalysis(account);                          //analizzo i dati precedentemente ottenuti
 			
 			br.close();
+		
+			finalResult.printResults(account);                                      //stampo i risultati ottenuti
 			break;
 			
 		default:
@@ -66,11 +71,6 @@ public class AppLogic {
 			return ;
 			
 		}
-		
-		//stampo i risultati ottenuti
-		
-		FinalResult fr=new FinalResult();
-		fr.printResults(account);
 		
 		
 		return ;

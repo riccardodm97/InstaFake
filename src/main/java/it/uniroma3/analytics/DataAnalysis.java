@@ -122,11 +122,11 @@ public class DataAnalysis {
 
 		this.rs.setPost_count(num_posts);
 
-		this.rs.setAvgComments_count(num_comm/num_posts);
+		this.rs.setAvgComments_count((double)num_comm/num_posts);
 
-		this.rs.setAvgLike_count(num_likes/num_posts);
+		this.rs.setAvgLike_count((double)num_likes/num_posts);
 
-		this.rs.setAvgHashtag_count(num_hashtag/num_posts);
+		this.rs.setAvgHashtag_count((double)num_hashtag/num_posts);
 
 		if(num_comm>0) this.commentsDataProcess(num_tot_fake,num_comm_estratti);
 
@@ -167,6 +167,8 @@ public class DataAnalysis {
 		this.rs.setFfr(ratio);	
 		
 		this.rs.setFollowers_count(followers_count);
+		
+		this.rs.setFollowing_count(following_count);
 	}
 
 
@@ -212,6 +214,7 @@ public class DataAnalysis {
 		List<InstagramUserDB> following=this.ps.getFollowing();
 
 		for(InstagramUserDB user: following) {
+			
 			double value=this.AnalyzeUser(user);
 
 			if(value>=0.60) {                                                      //soglia del 65 % di suspect
@@ -230,8 +233,13 @@ public class DataAnalysis {
 		List<InstagramUserDB> followers=this.ps.getFollowers();
 
 		for(InstagramUserDB user: followers) {
+			
 			double value=this.AnalyzeUser(user);
-			if(value>=0.75) fake_followers+=1;                                     //mettere una soglia diversa????
+			
+			if(value>=0.75) {
+				fake_followers+=1;                                     //mettere una soglia diversa????
+				System.out.println(user.getUsername()+" con "+ value);
+			}
 			value=0;                                                               //pesarlo diversamente dopo??
 		}
 

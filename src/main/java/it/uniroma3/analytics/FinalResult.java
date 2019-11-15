@@ -1,14 +1,17 @@
 package it.uniroma3.analytics;
 
+import java.text.DecimalFormat;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import it.uniroma3.model.ResearchStats;
 import it.uniroma3.service.ResearchStatsService;
 
-
+@Component
 public class FinalResult {
 
-	@Autowired 
+	@Autowired
 	private ResearchStatsService researchService;
 
 	@Autowired 
@@ -16,69 +19,111 @@ public class FinalResult {
 
 
 	public void printResults(String username) {
-
+		
 		ResearchStats rs=this.researchService.trovaPerUsername(username);
+		
+		DecimalFormat f= new DecimalFormat("0.00");
 
 		System.out.println("\nRisultati della ricerca su: "+username+"\n");
 
-		System.out.println("numero di like medio per post: "+rs.getAvgLike_count());
+		System.out.println("numero di like medio per post: "+ f.format(rs.getAvgLike_count()));
 
 		double like_variation=this.metrics.LFR_an(rs.getLfr(), rs.getFollowers_count());
 
-		System.out.println("questo valore è");
 		if(like_variation>0) {
-			System.out.println("più bassso del "+(int)like_variation*100+"% rispetto alla media di account simili\n");
+			System.out.println("questo valore è più bassso del "+ f.format(like_variation*100) + "% rispetto alla media di account simili");
 			if(like_variation>=0.4) {
-				System.out.println("una variazione superiore al 40% può indicare un'interazione bassa dei follower\n");
+				System.out.println("una variazione superiore al 40% può indicare un'interazione bassa dei follower");
 			}
 		}
 		else {
-			System.out.println("più alto del "+((int)Math.abs(like_variation))*100+"% rispetto alla media di account simili\n");
+			System.out.println("questo valore è più alto del "+ f.format(Math.abs(like_variation*100)) + "% rispetto alla media di account simili");
 		}
 
 		System.out.println("\n");
-		
-		
-		System.out.println("nei post in media per ogni commento ci sono "+rs.getAvgLtc_ratio()+"like\n");
-		
+
+		System.out.println("nei post in media per ogni commento ci sono "+ f.format(rs.getAvgLtc_ratio()) + " like");
+
 		System.out.println("\n");
-		
-		System.out.println("numero di commenti medio per post: "+rs.getAvgComments_count());
+
+		System.out.println("il numero di commenti medio per post è: "+ f.format(rs.getAvgComments_count()));
 
 		double comm_variation=this.metrics.CFR_an(rs.getCfr(), rs.getFollowers_count());
 
-		System.out.println("questo valore è");
 		if(comm_variation>0) {
-			System.out.println("più bassso del "+(int)comm_variation*100+"% rispetto alla media di account simili\n");
+			System.out.println("questo valore è più bassso del "+ f.format(comm_variation*100) +"% rispetto alla media di account simili\n");
 			if(comm_variation>=0.4) {
 				System.out.println("una variazione superiore al 40% può indicare un'interazione bassa dei follower\n");
 			}
 		}
 		else {
-			System.out.println("più alto del "+((int)Math.abs(comm_variation))*100+"% rispetto alla media di account simili\n");
+			System.out.println("questo valore è più alto del "+ f.format(Math.abs(comm_variation*100)) +"% rispetto alla media di account simili\n");
 		}
-		
-		System.out.println("inoltre il numero di commenti probabilmente fake rilevati è: "+rs.getFakeComments_count()+"\n");
-		System.out.println("con una media di "+rs.getAvgFakeComments_count()+"commenti fake per post\n");
-		
-		
+
+		System.out.println("inoltre il numero di commenti probabilmente fake rilevati è: " + rs.getFakeComments_count()+"\n");
+		System.out.println("con una media di "+ f.format(rs.getAvgFakeComments_count()) + " commenti fake per post");
+
+
 		System.out.println("\n");
 
 		double avg_hashtag=rs.getAvgHashtag_count();
-		
-		System.out.println("numero di hashtag medio per post: "+avg_hashtag+"\n");
+
+		System.out.println("il numero di hashtag medio per post è di: " + f.format(avg_hashtag) + "\n");
 		if(metrics.too_many_hashtag(avg_hashtag)) {
 			System.out.println("questo numero è superiore alla media di 3.5 hashtag per post di account simili,"
-					+ "e può indicare un tentativo di di incrementare la visibilità e e le interazioni in maniera");
+					+ "e può indicare un tentativo di di incrementare la visibilità e le interazioni in maniera artificiosa\n");
+		}
+
+
+		System.out.println("il numero di account che seguono l'utente è: " + rs.getFollowers_count());
+
+		System.out.println("di questi il numero di account sospetti è: "+ rs.getSuspect_followers_count());
+
+		System.out.println("\n");
+
+		System.out.println("il numero di account che l'utente segue è: " + rs.getFollowing_count());
+
+		System.out.println("di questi il numero di account sospetti è: " + rs.getSuspect_following_count());
+
+		System.out.println("\n");
+
+		int isSuspect_following=this.metrics.following_limit(rs.getFollowers_count(), rs.getFollowing_count());
+
+		if(isSuspect_following==1) {
+			
+			System.out.println("il numero di account che questo utente segue è maggiore della media per account simili\n");
 		}
 		
-		System.out.println("il numero di account sospetti che questo utente segue è: "+rs.getSuspect_following_count()+"\n");
+		else if(isSuspect_following==2) {
+			
+			System.out.println("il numero di account che questo utente segue è molto maggiore rispetto alla media per account simili\n");
+		}
 		
-		System.out.println("il numero di account sospetti che seguono questo utente è: "+rs.getSuspect_followers_count()+"\n");
+		System.out.println("la follower to following ratio è pari al: " + f.format(rs.getFfr()*100) + "%");
+		
+		if(rs.getFfr()<=1)  System.out.println("più bassa della media, il che può indicare un tentativo di incremento"
+				+ "artificiale e non omogeneo dei followers tramite meccanisimi come il follow/unfollow\n");
 		
 		System.out.println("\n");
 		
+		System.out.println("il numero di account seguiti da questo utente che hanno il profilo privato e meno di mille followers è di: "+rs.getLess1kfandprivate()+"\n");;
 		
+		if(rs.getLess1kfandprivate()>=200) {
+			
+			System.out.println("il fatto di seguire questo tipo di profili indica solitamente che la persona è 'conosciuta' direttamente dall'utente"
+					+ "un numero superiore ai 200 non è realistico per questo tipo di relazione e può indicare il tentativo"
+					+ "di incremento artificiale dei followers\n");
+		}
+		
+		System.out.println("l'engagement rate di questo profilo è del "+ f.format((rs.getEngagement_rate()*100))+"%\n");
+		
+		if(rs.getEngagement_rate()<=0.01) {
+			
+			System.out.println("ed è più basso della media per account simili\n");
+		}
+		
+
+
 
 
 	}

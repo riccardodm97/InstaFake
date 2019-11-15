@@ -1,5 +1,7 @@
 package it.uniroma3.analytics;
 
+import javax.persistence.criteria.CriteriaBuilder.In;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -7,20 +9,13 @@ public final class InstaMetrics {
 
 	private final static int MAX_FOLLOWING=7500;   //numero massimo di account che instagram permette di seguire
 
-	private final static int MAX_STAT_GENERIC_FOLLOWING=0; //upperbound al numero di following per account generico basato su dati statistici
+	private final static int MAX_STAT_GENERIC_FOLLOWING=3000;     //upperbound al numero di following per account generico basato su dati statistici
 
-	private final static int SUSPECT_STAT_GENERIC_FOLLOWING=0;   //un numero di following superiore è sospetto per account medio
+	private final static int SUSPECT_STAT_GENERIC_FOLLOWING=1500;   //un numero di following superiore è sospetto per account medio
 
-	private final static int MAX_STAT_POPULAR_FOLLOWING=0;     //upperbound al numero di following per account popolare(da 15k+) basato su dati statistici
+	private final static int MAX_STAT_POPULAR_FOLLOWING=1500;     //upperbound al numero di following per account popolare(da 15k+) basato su dati statistici
 
-	private final static int SUSPECT_STAT_POPULAR_FOLLOWING=0;   //un numero di following superiore è sospetto per account popolare
-
-
-	//follower to followinf ratio tra i 1000
-
-	private final static double MINFFR_0=0;
-
-	private final static double MAXFFR_0=0;
+	private final static int SUSPECT_STAT_POPULAR_FOLLOWING=1000;   //un numero di following superiore è sospetto per account popolare
 
 
 	//follower to following ffr ratio tra i 1000 e i 15k follower
@@ -119,13 +114,13 @@ public final class InstaMetrics {
 
 		if(follower_count<=5000) {
 			deviation=this.LFR_deviation(lfr, InstaMetrics.LFR_TO5K);
-		}else if(follower_count<=10000) {
+		}else if(follower_count>5000 && follower_count<=10000) {
 			deviation=this.LFR_deviation(lfr, InstaMetrics.LFR_TO10K);
-		}else if(follower_count<=25000) {
+		}else if(follower_count>10000 && follower_count<=25000) {
 			deviation=this.LFR_deviation(lfr, InstaMetrics.LFR_TO25K);
-		}else if(follower_count<=50000) {
+		}else if(follower_count>25000 && follower_count<=50000) {
 			deviation=this.LFR_deviation(lfr, InstaMetrics.LFR_TO50K);
-		}else if(follower_count<=500000){
+		}else if(follower_count>50000 && follower_count<=500000){
 			deviation=this.LFR_deviation(lfr, InstaMetrics.LFR_TO500K);
 		}else {
 			deviation=this.LFR_deviation(lfr, InstaMetrics.LFR_TOMAX);
@@ -139,6 +134,24 @@ public final class InstaMetrics {
 		return expected_lfr-actual_lfr;
 	}
 
+	
+	public int following_limit(int followers_count,int following_count) {
+		if(followers_count<15000) {
+			if(following_count>=InstaMetrics.MAX_STAT_GENERIC_FOLLOWING) return 2;
+			
+			else if(following_count>=InstaMetrics.SUSPECT_STAT_GENERIC_FOLLOWING) return 1;
+			
+			else return 0;
+		}
+		
+		else {
+			if(following_count>=InstaMetrics.MAX_STAT_POPULAR_FOLLOWING) return 2;
+			
+			else if(following_count>=InstaMetrics.SUSPECT_STAT_POPULAR_FOLLOWING) return 1;
+			
+			else return 0;
+		}
+	}
 	
 
 
