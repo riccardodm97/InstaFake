@@ -31,7 +31,7 @@ public class FinalResult {
 		double like_variation=this.metrics.LFR_an(rs.getLfr(), rs.getFollowers_count());
 
 		if(like_variation>0) {
-			System.out.println("questo valore è più bassso del "+ f.format(like_variation*100) + "% rispetto alla media di account simili");
+			System.out.println("questo valore è più basso del "+ f.format(like_variation*100) + "% rispetto alla media di account simili");
 			if(like_variation>=0.4) {
 				System.out.println("una variazione superiore al 40% può indicare un'interazione bassa dei follower");
 			}
@@ -51,7 +51,7 @@ public class FinalResult {
 		double comm_variation=this.metrics.CFR_an(rs.getCfr(), rs.getFollowers_count());
 
 		if(comm_variation>0) {
-			System.out.println("questo valore è più bassso del "+ f.format(comm_variation*100) +"% rispetto alla media di account simili\n");
+			System.out.println("questo valore è più basso del "+ f.format(comm_variation*100) +"% rispetto alla media di account simili\n");
 			if(comm_variation>=0.4) {
 				System.out.println("una variazione superiore al 40% può indicare un'interazione bassa dei follower\n");
 			}
@@ -78,6 +78,10 @@ public class FinalResult {
 		System.out.println("il numero di account che seguono l'utente è: " + rs.getFollowers_count());
 
 		System.out.println("di questi il numero di account sospetti è: "+ rs.getSuspect_followers_count());
+		
+		double fake_tot_perc=rs.getSuspect_followers_count()/ (double) rs.getFollowers_count();
+		
+		System.out.println("ovvero il " + f.format(fake_tot_perc*100) +"% del totale");
 
 		System.out.println("\n");
 

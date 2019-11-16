@@ -1,378 +1,523 @@
-__label__true 456 is my number [emoticon]
-__label__true this is extremely cute !!
-__label__false weird
-__label__true go to my friend now ahah [emoticon]
-__label__false brilliant
-__label__true @robert1
-__label__true omg i had no idea that was you 
-__label__true i’m going to miss the halloween episodes ahah 
-__label__false wonderful
-__label__false prodigious
-__label__true paul is my fave 
-__label__false magic [emoticon]
-__label__true how did you get there ??
-__label__false lovely
-__label__false aww
-__label__true love that place ! it is perfect for you too 
-__label__true beautiful to have amazing men around you 
-__label__true mm i don't care this much
-__label__false handsome
-__label__false i like [emoticon]
-__label__false ravishing
-__label__false really good
-__label__false perfect gallery
-__label__true do what you're doing guy [emoticon]
-__label__true i didn’t known i needed this picture in my life until i saw it 
-__label__false L4F?
-__label__false cute
-__label__false super
-__label__true you were so cute at 2 yo [emoticon] 
-__label__false delicate
-__label__false bewitching
-__label__true i hope you both had a wonderful day 
-__label__true i was there before that the giant glass skyscraper was built
-__label__true oh my sarah ! this is incredible [emotiocon]
-__label__true is it your cat ??
-__label__true wow! That dress is the one I always wanted for christmas
-__label__false impressive
-__label__true tell them what you got
-__label__false preposterous
-__label__false like this comment so more people could see it, thank you
-__label__true your cat is so funny ahah
-__label__true bucket list trip                                                         
-__label__false delightful
-__label__true mm i don't mind going there you know
-__label__true to who ever said you no 
-__label__false good picture! [emoticon]
-__label__false i love this
-__label__false good gallery! Write me on direct
-__label__false cool! [emoticon], check my gallery and follow up
-__label__false style [emoticon]
-__label__true just celebrated mine too 
-__label__false you’re beautiful [emoticon]
-__label__true so right , legend [emoticon] [emoticon]
-__label__false very cool!
-__label__true what a great match [emoticon] ahah
-__label__true @name
-__label__false very nice [emoticon] [emoticon]
-__label__true a pure stupid [emoticon]
-__label__false lovely
-__label__false wow perfect
-__label__true it was a pleasure to meet you yesterday evening!
-__label__false queen
-__label__true you are so cute and i love the recommendation 
-__label__false photo
-__label__true where did you buy it ?? 
-__label__false exquisite
-__label__true not bad but i can do better
-__label__false lovely
-__label__true he was perfect ! Can’t be out of the show !
-__label__true come on ,try it and tell us [emoticon]
-__label__false foxy
-__label__true did you take this picture with you phone ? 
-__label__true you are talented , couldn’t go out !!
-__label__true have a great weekend my friend
-__label__false good-looking
-__label__true i have that shirt too ! [emoticon]
-__label__false awesome
-__label__false superior
-__label__false like it
-__label__true you still owe me 4 liters of that
-__label__false beautiful photo! [emoticon]
-__label__true he’s a very lucky man to steal you heart 
-__label__true i have loved you since I was 6 years old 
-__label__false friendly
-__label__false top [emoticon]
-__label__false exceptional
-__label__true it's so nice the dinner we had togheter in the bathtube [emoticon]
-__label__false great
-__label__false unbelievable
-__label__false excellent
-__label__false very beautiful!
-__label__false alluring
-__label__false superb
-__label__true what movie is it ? 
-__label__true a true hero !!
-__label__false like4like
-__label__true did you read that book ? it’s fantastic 
-__label__false wow so nice
-__label__false impeccable
-__label__true which is the brand of your outfit ? 
-__label__false cute
-__label__false okay
-__label__true merry christmass to you all !!
-__label__true what do you mean “ no beer “ ??
-__label__true the dress is so amazing on you 
-__label__true the judges didn’t get anything 
-__label__true i’m sure he’s just thinking about bagels! ahah 
-__label__false marvelous
-__label__false follow4follow?
-__label__false remarkable
-__label__false stunning [emoticon]
-__label__false niceeeee!
-__label__true no no i can't do that
-__label__false hi [emoticon] [emoticon] good pic [emoticon]
-__label__true omg you changed so much !
-__label__true nobody can kill you ahah
-__label__true wait that's illegal [emoticon]
-__label__false fine
-__label__false marvelous
-__label__false send me a message!
-__label__false gorgeous
-__label__false excellent
-__label__true tag
-__label__false admirable
-__label__false comely
-__label__true oh that's what i call professional
-__label__false shocking
-__label__false marvelous
-__label__true for me, you are totally wrong 
-__label__false enticing
-__label__false picture
-__label__true you put much of effort in those things
-__label__false ideal
-__label__false pretty
-__label__false favorable
-__label__false fair
-__label__true am i the only one who didn’t know who was who at first? 
-__label__true yes i really like the way you act
-__label__false spectacular [emoticon]
-__label__true i’m so sad you went out of the show [emoticon]
-__label__true mike is cheating on phoebeee
-__label__true i don't think so , it's different
-__label__true if you go there take me with you
-__label__false unreal
-__label__true oh i can't live without it 
-__label__false hi I’m a photographer [emoticon] Check my gallery
-__label__false lovely
-__label__true rupert is my mood 
-__label__true you guys are so cute together 
-__label__true wow that dress on you [emoticon] oh yes !!
-__label__false what an amazing shot!
-__label__false you’re beautiful [emoticon] i love you so much [emoticon] [emoticon]
-__label__false like it!
-__label__false good gallery!
-__label__false there you go babe
-__label__false charming
-__label__false oh yes amazing
-__label__false follow4follow
-__label__true he’s getting so old [emoticon] [emoticon] 
-__label__false [emoticon] [emoticon] [emoticon]
-__label__false amazing
-__label__false top
-__label__false insane
-__label__false fascinating
-__label__false right!
-__label__false 4f4
-__label__true grandma [emotiocon]
-__label__false likeness
-__label__false awesome style
-__label__true what's that a stupid hat??
-__label__false i like it [emoticon]
-__label__false [emoticon] 
-__label__false fanciful
-__label__false nice one!
-__label__true @
-__label__true mistakes makes us stronger !!
-__label__false hello [emoticon]
-__label__true are you on diet ? 
-__label__false excellent
-__label__true will you score more goals now??
-__label__true nice hotel , is it yours ahah [emoticon]
-__label__false you have an awesome gallery! [emoticon]
-__label__false hi! Follow me!
-__label__true best caption ever ahah
-__label__true why phil became old [emoticon]
-__label__false so cute!! [emoticon]
-__label__false one love!
-__label__false awesome beautiful kik me
-__label__true it was a really good show [emoticon]
-__label__true love you two 
-__label__false fine
-__label__false stunning
-__label__false superb
-__label__false [emoticon] good job [emoticon]
-__label__true my two favesss [emoticon]
-__label__false top!!!....
-__label__true are both your daughters like mini you physically ?
-__label__false striking
-__label__false absurd
-__label__false write me on direct [emoticon]
-__label__true phill is the best tv dade ever 
-__label__true i love this film and i never realized it was you !
-__label__false singular
-__label__true only you can say that [emoticon] [emoticon]
-__label__true something changed at least 
-__label__true you keep winning in parenting [emoticon]
-__label__true i would take him just for that
-__label__false splendid
-__label__true you are such a fox [emoticon]
-__label__false ludicrous
-__label__false beautiful
-__label__false wonderful
-__label__true cute but also crazy 
-__label__false i like your photos [emoticon]
-__label__false hi! Come in dm
-__label__false valuable
-__label__true this shot is amazing 
-__label__true only i see the book flipped over??
-__label__false georgeous!!
-__label__true incompetent judges !! [emoticon]  
-__label__false such a gorgeous outfit
-__label__true glad to see you happy babe
-__label__true you are late !! 
-__label__false nice [emoticon]
-__label__true what movie is it from ??
-__label__false good
-__label__true have a wonderful day [emoticon]
-__label__true stop being the most beautiful
-__label__true i'm born ready, thanks for being you
-__label__false smashing
-__label__false stunning
-__label__false grotesque
-__label__true ahah too funny , love it !
-__label__false photo
-__label__true it's seriously the best i'v evere seen
-__label__false wonderful [emoticon]
-__label__true thanks for sharing so much joy and positivity . you are a doll 
-__label__false devastating
+__label__true i don't think so  it's different
+__label__false goodlooking
+__label__true it's seriously the best i've evere seen
 __label__true yes we can do it [emoticon]
-__label__false i love that outfit!
-__label__true happy halloween sarah! 
-__label__false appealing
-__label__true this floor is different from every other [emoticon]
-__label__true omg you are a fantastic painter 
-__label__false oh yes
-__label__true delete this thing soon
-__label__false perfection
-__label__true love you bear ! [emoticon]
-__label__false yes love
-__label__false nice
-__label__false love it
-__label__false spectacular
-__label__true miss you ! 
-__label__false yes [emoticon]
-__label__true where did you buy the dress ? 
-__label__true this is so cool so no wonder you’re involved 
-__label__false unbelievable
-__label__true yes you can do it by yourself now
-__label__false kind
-__label__false pure
-__label__false awesome!
-__label__false incredible
-__label__false great pic! Keep up the great work
-__label__true paul was so great to share this event with you [emoticon]
-__label__true that’s lovely 
-__label__true penny you look great [emoticon]
-__label__false splendid
-__label__true tell us more about your day [emoticon]
-__label__false dazzling
-__label__false superb
-__label__false divine
-__label__false image
-__label__false odd
-__label__false gorgeous
-__label__false like4like?
-__label__true can’t blame the mosquitoes . i mean , wouldn’t want to eat you up ? 
-__label__false pleasing
-__label__false it's awesome!!
-__label__true awww i love this and you all 
-__label__false graceful
-__label__false what a queen
-__label__true to be between these two humans [emoticon]
-__label__true oh yes i can see it from the bars
-__label__false implausible
-__label__false crazy
-__label__false classy
-__label__true he love this picture 
-__label__true this make me happy 
-__label__false l4l
-__label__true omg crying !! love this 
-__label__false so nice
-__label__true keep it up man , go !!
-__label__true why did you buy another bag ? 
-__label__true them earrings tho 
-__label__true i love your chanel shoes !!
-__label__true omg ! This was you ? Love this movie 
-__label__true you look so stunning sarah !! 
-__label__false you have some great content [emoticon]
-__label__true he have won over, you're a great guy now
-__label__true this is the cutest !
-__label__true ahah i love you
-__label__false wonderful
-__label__false exotic
-__label__false likeforlike
-__label__true vanessa looks so stellar
-__label__true oh you can try !!
-__label__false i make cover art, logos and flyers. DM me if you wanna work
-__label__true what would you say to him
-__label__false stunning
-__label__false magnificent
-__label__true wonderful place, oh yes i love it
-__label__true i saw him in the cursed child last month , and he was so great !
-__label__true that’s the cutest thing i have seen today 
-__label__false surprising
-__label__true but truly … still looks exactly the same [emoticon]                
-__label__false followforfollow
-__label__true you are gettin marrieeeeed !! 
-__label__true looking well today , wow [emoticon]
-__label__false wonderful
-__label__true your wedding dress is gorgeous , so elegant and simple 
-__label__false fair
-__label__false wow
-__label__false outlandish
-__label__false sensational
-__label__false amazing!
-__label__true let us know how was the movie !
-__label__true it's so epic !!
+__label__false prodigious
+__label__false very cool
+__label__true 456 is my number [emoticon]
+__label__true are both your daughters like mini you physically 
+__label__true hey wifey 
 __label__true wow so nice of you [emoticon] [emoticon]
-__label__false incredible
-__label__true have you a personal trainer ? 
-__label__false view [emoticon]
-__label__false hey guys [emoticon] I’m a rapper from Asia tryna spread my sound. Please like this comment
-__label__false great [emoticon]
-__label__true love you in this video 
-__label__true i don’t share your point of view ! 
-__label__false elegant
-__label__true don't change dear , stay who you are
-__label__true worse than ever before
-__label__false great
-__label__true congratulations !!
-__label__true my dream is to watch you play for my team
+__label__true the dress is so amazing on you 
+__label__true i have loved you since i was 6 years old 
+__label__true i love you
+__label__false super
+__label__true cute but also crazy 
+__label__true that’s lovely 
+__label__true are you ill 
+__label__false surprising
+__label__true fook you deserve a medal for that
+__label__true what do you mean no beer 
+__label__true this is so cool so no wonder you’re involved 
+__label__true holy shit fuuk [emoticon]
+__label__true he was perfect can’t be out of the show 
+__label__false stunning body
+__label__true only you can say that [emoticon] [emoticon]
 __label__false excellent
-__label__false gorgeous
-__label__true i’m obsessed with you in this costume 
-__label__false print
-__label__false [emoticon]!!
-__label__true this show is rigged 
-__label__true omg did she just say 24 y ago ? 
-__label__true omg is he 21 ? 
-__label__true you have five daddies 
-__label__true your voice is magic 
-__label__false woooow so beautiful
-__label__false hey lovely [emoticon] [emoticon]
-__label__false we see your style and love it!
-__label__false angelic
-__label__false hi! Visit my page
+__label__true tag tag 
+__label__true hey bestfriend
+__label__true if you go there take me with you
+__label__true something changed at least 
+__label__true mm i don't care this much
+__label__false outlandish
+__label__true love you bear  [emoticon]
+__label__false stunning [emoticon]
+__label__false favorable
+__label__true imuuu 
+__label__false lovely
+__label__true no no i can't do that
+__label__true my bestieee [emoticon] [emoticon]
+__label__true awww i love this and you all 
+__label__true holy fuck
+__label__false dm us
+__label__true give life
+__label__true you are a true queen
+__label__true what a princess awee [emoticon]
+__label__false work with us honey 
+__label__true i think he doesn't work out
 __label__false dazzling
-__label__true you are too cute! [emoticon]
-__label__true it's a shame !
-__label__false foolproof
+__label__true ugly
+__label__false hi come in dm
+__label__false gallery
+__label__true i'm hurt seeing this [emoticon]
+__label__false elegant
+__label__false i love that outfit
+__label__true you are talented  couldn’t go out 
+__label__false such a gorgeous outfit
+__label__true tag [emoticon] [emoticon]
+__label__false pleasing
+__label__true tell us more about your day [emoticon]
+__label__true mike is cheating on phoebeee
+__label__true why did you buy another bag  
+__label__true holy fuk
+__label__false fanciful
+__label__true hey look tag tag 
+__label__false beautiful photo [emoticon]
+__label__false brilliant
+__label__true i’ll explain our date plans later 
+__label__false great [emoticon]
+__label__true wtf 
+__label__false marvelous
+__label__true this show is rigged 
 __label__false fantastic
-__label__false fair
-__label__true he’s adorableee !
-__label__false awesome
-__label__false imaginative
-__label__false beauteous
-__label__false satisfying
-__label__true @michael @josh
+__label__true happy halloween sarah 
 __label__false portrait
-__label__false fascinating
-__label__true impossibile , you are an amazing couple !!
-__label__true hi , you inspire me everyday !
-__label__true yankees , one loveee [emoticon]
-__label__true what you would alike tomorrow in the morning?
-__label__false grand
-__label__false snapshot
-__label__false ridiculous
+__label__true iluuuuuu
+__label__false likeness
+__label__false wonderful
+__label__true i really love u
+__label__false likeforlike
+__label__true it's so nice the dinner we had togheter in the bathtube [emoticon]
+__label__true tag
+__label__true girlfriend
+__label__true you are gettin marrieeeeed  
+__label__false wow so nice
+__label__true imy too 
+__label__false i love this
+__label__false nice
+__label__true youre flawless wtf
+__label__false lovely
+__label__true wooow so baddie of you
+__label__true those adventures are literally breathtaking
+__label__true tag is he the best 
+__label__true that smile tho
+__label__true a fucking model [emoticon]
+__label__false hi i’m a photographer [emoticon] check my gallery
+__label__true can you marry me  
+__label__true to who ever said you no 
+__label__true it was a pleasure to meet you yesterday evening
+__label__false nice photo [emoticon]
+__label__true impossibile  you are an amazing couple 
+__label__true oh you can try 
+__label__false awesome
+__label__false what a queen
+__label__true what's that a stupid hat
+__label__false hi honey nice profile
+__label__true i want to date you
+__label__false dm me
+__label__true where do you come from
+__label__false excellent
+__label__true that’s the cutest thing i have seen today 
+__label__true rupert is my mood
+__label__true a pure stupid [emoticon]
+__label__false cool [emoticon] check my gallery and follow up
+__label__false wonderful
+__label__true beautiful to have amazing men around you 
+__label__false good picture [emoticon]
+__label__true you still owe me 4 liters of that
+__label__false unbelievable
+__label__false i like it [emoticon]
+__label__false stunning
+__label__false hi visit my page
+__label__true i love your chanel shoes 
+__label__false what a great pic [emoticon]
+__label__true this is extremely cute 
+__label__false aww
+__label__true i love this film and i never realized it was you 
+__label__true oh my sarah  this is incredible [emotiocon]
+__label__true i was there before that the giant glass skyscraper was built
+__label__true can’t blame the mosquitoes  i mean  wouldn’t want to eat you up  
+__label__true i'm born ready thanks for being you
+__label__false stunning
+__label__true wow i am speechless [emoticon] [emoticon] [emoticon]
+__label__false cute
+__label__true years old
+__label__false i’m interested in shooting with you
+__label__true [emoticon] wow
+__label__true you were so cute at 2 yo [emoticon] 
+__label__false yes baby
 __label__false ideal
+__label__false amazing
+__label__true are you on diet  
+__label__false top [emoticon]
+__label__false i like your photos [emoticon]
+__label__false i like [emoticon]
+__label__true i’m sure he’s just thinking about bagels ahah 
+__label__true tell them what you got
+__label__false kind
+__label__true i’m obsessed with you in this costume 
+__label__true will you score more goals now
+__label__true nice hotel  is it yours ahah [emoticon]
+__label__false lit [emoticon]
+__label__true your wedding dress is gorgeous  so elegant and simple 
+__label__false fantastic
+__label__false beautiful
+__label__true i hope you both had a wonderful day 
+__label__false we'd like to suggest an offer for you [emoticon]️
+__label__false we would like to collaborate with you
+__label__false niceeeee
+__label__true which is the brand of your outfit  
+__label__false nice [emoticon]
+__label__false incredible
+__label__true delete this thing soon
+__label__true come on try it and tell us [emoticon]
+__label__false grand
+__label__false remarkable
+__label__false wow perfect
+__label__false lovely
+__label__true keep it up man  go 
+__label__true that's cute af
+__label__true this make me happy 
+__label__false magnificent
+__label__false send us a dm
+__label__false splendid
+__label__true i saw him in the cursed child last month  and he was so great 
+__label__false let's collab
+__label__false wonderful
+__label__false one love
+__label__false exquisite
+__label__false so nice
+__label__true only i see the book flipped over
+__label__true bucket list trip                                                         
+__label__false photo
+__label__true this is the cutest 
+__label__false right
+__label__false gorgeous
+__label__false enticing
+__label__false unbelievable
+__label__true oh i can't live without it 
+__label__false it's awesome
+__label__false like it
+__label__true it looks sooo fun 
+__label__false superb
+__label__true oh shit here we go again
+__label__false awesome style
+__label__true he’s a very lucky man to steal you heart 
+__label__true go to my friend now ahah [emoticon]
+__label__true have a great weekend my friend
+__label__true this floor is different from every other [emoticon]
+__label__true i’m going to miss the halloween episodes ahah 
+__label__true i would never eat that
+__label__false exceptional
+__label__true did you read that book  it’s fantastic 
+__label__false superb
+__label__true tag this is it
+__label__false like4like
+__label__false spectacular
+__label__false singular
+__label__true have a wonderful day [emoticon]
+__label__false alluring
+__label__false there you go babe
+__label__false damn
+__label__true you are such a fox [emoticon]
+__label__false we see your style and love it
+__label__false omg stunning
+__label__true you are classy as always
+__label__false spectacular [emoticon]
+__label__false so fashion [emoticon]
+__label__true why phil became old [emoticon]
+__label__true paul was so great to share this event with you [emoticon]
+__label__true is it your cat 
+__label__false striking
+__label__true love that place  it is perfect for you too 
+__label__true ahah too funny  love it 
+__label__true how did you get there 
+__label__true bestie
+__label__false beauteous
+__label__false classy
+__label__true you have five daddies
+__label__false wonderful [emoticon]
+__label__false smashing
+__label__true what a great match [emoticon] ahah
+__label__false keep it up
+__label__false friendly
+__label__false 4f4
+__label__false we would like to collaborate with you message us [emoticon] [emoticon]
+__label__true i'm drooling over you
+__label__false love this [emoticon]
+__label__true oh that's what i call professional
+__label__true stop being the most beautiful
+__label__false great pic Keep up the great work
+__label__true my two favesss [emoticon]
+__label__false collab dm
+__label__true you are so cute and i love the recommendation 
+__label__false cute
+__label__true ok tag
+__label__true okkk girl
+__label__true take your time with him 
+__label__false fine
+__label__true omg it's very interesting
+__label__false like it
+__label__true omfgg
+__label__true omfg it's ro real
+__label__false really good
+__label__true he’s adorableee 
+__label__false awesome beautiful kik me
+__label__false i love this
+__label__true ummm
+__label__false dm us honey
+__label__false odd
+__label__true looking well today  wow [emoticon]
+__label__true this dress is fire 
+__label__true you are late  
+__label__true you two are a cute couple
+__label__true did you take this picture with you phone  
+__label__false view [emoticon]
+__label__false nice one
+__label__true your voice is magic 
+__label__true grandma [emotiocon]
+__label__false ravishing
+__label__true paul is my fave 
+__label__false so cute [emoticon]
+__label__false you’re beautiful [emoticon] i love you so much [emoticon] [emoticon]
+__label__true ooh so hot and sexy you  
+__label__true i didn’t known i needed this picture in my life until i saw it 
+__label__false snapshot
+__label__true thanks for sharing so much joy and positivity  you are a doll 
+__label__false fair
+__label__true hottie bff ahah
+__label__true omg i had no idea that was you 
+__label__false shocking
+__label__false good
+__label__true bf 
+__label__false admirable
+__label__true love you in this video 
+__label__true shawty
+__label__false incredible
+__label__false that's hot 
+__label__false pretty
+__label__false yes [emoticon]
+__label__true imu
+__label__false devastating
+__label__true looks like a paid promotion [emoticon]
+__label__true what movie is it  
+__label__false good gallery
+__label__true have you a personal trainer  
+__label__false grotesque
+__label__true let us know how was the movie 
+__label__false top
+__label__false handsome
+__label__false insane
+__label__true hi  you inspire me everyday 
+__label__true mistakes makes us stronger 
+__label__true uufff i can't take it 
+__label__false gorgeus dress
+__label__true go siss
+__label__true when the sun will rise i will kill you
+__label__false followforfollow
+__label__true ahah i love you
+__label__false top
+__label__false good gallery Write me on direct
+__label__false magic [emoticon]
+__label__false hi follow me
+__label__true love you two 
+__label__true where did you buy it  
+__label__true mm i don't mind going there you know
+__label__true you guys are so cute together
+__label__true omg you are a fantastic painter 
+__label__false woooow so beautiful
+__label__true it's a shame 
+__label__true vanessa looks so stellar
+__label__true wow that dress is the one i always wanted for christmas
+__label__false splendid
+__label__false lets collab
+__label__false message us
+__label__true you are my fucking queen [emoticon]
+__label__true tag yes yes 
+__label__true fun
+__label__true you are so cute baby
+__label__false you’re beautiful [emoticon]
+__label__false daghagj
+__label__true but truly … still looks exactly the same [emoticon]                
+__label__false angelic
+__label__true what movie is it from 
+__label__true wow that dress on you [emoticon] oh yes 
+__label__false graceful
+__label__false wow
+__label__false fair
+__label__false appealing
+__label__false ridiculous
+__label__true not bad but i can do better
+__label__true to be between these two humans [emoticon]
+__label__true yes you can do it by yourself now
+__label__true miss you  
+__label__true yankees one loveee [emoticon]
+__label__true it's so epic 
+__label__false like this comment so more people could see it thank you
+__label__true adventure
+__label__false foxy
+__label__false awesome
+__label__true marry me
+__label__false comely
+__label__true let's get started
+__label__false great
+__label__true this shot is amazing 
+__label__true let's make it sister [emoticon]
+__label__false dm us
+__label__false cool picture [emoticon]
+__label__false fair
+__label__true ugh so pretty [emoticon] [emoticon]
+__label__true the nice part of the story is yet to came
+__label__false exotic
+__label__true i don’t share your point of view  
+__label__false fascinating
+__label__true yes i really like the way you act
+__label__false foolproof
+__label__false ideal
+__label__true merry christmass to you all 
+__label__true gym guy
+__label__true am i the only one who didn’t know who was who at first 
+__label__true what would you say to him
+__label__false unreal
+__label__true your day it's very lit ahah
+__label__true he love this picture 
+__label__false dazzling
+__label__false please keep doing this
+__label__true you are like perfect and this is unfair [emoticon]
+__label__false delicate
+__label__false ludicrous
+__label__false divine
+__label__false wow
+__label__false love it
+__label__false follow4follow
+__label__false stunning
+__label__false superb
+__label__false delightful
+__label__true omg did she just say 24 y ago  
+__label__true omg is he 21  
+__label__true penny you look great [emoticon]
+__label__false what an amazing shot
+__label__true them earrings tho 
+__label__false my favourite [emoticon]
+__label__false sensational
+__label__true do what you're doing guy [emoticon]
+__label__true he have won over you're a great guy now
+__label__false oh yes amazing
+__label__false style [emoticon]
+__label__false print
+__label__true damn you look good [emoticon]
+__label__false write me on direct [emoticon]
+__label__false wow i like u
+__label__true god damn [emoticon]
+__label__false very nice [emoticon] [emoticon]
+__label__true ok are you in
+__label__false perfect look [emoticon]
+__label__true the best movie i've evere seen
+__label__true i have that shirt too  [emoticon]
+__label__false please check your dms thank you [emoticon]
+__label__true bestfriendsss [emoticon]
+__label__true couple goals 
+__label__true omg you changed so much 
+__label__true omg you are a angel
+__label__true the judges didn’t get anything 
+__label__false hi [emoticon] [emoticon] good pic [emoticon]
+__label__true a true hero 
+__label__false excellent
+__label__true congratulations 
+__label__false photo
+__label__true basically youre doing it for him
+__label__true you look so stunning sarah  
+__label__true we can go there tomorrow if you want
+__label__false fascinating
+__label__false hey guys [emoticon] i’m a rapper from asia tryna spread my sound please like this comment
+__label__true wonderful place oh yes i love it
+__label__true your cat is so funny ahah
+__label__false yes love
+__label__true you put much of effort in those things
+__label__true this picture is breathtaking
+__label__false great
+__label__false very beautiful
+__label__false queen
+__label__false send me a message
+__label__false contact us 
+__label__true oh yes i can see it from the bars
+__label__true sooo sexyyyy
+__label__true he’s getting so old [emoticon] [emoticon] 
+__label__true what you would alike tomorrow in the morning
+__label__true incompetent judges  [emoticon]  
+__label__false implausible
+__label__false hello [emoticon]
+__label__true there you go you are the best
+__label__true you keep winning in parenting [emoticon]
+__label__false go like her pic 
+__label__true um okay good for you
+__label__false charming
+__label__true what an amazing place to live with you baby
+__label__false okay
+__label__true wait that's illegal [emoticon]
+__label__false perfection
+__label__false amazing
+__label__true phill is the best tv dade ever 
+__label__true so right  legend [emoticon] [emoticon]
+__label__true are you ok 
+__label__true for me you are totally wrong 
+__label__false marvelous
+__label__false like4like
+__label__false preposterous
+__label__false fine
+__label__false superior
+__label__true worse than ever before
+__label__false perfect gallery
+__label__false wonderful
+__label__false excellent
+__label__false i make cover art logos and flyers dm me if you wanna work
+__label__true glad to see you happy babe
+__label__true yooo this is dope [emoticon] [emoticon] [emoticon]
+__label__true i would take him just for that
+__label__false bewitching
+__label__false lovely
+__label__false you have an awesome gallery [emoticon]
+__label__false marvelous
+__label__false l4f
+__label__true ilu 
+__label__false absurd
+__label__false oh yes
+__label__false [emoticon] good job [emoticon]
+__label__true omg this was you love this movie
+__label__false incredible
+__label__true don't change dear  stay who you are
+__label__false wonderful pic
+__label__false pure
+__label__true best caption ever ahah
+__label__true i am speechless you are really amazing 
+__label__true i love you guys
+__label__false good
+__label__false image
+__label__true nobody can kill you ahah
+__label__true omg crying  love this 
+__label__false absolutely beautiful
+__label__false awesome
+__label__false gorgeous
+__label__false fantastic
+__label__false hey lovely [emoticon] [emoticon]
+__label__true just celebrated mine too 
+__label__false impeccable
+__label__true my dream is to watch you play for my team
+__label__false l4l
+__label__true i’m so sad you went out of the show [emoticon]
+__label__false crazy
+__label__false gorgeous
+__label__false write to us to collaborate
+__label__false impressive
+__label__false imaginative
+__label__false satisfying
+__label__true where did you buy the dress  
+__label__true you are too cute [emoticon]
+__label__false georgeous
+__label__false you have some great content [emoticon]
+__label__true uff you're so gorgeous
+__label__false i love your posts keep it up [emoticon]
+__label__false picture
+__label__false nice pic
+__label__false valuable
+__label__false follow4follow
+__label__false yes [emoticon]
+__label__true ugh i wanna be you babe [emoticon]
+__label__true oh my god it's so cute 
+__label__false so perfect
+__label__true you are so cute [emoticon]
+__label__false weird
+__label__true it was a really good show [emoticon]
+__label__false lets collab with our main channel
+__label__true beautiful halloween costumes
+__label__true those amazing costumes

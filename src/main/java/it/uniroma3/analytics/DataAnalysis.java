@@ -320,19 +320,23 @@ public class DataAnalysis {
 	//determino quanti commenti fake ci sono 
 
 	public int AnalyzeComments(List<Comment> commenti) {
-
-		int num_fake_per_post=0;        //numero di commenti ritenuti falsi (sopra il 75% prob)
+		
+		
+		int num_fake_per_post=0;        //numero di commenti ritenuti falsi (sopra il 80% prob)
 
 		this.jft.loadModel("src/main/resources/models/model.bin");    //carico il modello trainato
 
 		for(Comment c:commenti) {
+			
+			
 			double prob=this.TextClassification(c.getText());     //per ogni commento setto il livello di attendibilità 
 
 			c.setFalse_prob(prob);
 
 			this.commentService.inserisci(c);
 
-			if(prob>=0.80) num_fake_per_post+=1;                   //soglia del 75% di suspect
+			if(prob>=0.70) num_fake_per_post+=1;                   //soglia del 80% di suspect
+			
 		}
 		
 		return num_fake_per_post;
@@ -350,9 +354,13 @@ public class DataAnalysis {
 		//inserisco il valore della label false
 		if(probLabelList.get(0).label.equals("__label__false")) prob=Math.exp(probLabelList.get(0).logProb);
 		else prob=Math.exp(probLabelList.get(1).logProb);
-
+		
+		//debug
+		
+		String newText= processed_text.replace("\n", "");                  
+		
 		System.out.printf("\n[The label of '%s' is '%s' with probability %f]\n",
-				processed_text, probLabelList.get(0).label, Math.exp(probLabelList.get(0).logProb));
+				newText, probLabelList.get(0).label, Math.exp(probLabelList.get(0).logProb));
 		
 		return prob;
 	}

@@ -25,6 +25,8 @@ public class TextPreprocessing {
 		
 		processed_text=processed_text.replaceAll("\\@[A-Za-z0-9_.,!\"'/$]*", "tag ");   //rimuovo tutti i tag
 		
+		processed_text=processed_text.replaceAll("[.:;,\"!#?-]+", "");     //elimino la punteggiatura
+		
 		processed_text=processed_text.trim().replaceAll("\\s+"," ");   //elimino i doppi spazi
 		
 		processed_text=processed_text.concat("\n");        //per il bug della libreria di machine learning
@@ -38,7 +40,7 @@ public class TextPreprocessing {
 		
 		String processed_text=null;
 		
-		processed_text=EmojiParser.replaceAllEmojis(text, " [emoticon]");
+		processed_text=EmojiParser.replaceAllEmojis(text, " [emoticon] ");
 		
 		return processed_text;
 	}
