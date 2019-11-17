@@ -1,5 +1,8 @@
 package it.uniroma3.analytics;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +39,7 @@ public class DataAnalysis {
 
 	@Autowired
 	private ProfileSubjectService profileService;
-	
+
 	@Autowired 
 	private StatusService statusService;
 
@@ -45,21 +48,23 @@ public class DataAnalysis {
 	private ResearchStats rs;        //classe per i risultati dell'analisi
 
 	private ProfileSubject ps;       //profilo su cui si è basata la ricerca
+	
+	private FileWriter commentWriter;  //per scrivere i commenti con la loro classificazione su file di testo
 
 	public void StartDataAnalysis(String user) {
-		
+
 		if(!this.profileService.esiste(user)) {
 			System.out.println("\n[non esiste ancora una ricerca su questo username, prima creala]\n");
 			return ;
 		}
-		
+
 		if(!statusService.cercaPerUsernameSubject(user).getNextFollower().equals("finito") ||
 				!statusService.cercaPerUsernameSubject(user).getNextFollowing().equals("finito")) {
 			System.out.println("\n[la ricerca su questo user non è finita, alcuni dati potrebbero mancare, prima terminala]\n");
 			return ;
-			
+
 		}
-		
+
 		//ricerco il profilo di cui ho estratto i dati 
 		this.ps=this.profileService.cercaPerUsername(user);
 
@@ -67,16 +72,37 @@ public class DataAnalysis {
 		this.rs=new ResearchStats(user);
 
 		//analizzo i following del profilo
-		this.FollowingAnalysis();
+		try {
+			
+			this.FollowingAnalysis();
+		
+		}catch (IOException e1) {
+			System.out.println("[error creating new file (following_data)]\n");
+			e1.printStackTrace();
+		}
 
 		//analizzo i follower del profilo
-		this.FollowersAnalysis();
+		try {
+			
+			this.FollowersAnalysis();
+		
+		}catch (IOException e) {
+			System.out.println("[error creating new file (followers_data)]\n");
+			e.printStackTrace();
+		}
 
 		//inizializzo la classe della libreria da usare per la classification del testo
 		this.jft=new JFastText();    
 
 		//analizzo i post estratti e i relativi commenti
-		this.StudyMediaData();
+		try {
+			
+			this.StudyMediaData();
+			
+		} catch (IOException e) {
+			System.out.println("[error creating new file (comments_data)]\n");
+			e.printStackTrace();
+		}
 
 		//conto il numero di account privati con meno di 1k followers che l'utente segue
 		this.less1kprivateFollowing();
@@ -85,16 +111,19 @@ public class DataAnalysis {
 		this.lfr_calc();
 		this.ffr_calc();
 		this.cfr_calc();
-		
+
 		//salvo nel db i dati analizzati
 		this.researchService.inserisci(rs);
 	}
 
 	//per determinare numero medio di : like , commenti e hashtag 
-	public void StudyMediaData() {
+	public void StudyMediaData() throws IOException {
 
 		List<Media> posts=this.mediaService.getAllMediaByOwnerUser(this.rs.getUsername());
-
+		
+		//apro il file di testo su cui scrivere i commenti con la loro valutazione
+		this.commentWriter= createFile("comments_data");
+	
 		int num_comm=0;                     //tot comments
 		int num_comm_estratti=0;            //commments fetched from insta
 		int num_likes=0;
@@ -112,13 +141,15 @@ public class DataAnalysis {
 			num_hashtag+=this.extractAndCountHashtag(m.getCaption());
 
 			if(commenti!=null) {
-				
+
 				num_comm_estratti+=commenti.size();
-				
+
 				num_tot_fake+=this.AnalyzeComments(commenti);               //analizzo i commenti estratti per post     
 			}
 			commenti.clear();
 		}
+		
+		this.commentWriter.close();    //chiudo il writer dopo aver analizzato e scritto tutti i commenti        
 
 		this.rs.setPost_count(num_posts);
 
@@ -165,16 +196,16 @@ public class DataAnalysis {
 		ratio=followers_count/(double)following_count;
 
 		this.rs.setFfr(ratio);	
-		
+
 		this.rs.setFollowers_count(followers_count);
-		
+
 		this.rs.setFollowing_count(following_count);
 	}
 
 
 	//like to followers ratio calculation
 	public void lfr_calc() {
-		
+
 		int followers_count=this.ps.getProfile().getNum_followers();
 
 		double ratio=this.rs.getAvgLike_count()/followers_count;
@@ -184,7 +215,7 @@ public class DataAnalysis {
 
 	//comment to followers ratio calculation
 	public void cfr_calc(){
-		
+
 		int followers_count= this.ps.getProfile().getNum_followers();
 
 		double ratio=this.rs.getAvgComments_count()/followers_count;
@@ -195,7 +226,7 @@ public class DataAnalysis {
 
 	//engagement rate calculation
 	public void engagementRate_calc(int tot_likes_count,int tot_comm_count,int post_count) {
-		
+
 		double er=0;
 
 		int followers_count=this.ps.getProfile().getNum_followers();
@@ -208,42 +239,69 @@ public class DataAnalysis {
 	}
 
 
-	public void FollowingAnalysis() {
+	public void FollowingAnalysis() throws IOException {
+
+		FileWriter writer= createFile("following_data");
+		
 		int fake_following=0;
 
 		List<InstagramUserDB> following=this.ps.getFollowing();
 
 		for(InstagramUserDB user: following) {
-			
+
 			double value=this.AnalyzeUser(user);
 
-			if(value>=0.60) {                                                      //soglia del 65 % di suspect
+			if(value>=0.60) {                                                      //soglia del 60 % di suspect
 				fake_following+=1;
-				System.out.println(user.getUsername()+" con "+ value);
 			}
+			
+			//debug
+			writer.write(user.getUsername()+" con "+ value+"\n");                        //scrivo sul file l'username e il valore di suspect
+
 			value=0;
 		}
+		
+		writer.close();  //chiudo il file
 
 		this.rs.setSuspect_following_count(fake_following);
 	}
 
-	public void FollowersAnalysis() {
+	public void FollowersAnalysis() throws IOException {
+
+		FileWriter writer= createFile("followers_data");
+
 		int fake_followers=0;
 
 		List<InstagramUserDB> followers=this.ps.getFollowers();
 
 		for(InstagramUserDB user: followers) {
-			
-			double value=this.AnalyzeUser(user);
-			
-			if(value>=0.75) {
-				fake_followers+=1;                                     //mettere una soglia diversa????
-				System.out.println(user.getUsername()+" con "+ value);
-			}
-			value=0;                                                               //pesarlo diversamente dopo??
-		}
 
+			double value=this.AnalyzeUser(user);
+
+			if(value>=0.75) {
+				fake_followers+=1;                                                  //mettere una soglia diversa????
+			}
+
+			//debug
+			writer.write(user.getUsername()+" con "+ value+"\n");                        //scrivo sul file l'username e il valore di suspect
+			
+			value=0;                                                               
+		}
+		
+		writer.close();  //chiudo il file
+		
 		this.rs.setSuspect_followers_count(fake_followers);
+	}
+	
+	public FileWriter createFile(String name) throws IOException {
+		
+		File followers_data= new File("src/main/resources/data/"+name+".txt");
+		
+		followers_data.createNewFile();
+		
+		FileWriter writer= new FileWriter(followers_data);
+		
+		return writer;
 	}
 
 
@@ -253,7 +311,7 @@ public class DataAnalysis {
 		if(user.isVerified()) return 0;    //se l'account è verificato lo considero comunque genuino
 
 		if(user.getFullName().equals("fail")) return 0;     //se non ho potuto ottenere i dati non lo considero 
-		
+
 		if(user.getNum_following()!=0) {
 
 			double ratio=user.getNum_followers()/(double) user.getNum_following();
@@ -305,10 +363,11 @@ public class DataAnalysis {
 
 
 	//numero di account che il soggetto segue , con meno di 1000 followers e profilo privato 
+
 	public void less1kprivateFollowing() {
-		
+
 		int numero=0;
-		
+
 		for(InstagramUserDB user:this.ps.getFollowing()) {
 			if(user.getNum_followers()<=1000 && user.isPrivate()) numero++;
 		}
@@ -319,31 +378,31 @@ public class DataAnalysis {
 
 	//determino quanti commenti fake ci sono 
 
-	public int AnalyzeComments(List<Comment> commenti) {
-		
-		
-		int num_fake_per_post=0;        //numero di commenti ritenuti falsi (sopra il 80% prob)
+	public int AnalyzeComments(List<Comment> commenti) throws IOException {
+
+
+		int num_fake_per_post=0;        //numero di commenti ritenuti falsi (sopra il 70% prob)
 
 		this.jft.loadModel("src/main/resources/models/model.bin");    //carico il modello trainato
 
 		for(Comment c:commenti) {
-			
-			
+
+
 			double prob=this.TextClassification(c.getText());     //per ogni commento setto il livello di attendibilità 
 
 			c.setFalse_prob(prob);
 
 			this.commentService.inserisci(c);
 
-			if(prob>=0.70) num_fake_per_post+=1;                   //soglia del 80% di suspect
-			
+			if(prob>=0.70) num_fake_per_post+=1;                   //soglia del 70% di suspect
+
 		}
-		
+
 		return num_fake_per_post;
 	}
 
-	public double TextClassification(String text) {
-
+	public double TextClassification(String text) throws IOException {
+		
 		double prob;
 
 		//preprocessing del testo
@@ -354,13 +413,10 @@ public class DataAnalysis {
 		//inserisco il valore della label false
 		if(probLabelList.get(0).label.equals("__label__false")) prob=Math.exp(probLabelList.get(0).logProb);
 		else prob=Math.exp(probLabelList.get(1).logProb);
-		
+
 		//debug
-		
 		String newText= processed_text.replace("\n", "");                  
-		
-		System.out.printf("\n[The label of '%s' is '%s' with probability %f]\n",
-				newText, probLabelList.get(0).label, Math.exp(probLabelList.get(0).logProb));
+		this.commentWriter.write("\nThe label of '"+newText+"' is '"+probLabelList.get(0).label+"' with probability "+Math.exp(probLabelList.get(0).logProb));
 		
 		return prob;
 	}
