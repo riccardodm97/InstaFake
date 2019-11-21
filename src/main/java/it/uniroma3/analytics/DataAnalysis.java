@@ -3,6 +3,7 @@ package it.uniroma3.analytics;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,8 @@ public class DataAnalysis {
 	
 	private FileWriter commentWriter;  //per scrivere i commenti con la loro classificazione su file di testo
 
+	private DecimalFormat f= new DecimalFormat("0.00");   //per arrotondare i risultati alla seconda cifra decimale
+	
 	public void StartDataAnalysis(String user) {
 
 		if(!this.profileService.esiste(user)) {
@@ -250,13 +253,15 @@ public class DataAnalysis {
 		for(InstagramUserDB user: following) {
 
 			double value=this.AnalyzeUser(user);
+			
+			value=Double.parseDouble(f.format(value).replace(",", "."));             // per il problema di arrotondamento con i double
 
-			if(value>=0.60) {                                                      //soglia del 60 % di suspect
+			if(value>=0.70) {                                                      //soglia del 70 % di suspect
 				fake_following+=1;
 			}
 			
 			//debug
-			writer.write(user.getUsername()+" con "+ value+"\n");                        //scrivo sul file l'username e il valore di suspect
+			writer.write(user.getUsername()+" con "+ value +"\n");                        //scrivo sul file l'username e il valore di suspect
 
 			value=0;
 		}
@@ -277,13 +282,15 @@ public class DataAnalysis {
 		for(InstagramUserDB user: followers) {
 
 			double value=this.AnalyzeUser(user);
-
-			if(value>=0.75) {
+			
+			value=Double.parseDouble(f.format(value).replace(",", "."));             // per il problema di arrotondamento con i double
+			
+			if(value>=0.80) {                                                       
 				fake_followers+=1;                                                  //mettere una soglia diversa????
 			}
 
 			//debug
-			writer.write(user.getUsername()+" con "+ value+"\n");                        //scrivo sul file l'username e il valore di suspect
+			writer.write(user.getUsername()+" con "+ value +"\n");                        //scrivo sul file l'username e il valore di suspect
 			
 			value=0;                                                               
 		}
@@ -306,6 +313,7 @@ public class DataAnalysis {
 
 
 	public double AnalyzeUser(InstagramUserDB user) {
+		
 		double value=0.0;
 
 		if(user.isVerified()) return 0;    //se l'account è verificato lo considero comunque genuino
@@ -316,27 +324,32 @@ public class DataAnalysis {
 
 			double ratio=user.getNum_followers()/(double) user.getNum_following();
 
-			if(user.getNum_followers()<=3000) {                    //inserire la condizione o no?? ratio bassa anche se account seguito ?? 
+			if(user.getNum_followers()<=3000) {                    //inserire la condizione ?? ratio bassa anche se account seguito ?? 
 
 				if (ratio<=0.5 && ratio>0.2) value+=0.1; 
 				if (ratio<=0.2) value+=0.2;                        
 
 			}
+			else {
+				if (ratio<=1.1) value+=0.2; 
+			}
 		}	
 
-		if(user.getNum_followers()<=15) value+=0.1;
+		if(!user.isPrivate() && user.getNum_followers()<=15) value+=0.1;
+		if(user.isPrivate() &&  user.getNum_followers()<=15) value+=0.2;
 
 		if(user.getNum_following()>=1500 && user.getNum_following()<3000) value+=0.1;
-		if(user.getNum_following()>=3000) value+=0.2;
+		if(user.getNum_following()>=3000 && user.getNum_following()<5000) value+=0.2;
+		if(user.getNum_following()>=5000) value+=0.3;
 
-		if(user.getNum_posts()<=5) value+=0.15;
-		if(user.getNum_posts()>5 && user.getNum_posts()<=10) value+=0.05;
+		if(user.getNum_posts()<=5 && !user.has_anonymous_profile_pic()) value+=0.1;
+		if(user.getNum_posts()<=5 && user.has_anonymous_profile_pic()) value+=0.2;
 
 		if(user.has_anonymous_profile_pic()) value+=0.3;
 
 		if(!StringUtils.hasText(user.getBio())) value+=0.2;
 
-		if(!user.isPrivate() && user.getNum_tags()<=5) value+=0.1;
+		if(!user.isPrivate() && user.getNum_tags()<=3) value+=0.1;
 
 		if(this.alphabeticRatio(user.getUsername())<=0.4) value+=0.1;
 
@@ -348,8 +361,8 @@ public class DataAnalysis {
 	public float alphabeticRatio(String username) {
 
 		float ratio;
-
 		int count=0;
+		
 		for (int i=0; i<username.length(); i++) {
 			if (Character.isLetter(username.charAt(i))) {
 				count++;  

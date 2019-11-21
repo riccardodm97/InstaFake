@@ -116,7 +116,9 @@ public class DataService {
 		p.setPosts(media);
 
 		this.profileService.inserisci(p);
-
+		
+		System.out.println("la prima parte della ricerca è terminata, completala più tardi\n");
+		
 		return ;
 
 	}
@@ -157,8 +159,8 @@ public class DataService {
 
 		}
 
-		System.out.println("\n[questa parte della ricerca è terminata]\n");
-
+		System.out.println("\n[questa parte della ricerca è terminata , completala più tardi]\n");
+		
 		this.statusService.inserisci(status);
 
 		return ;
