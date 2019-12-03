@@ -1,4 +1,4 @@
-package it.uniroma3.service;
+package it.uniroma3.instaService;
 
 import java.io.IOException;
 

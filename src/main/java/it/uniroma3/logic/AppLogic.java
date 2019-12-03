@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 import it.uniroma3.analytics.DataAnalysis;
 import it.uniroma3.analytics.FinalResult;
-import it.uniroma3.service.AuthService;
-import it.uniroma3.service.DataService;
+import it.uniroma3.instaService.AuthService;
+import it.uniroma3.instaService.DataService;
 
 @Component
 public class AppLogic {
@@ -50,7 +50,7 @@ public class AppLogic {
 			
 			this.dataservice.Search(account);                                          //inizio la ricerca dell'account scelto
 			
-			br.close();
+			br.close();                                                                //spostarlo prima? problema non terminazione app
 			break;
 		
 		case "2":

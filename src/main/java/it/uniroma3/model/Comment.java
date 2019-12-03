@@ -15,7 +15,7 @@ public class Comment {
 	private long pk;
 
 	/*@ManyToOne
-	private InstagramUserDB owner;*/  //se gia c'è inserisco il collegamento altrimenti devo salvare un nuovo user 
+	private InstagramUserDB owner;*/  //proprietario del commento
 	
 	@Column(length=100000)
 	private String text;

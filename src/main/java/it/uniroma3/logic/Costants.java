@@ -5,12 +5,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Costants {
 	
-	private final String username="rentit.infoapp";
-	private final String password="RentXApp00.";
+	//inserire username e password di un account instagram esistente a cui si ha accesso
 	
-	private final int num_cicli=5;
-	private final boolean num_cicli_valido=false;
-	
+	private final String username="user";          //rentit.infoapp
+	private final String password="password";       //RentXApp00.
 	
 	public String getUsername() {
 		return username;
@@ -18,11 +16,6 @@ public class Costants {
 	public String getPassword() {
 		return password;
 	}
-	public int getNum_cicli() {
-		return num_cicli;
-	}
-	public boolean isNum_cicli_valido() {
-		return num_cicli_valido;
-	}
+	
 	
 }

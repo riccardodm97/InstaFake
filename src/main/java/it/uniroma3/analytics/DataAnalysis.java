@@ -63,7 +63,7 @@ public class DataAnalysis {
 
 		if(!statusService.cercaPerUsernameSubject(user).getNextFollower().equals("finito") ||
 				!statusService.cercaPerUsernameSubject(user).getNextFollowing().equals("finito")) {
-			System.out.println("\n[la ricerca su questo user non è finita, alcuni dati potrebbero mancare, prima terminala]\n");
+			System.out.println("\n[la ricerca su questo user non è finita, alcuni dati potrebbero mancare, terminala prima di procedere]\n");
 			return ;
 
 		}
@@ -256,11 +256,11 @@ public class DataAnalysis {
 			
 			value=Double.parseDouble(f.format(value).replace(",", "."));             // per il problema di arrotondamento con i double
 
-			if(value>=0.70) {                                                      //soglia del 70 % di suspect
+			if(value>=0.60) {                                                      //soglia del 60 % di suspect
 				fake_following+=1;
 			}
 			
-			//debug
+			
 			writer.write(user.getUsername()+" con "+ value +"\n");                        //scrivo sul file l'username e il valore di suspect
 
 			value=0;
@@ -286,10 +286,10 @@ public class DataAnalysis {
 			value=Double.parseDouble(f.format(value).replace(",", "."));             // per il problema di arrotondamento con i double
 			
 			if(value>=0.80) {                                                       
-				fake_followers+=1;                                                  //mettere una soglia diversa????
+				fake_followers+=1;                                                 
 			}
 
-			//debug
+			
 			writer.write(user.getUsername()+" con "+ value +"\n");                        //scrivo sul file l'username e il valore di suspect
 			
 			value=0;                                                               
@@ -407,7 +407,7 @@ public class DataAnalysis {
 
 			this.commentService.inserisci(c);
 
-			if(prob>=0.70) num_fake_per_post+=1;                   //soglia del 70% di suspect
+			if(prob>=0.80) num_fake_per_post+=1;                   //soglia del 80% di suspect
 
 		}
 

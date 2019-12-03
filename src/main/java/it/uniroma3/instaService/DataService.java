@@ -1,4 +1,4 @@
-package it.uniroma3.service;
+package it.uniroma3.instaService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +28,11 @@ import it.uniroma3.model.InstagramUserDB;
 import it.uniroma3.model.Media;
 import it.uniroma3.model.ProfileSubject;
 import it.uniroma3.model.Status;
+import it.uniroma3.service.CommentService;
+import it.uniroma3.service.InstagramUserDBService;
+import it.uniroma3.service.MediaService;
+import it.uniroma3.service.ProfileSubjectService;
+import it.uniroma3.service.StatusService;
 
 @Service
 public class DataService {
@@ -178,7 +183,9 @@ public class DataService {
 		}
 
 		List<InstagramUserDB> usersLimited = usersList.stream().skip(index).limit(1000).collect(Collectors.toList());
-
+		
+		//la riga sopra genera una lista di max mille utenti (di cui poi andranno presi i dati) a partire dall'ultimo della precedente ricerca
+		
 		//debug
 
 		System.out.println("\n"+usersLimited.size()+" elementi nella lista:");
@@ -206,7 +213,7 @@ public class DataService {
 		
 			InstagramUserDB userDB;                     //utente da aggiornare con i dati da insta
 			
-			if(!result.getStatus().equals("fail")) {
+			if(!result.getStatus().equals("fail")) {    //se lo status è fail c'è stato un problema da gestire
 
 				userDB = SetSingleUserData(result.getUser()); //setto i dati di ogni followed (following)
 			}
@@ -218,7 +225,7 @@ public class DataService {
 			
 			this.instaUserDBService.inserisci(userDB);
 
-			TimeUnit.SECONDS.sleep(1); //simula l'uso di un utente
+			TimeUnit.SECONDS.sleep(1); //simula l'uso di un utente , non è detto che sia necessario ma a volte instagram blocca le richieste
 
 		}
 
@@ -235,7 +242,7 @@ public class DataService {
 
 			InstagramUserDB user=SetSingleUserData(userResult.getUser());
 
-			this.instaUserDBService.inserisci(user);
+			this.instaUserDBService.inserisci(user);            //inserisco anche il soggetto nel db come utente
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -329,7 +336,7 @@ public class DataService {
 	public List<Media> FetchMediaData(ProfileSubject p,InstagramSearchUsernameResult userResult) throws Exception{
 
 		InstagramFeedResult feed= instagram.sendRequest(new InstagramUserFeedRequest(userResult.getUser().getPk()));
-		List<InstagramFeedItem> lista=feed.getItems();
+		List<InstagramFeedItem> lista=feed.getItems();                                       // solo una richiesta, prende generalmente 15 post
 
 		System.out.println("[fetched post items: "+lista.size()+"]");
 
@@ -358,7 +365,7 @@ public class DataService {
 			InstagramGetMediaCommentsRequest request = new InstagramGetMediaCommentsRequest(id, nextMaxId);
 			InstagramGetMediaCommentsResult commentsResult = instagram.sendRequest(request);
 
-			List<InstagramComment> Instacomments = commentsResult.getComments();
+			List<InstagramComment> Instacomments = commentsResult.getComments();    
 
 			System.out.println("[fetched comments: "+Instacomments.size()+"]");
 
@@ -375,7 +382,7 @@ public class DataService {
 
 				if(lastComment == null) lastComment = String.valueOf(Instacomment.getPk());
 
-				TimeUnit.SECONDS.sleep(1);
+				//TimeUnit.SECONDS.sleep(1); serve in caso io prenda anche le info sul proprietario del commento da instagram
 
 			}
 			nextMaxId = commentsResult.getNext_max_id();
