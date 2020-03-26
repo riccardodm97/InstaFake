@@ -135,6 +135,7 @@ public class DataAnalysis {
 		int num_posts=posts.size();
 
 		for(Media m: posts) {
+			
 			List<Comment> commenti=m.getComments();
 
 			num_likes+=m.getNum_likes();
@@ -324,8 +325,9 @@ public class DataAnalysis {
 
 			double ratio=user.getNum_followers()/(double) user.getNum_following();
 
-			if(user.getNum_followers()<=3000) {                    //inserire la condizione ?? ratio bassa anche se account seguito ?? 
-
+			if(user.getNum_followers()<=7500) {       //condizione sotto i 7500 perchè sopra può solo aumentare
+				
+			  //if (ratio<=1 && ratio>0.5)    value+=0.05;       //inserire questa condizione 
 				if (ratio<=0.5 && ratio>0.2) value+=0.1; 
 				if (ratio<=0.2) value+=0.2;                        
 
@@ -336,7 +338,7 @@ public class DataAnalysis {
 		}	
 
 		if(!user.isPrivate() && user.getNum_followers()<=15) value+=0.1;
-		if(user.isPrivate() &&  user.getNum_followers()<=15) value+=0.2;
+		if(!user.isPrivate() &&  user.getNum_followers()<=10) value+=0.2;
 
 		if(user.getNum_following()>=1500 && user.getNum_following()<3000) value+=0.1;
 		if(user.getNum_following()>=3000 && user.getNum_following()<5000) value+=0.2;

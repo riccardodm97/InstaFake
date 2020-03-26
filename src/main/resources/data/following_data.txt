@@ -73,7 +73,7 @@ moe.ashkar76 con 0.0
 tharrison2220 con 0.2
 domchia_23 con 0.2
 gabenugent3 con 0.0
-yovngdonn con 0.4
+yovngdonn con 0.2
 sarchew32 con 0.2
 nina_swan20 con 0.0
 _avabianchi con 0.0
@@ -96,7 +96,7 @@ jarrett_odorisi con 0.0
 briiblockk023 con 0.0
 yis_mey_ri con 0.1
 faith_snipes con 0.0
-missdita.xo con 0.5
+missdita.xo con 0.3
 gracelfjerms con 0.0
 alex_reale1 con 0.0
 ariana.bianchi con 0.0
@@ -504,7 +504,7 @@ anayaruiz con 0.0
 swayfon.0 con 0.1
 annacole__ con 0.2
 xanmanant9 con 0.3
-infamouscrime con 0.4
+infamouscrime con 0.2
 abuabraha con 0.0
 laurenellie19 con 0.2
 whosethatgirlxo con 0.0

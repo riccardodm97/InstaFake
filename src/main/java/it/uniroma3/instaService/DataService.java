@@ -382,7 +382,7 @@ public class DataService {
 
 				if(lastComment == null) lastComment = String.valueOf(Instacomment.getPk());
 
-				//TimeUnit.SECONDS.sleep(1); serve in caso io prenda anche le info sul proprietario del commento da instagram
+				//TimeUnit.SECONDS.sleep(1);                  è necessario in questo caso? 
 
 			}
 			nextMaxId = commentsResult.getNext_max_id();

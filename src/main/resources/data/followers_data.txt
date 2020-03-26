@@ -10,7 +10,7 @@ landon.calabrese con 0.0
 dondelanalife con 0.7
 stephenvanness con 0.0
 ivan_spammm_19 con 0.0
-buschbeckdaniel con 0.5
+buschbeckdaniel con 0.3
 robflood_ con 0.1
 904_nar01 con 0.2
 unoxgus con 0.3
@@ -37,11 +37,11 @@ jeremysmith_ con 0.2
 aaron_arden con 0.2
 marshallgallagher con 0.2
 traithatruth con 0.1
-judd_powell99 con 0.4
+judd_powell99 con 0.2
 n_o_a_h_o con 0.1
 youngmicheal con 0.1
 jordanzrios con 0.2
-jdh_era99 con 0.7
+jdh_era99 con 0.5
 nick_gervase con 0.4
 stayy_classy_ con 0.1
 3mranch con 0.3
@@ -155,7 +155,7 @@ alexvndertoro con 0.1
 jaycinnyc con 0.3
 boettcherboy con 0.1
 mikeybyrne20 con 0.1
-core.biggaveli con 0.5
+core.biggaveli con 0.3
 afrederiks con 0.3
 jon_swifts con 0.2
 shadecaptain con 0.7
@@ -248,7 +248,7 @@ jy_park23 con 0.0
 rorrysadie con 1.3
 gee.manley con 0.1
 ct_01duke con 0.2
-quesoheadhuncho con 0.5
+quesoheadhuncho con 0.3
 yungsmilez17 con 0.0
 holederrick con 0.5
 moe.ossama_ con 0.1
@@ -285,7 +285,7 @@ coachfowler_ con 0.1
 niko.is con 0.0
 tristanronzo con 0.3
 sapebeisca con 0.0
-brandonkirkbilberry con 0.5
+brandonkirkbilberry con 0.3
 th3millzkillz con 0.2
 apvisualz92 con 0.1
 splendid_j1 con 0.3
@@ -298,7 +298,7 @@ phatballer con 0.2
 jackdantonio con 0.2
 yung_paris.xo con 0.1
 badchambers con 0.0
-dj.foreign_ con 0.4
+dj.foreign_ con 0.2
 dpond24 con 0.3
 dylan67bone25 con 0.2
 noe.chacon.7 con 0.3
@@ -359,7 +359,7 @@ rosinko_de_mayo con 0.1
 tyler.og123 con 0.5
 shiloh_lowrider con 0.1
 emoneysniper con 0.1
-starrx.mn__ con 0.5
+starrx.mn__ con 0.3
 jburtz02 con 0.2
 iamtylerpauley con 0.0
 stock_sniper44 con 0.1
@@ -376,7 +376,7 @@ javi_rocha14 con 0.0
 corderojr1 con 0.5
 rodriguezz_05 con 0.2
 mr.joness con 0.2
-take.one.dess con 0.6
+take.one.dess con 0.4
 yaboiwiththe350 con 0.0
 kadon_wyzard con 0.2
 the.cheff_ con 0.2
@@ -421,7 +421,7 @@ armando.b00 con 0.0
 a_dub22__ con 0.1
 monty_python162 con 0.3
 enriquekiks con 0.2
-zxvv con 0.5
+zxvv con 0.3
 _promise_31 con 0.1
 nubbz_12 con 0.4
 andrewdeluna__ con 0.0
@@ -500,7 +500,7 @@ patrickplemmons con 0.2
 brock20tate con 0.0
 maddiiieshook con 0.0
 drey.buckets con 0.1
-1moneyhimself con 0.5
+1moneyhimself con 0.3
 brandin_ross con 0.1
 _ashleyshortino con 0.0
 robert.riley25 con 0.6
@@ -528,7 +528,7 @@ d1back con 0.1
 fatboyjb_23 con 0.3
 edison_ovalle12 con 0.0
 nolimitduke60 con 0.1
-daeztheproducer con 0.5
+daeztheproducer con 0.3
 itz_lewii con 0.0
 graysonwhite23 con 0.0
 ashley_walliser con 0.0
@@ -567,7 +567,7 @@ cheeese_photography con 0.4
 vishnukachar con 0.0
 josephs20xyz con 0.2
 k.losey23 con 0.2
-kdp_kj con 0.4
+kdp_kj con 0.2
 thereal_lilqaun con 0.2
 jeb_bartenslager con 0.0
 p_reeves_jr con 0.0
@@ -659,7 +659,7 @@ kingmoemoney con 0.0
 jaredgentry__ con 0.2
 jt1hampton con 0.3
 blakeharris303 con 0.4
-will_guion55 con 0.5
+will_guion55 con 0.4
 erwinbernal610 con 0.3
 hector_cm7 con 0.0
 prettyboijah con 0.4
@@ -707,7 +707,7 @@ trialfail con 0.1
 qjenks con 0.4
 yuckfloyd con 0.1
 moneyrules17 con 0.7
-moneytrip1 con 0.4
+moneytrip1 con 0.2
 ocean_tyler_man con 0.2
 keenan.andrew47 con 0.0
 jakesorrow100 con 0.0
@@ -751,7 +751,7 @@ chandler_cason65 con 0.2
 blue_dragonzach_ con 0.3
 hunter_brannen16 con 0.3
 lord.ramirez con 0.0
-bam_keep_da_strap con 0.5
+bam_keep_da_strap con 0.3
 jay_0134 con 0.2
 thereallusiano con 0.0
 shelovestretv con 0.0
@@ -764,7 +764,7 @@ cbattey23 con 0.1
 c_breeze6 con 0.0
 kennedy_hernandez_ogrq con 0.2
 chunoloco con 0.1
-allan_thekidd con 0.5
+allan_thekidd con 0.3
 julitocg con 0.3
 motofye con 0.1
 jamalmciver0 con 0.2
@@ -914,7 +914,7 @@ bjornonord con 0.3
 walkingbucket_2 con 0.0
 ashto_n.w con 0.0
 tmills0403 con 0.0
-mernel904 con 0.5
+mernel904 con 0.3
 lil_lord13 con 0.3
 piersonlewis1 con 0.0
 dad_bod_not con 0.3
@@ -944,7 +944,7 @@ jayquan_granville con 0.3
 cristianbuehler con 0.0
 alexcox95 con 0.2
 jeremygarner918 con 0.5
-steven_deason_fishing con 0.5
+steven_deason_fishing con 0.3
 chris.mcc con 0.0
 raspal_mansahia_666 con 0.3
 ben.kozacko con 0.0
@@ -982,11 +982,11 @@ sta.zoomy con 0.1
 rone1k con 0.3
 sniper_jimmy35 con 0.3
 robjohnsteve con 0.0
-bthrower17 con 0.4
+bthrower17 con 0.2
 jwills2325 con 0.1
 cam_mcslacks con 0.3
 radzzzzzzzzzzzzz con 0.2
-luxurylovers777 con 0.6
+luxurylovers777 con 0.4
 luxury_bags_sh0p con 0.2
 tonicocv con 0.3
 mitchellatkins99 con 0.3
@@ -1027,7 +1027,7 @@ calebamering con 0.1
 danieldidonato17 con 0.2
 erkan_ersoy_ con 0.2
 anadalpinomakeup con 0.2
-lovelyemula con 0.6
+lovelyemula con 0.4
 thatslammed219 con 0.3
 rofozzi con 0.2
 mr.michaelwang con 0.4
@@ -1123,7 +1123,7 @@ _kelan_belsha_ con 0.1
 eastsacbaby con 0.4
 nando_jg89 con 0.3
 ian_kellyy con 0.1
-leeyeidz con 0.5
+leeyeidz con 0.4
 milot_ny01 con 0.1
 mxpanpete1212 con 0.1
 le_on8732 con 0.7
@@ -1169,7 +1169,7 @@ gotty_860 con 0.4
 chris_v1017 con 0.1
 tgoat427 con 0.3
 gavynj12 con 0.0
-nevalosinguap con 0.6
+nevalosinguap con 0.4
 e_morales805 con 0.2
 haileyjenningssss con 0.3
 jaybender20 con 0.7
@@ -1382,7 +1382,7 @@ leighton_myles con 0.2
 thereal_rehman con 0.2
 epiceddie3 con 0.0
 ig_mattesich con 0.1
-jonosakefestival con 0.7
+jonosakefestival con 0.5
 smith4u21 con 0.2
 devonc333 con 0.0
 grantjohnson2515 con 0.0
@@ -1511,7 +1511,7 @@ jillabhrams con 0.0
 yungzig_ con 0.2
 subbydreams con 0.1
 brand0nwahlberg con 0.4
-arawd_ag con 0.5
+arawd_ag con 0.3
 nacho_95 con 0.0
 savage_m3 con 0.0
 profexxor.x con 0.0
@@ -1570,7 +1570,7 @@ loudboy_double_a con 0.2
 michaeltaurosa_c con 0.3
 west_side_oli con 0.3
 tyler_morgan123 con 0.4
-rob_daunt con 0.5
+rob_daunt con 0.3
 ryboy75 con 0.0
 therealpapo_ con 0.1
 jordanferonee con 0.0
@@ -1585,7 +1585,7 @@ _gaetano_randazzo_ con 0.0
 litto_11 con 0.3
 fightingirish224 con 0.1
 steven_lowkey con 0.1
-mikey_med con 0.6
+mikey_med con 0.4
 lilmomo511 con 0.1
 austin_moscara con 0.1
 drew1027 con 0.0
@@ -1603,7 +1603,7 @@ sh.logan con 0.2
 rudanader con 0.1
 gsztyyhhhhhee con 0.3
 khanye.1 con 0.0
-dxshiblk con 0.4
+dxshiblk con 0.2
 ethanawolf con 0.0
 erikk500r con 0.1
 ricky__pellegrino7 con 0.0
@@ -1644,7 +1644,7 @@ joshualeemadrid con 0.7
 geffmediaworks_official con 0.5
 camilacosmetica con 0.4
 skamedis con 0.8
-vidaconalas con 0.5
+vidaconalas con 0.3
 hetahx con 0.4
 oyasumilunlun con 0.8
 hectordtox con 0.6
@@ -1701,14 +1701,14 @@ old_daechooooo con 0.5
 typographylovers con 0.2
 agenbioglassmcikarawang con 0.3
 r.e.t.onthebeat con 0.4
-stellarnotes con 0.5
+stellarnotes con 0.3
 dawidchrz con 0.6
 tatastyle520 con 0.4
 hidetaka1976 con 0.5
 goddessladypetite con 0.5
 firstscopeproductions con 0.6
 cup.sallent con 0.2
-ladysecret.id con 0.6
+ladysecret.id con 0.4
 guillermofunesrecalde con 1.2
 lamhua2001 con 0.4
 car_shutterbug con 0.5
@@ -1719,7 +1719,7 @@ ewaldshartfordford con 0.5
 dr.carlosazuara con 0.5
 sandemetrioclub con 0.7
 carolmarquezine4479 con 0.5
-simanomegumi con 0.6
+simanomegumi con 0.4
 clarencepenn con 0.2
 wanchicchic con 0.5
 lena_dor_ con 0.6
@@ -1742,7 +1742,7 @@ agenciaallthree con 0.3
 noobpics_uetikon con 0.7
 yumingfb0100 con 0.4
 petcenterinc con 0.8
-piabetofficial con 0.5
+piabetofficial con 0.3
 key_nation_id con 0.6
 driscollproperties con 0.7
 tricklabofficial con 0.5
@@ -1757,7 +1757,7 @@ lwonardo8 con 1.0
 nimbus_books con 0.2
 l.a.n.a.d.i.e con 0.6
 jagathiyawn con 1.0
-trehlo con 0.4
+trehlo con 0.2
 mongtok con 0.8
 perfect.proposals con 0.4
 marumi_filter con 0.2
@@ -1769,7 +1769,7 @@ krasivaiamebelkms con 0.5
 designhome2000 con 1.2
 kevbot10 con 0.5
 capitalautoimp con 0.3
-ligadonodentista con 0.6
+ligadonodentista con 0.4
 iceberg_inside con 0.5
 cristianolss con 0.7
 keivinvelasquez con 0.7
@@ -1968,7 +1968,7 @@ the___jme con 0.0
 positively con 0.0
 misheel.enkh con 0.0
 slverreign con 0.1
-cashboyenzo con 0.5
+cashboyenzo con 0.3
 steve.rock.0ll3h con 1.3
 _uhmcris con 0.3
 ricksykes305 con 0.3
@@ -2010,7 +2010,7 @@ jfrosavage con 0.1
 alex__wight con 0.0
 omarrwp_ con 0.0
 todayssssss con 1.1
-trueamericandream con 0.4
+trueamericandream con 0.2
 ljartigas con 0.4
 jacob.michael_smith con 0.0
 parkerjwhite con 0.0
@@ -2267,7 +2267,7 @@ devin_itzkowitz9 con 0.3
 gdortenziol con 0.3
 gambrino_380 con 0.2
 jetmirmcdonald con 0.0
-via.peso con 0.5
+via.peso con 0.3
 jessiegreyman con 0.6
 gregbond0007 con 0.6
 milito403 con 0.5
@@ -2348,7 +2348,7 @@ syedqasimabbas con 0.5
 __gio.98 con 0.2
 benitez_nj con 0.1
 cosmicsea89 con 0.1
-lil_disrespectful con 0.4
+lil_disrespectful con 0.2
 yeverino06 con 0.3
 outofthepic con 0.5
 jstnpccn con 0.0
@@ -2377,7 +2377,7 @@ edisson08_ con 0.2
 paidproent con 0.4
 kdjets con 0.0
 thesuperszabo con 0.1
-rafal006 con 0.5
+rafal006 con 0.3
 dangunth88 con 0.2
 travion.728 con 0.1
 michaelmoosejohnson con 0.6
@@ -2390,7 +2390,7 @@ b_waves con 0.0
 pauliedero con 0.2
 theboxbearnyc con 0.3
 ryan_wislock con 0.2
-_therealmattking con 0.5
+_therealmattking con 0.3
 jon_martinnn con 0.0
 william.the.bastard con 0.4
 alfredomusika con 0.1
@@ -2429,7 +2429,7 @@ antstevenss con 0.0
 ladiesman917xx con 0.5
 brent_sweeney con 0.2
 jaysonfriscia con 0.0
-mattwr2 con 0.4
+mattwr2 con 0.2
 rdxg.0 con 0.1
 mohrilla con 0.3
 matt_leonhardt con 0.2
@@ -2508,7 +2508,7 @@ kevinodonne11 con 0.2
 mwestrick88 con 0.9
 kurtludden19 con 0.4
 spoobyplease con 0.4
-therealjudahhunt_ con 0.5
+therealjudahhunt_ con 0.4
 ka24_bitxh con 0.1
 estheticswlee con 0.3
 zach_hamiltonn con 0.0
@@ -2534,7 +2534,7 @@ jonny_mandelbaum con 0.0
 albab0y con 0.2
 cassieventrone con 0.1
 sebastian___suarez con 0.3
-jayystvrr con 0.5
+jayystvrr con 0.3
 wesito__ con 0.2
 miggy_558 con 0.9
 greatness_7 con 0.5
@@ -2609,7 +2609,7 @@ joeyd_66 con 0.2
 the_life_of_cous con 0.0
 owensjf21 con 0.4
 beatsbyk48 con 0.0
-ill.visions con 0.4
+ill.visions con 0.2
 itznnuttynella con 0.4
 lintaobohan con 0.3
 clintonconyer con 0.2
@@ -2642,7 +2642,7 @@ quantprince con 0.6
 rottenzounds con 0.3
 austinparagas con 0.9
 mikehulley con 0.0
-shortyimlit con 0.5
+shortyimlit con 0.3
 mafiatattoo con 0.2
 susannopher con 0.7
 steveronin con 0.0
@@ -2704,7 +2704,7 @@ danielgillespie_ con 0.3
 death_trap07 con 0.2
 cowell_33 con 0.4
 anna_cathy_ con 0.1
-speed.bandit con 0.5
+speed.bandit con 0.4
 ryanjb55 con 0.2
 carter__2021 con 0.3
 z.a.n.e.m.c con 0.0
@@ -2738,7 +2738,7 @@ haoudo con 0.3
 tbenson209 con 0.2
 tomyp79 con 0.2
 hatch2012 con 0.3
-estrellajr con 0.6
+estrellajr con 0.4
 souleat3r_ con 0.5
 eli.t18 con 0.3
 popbrandpr con 0.7
@@ -2936,7 +2936,7 @@ breheny.z con 0.1
 lponceja con 0.1
 curlyhead.h00pers con 0.0
 jaypaull87 con 0.4
-tablavarez7 con 0.4
+tablavarez7 con 0.2
 j_wit22 con 0.2
 luiseduardomontas con 0.2
 sheperdade con 0.6
@@ -3181,7 +3181,7 @@ critiani123 con 1.3
 uosyou318 con 1.1
 h.l._damaverick con 0.4
 benhocson con 0.6
-cfclinic_origin con 0.5
+cfclinic_origin con 0.3
 smashmycamera con 0.7
 down22hold con 0.7
 anggiemedeiros con 0.9
@@ -3230,7 +3230,7 @@ michaelbergida con 0.2
 michaaael_izzo con 0.3
 austin_campbell35 con 0.2
 silvers95 con 0.2
-bamboopatton con 0.5
+bamboopatton con 0.3
 johnnyyy.emmm con 0.3
 jay_spade90 con 0.7
 gionaimo con 0.0
@@ -3399,7 +3399,7 @@ cohencohengone con 0.0
 james_bauckham con 0.0
 seankatonah con 0.2
 kgr55 con 0.3
-brioso21_ con 0.4
+brioso21_ con 0.2
 darkchocolate_love44 con 0.4
 chill.rell122 con 0.2
 brandonbsantos con 0.3
@@ -3424,7 +3424,7 @@ nathaniel_disalvo con 0.0
 allandawkins con 0.0
 danfreakingcucino con 0.0
 ardisasono6805 con 0.6
-benjamin.rosee con 0.4
+benjamin.rosee con 0.2
 randilldm con 0.7
 scrrapp con 0.2
 smdwgo con 1.1
@@ -3491,7 +3491,7 @@ dames_3 con 0.3
 migue_v12 con 0.2
 nuggetman36 con 0.4
 kayla.rudowski con 0.0
-yovngdonn con 0.4
+yovngdonn con 0.2
 909ricky_ con 0.5
 mannycandelaria702 con 0.0
 charlie.stevens_ con 0.2
@@ -3539,7 +3539,7 @@ max_dlfn con 0.7
 andres6574 con 0.0
 liammullen___ con 0.0
 armignacco18 con 0.3
-missdita.xo con 0.5
+missdita.xo con 0.3
 dyllan.leibenguth con 0.1
 ryanderosa20 con 0.1
 lukewain26 con 0.0
@@ -3625,7 +3625,7 @@ derek_favela12 con 0.1
 calebwi11iams con 0.0
 smithg1227 con 0.1
 elminaa_t con 0.0
-thehanleyproject con 0.5
+thehanleyproject con 0.3
 anthonycarmichael1 con 0.4
 kyler_pye con 0.0
 lisenba18 con 0.1
@@ -3888,7 +3888,7 @@ bonbon_et con 1.2
 jb.tranquille con 0.4
 daegiup_official con 0.7
 jaydenm2445 con 0.8
-sorkwkddldy con 0.6
+sorkwkddldy con 0.5
 testimonisofeya con 0.6
 you.lucky.dogg con 0.6
 sqwdmusic con 0.5
@@ -3930,7 +3930,7 @@ mad.boehme con 0.0
 drewkridler con 0.3
 mr_morehouse con 0.0
 deadacc123321321 con 0.3
-mariah_mullen_03 con 0.5
+mariah_mullen_03 con 0.4
 mikepavone_ con 0.1
 ashtoosmooth con 0.2
 mixedbabyyyy.kayyyy con 0.4
@@ -4485,7 +4485,7 @@ juliaakraft con 0.0
 ra.yan7539 con 0.6
 moe.ashkar76 con 0.0
 ken_vorisek con 0.5
-ermelindawines con 0.5
+ermelindawines con 0.3
 horstcastrop con 0.7
 curiousjournals con 0.4
 vivi.pang con 0.3
@@ -4543,7 +4543,7 @@ dylan.i.d.k.lol con 0.3
 carselli.chelseac con 0.1
 k8xlynnn con 0.0
 djbobby909 con 0.0
-_.graham_ con 0.8
+_.graham_ con 0.7
 chandlerglover1997 con 0.0
 the_wizard_of_cos con 0.3
 garrettmbrown2 con 0.3
@@ -4565,7 +4565,7 @@ tkoryt con 0.0
 tmaccarl6 con 1.1
 oliverandcohair con 0.3
 rachelici0us con 0.1
-larinha_buq con 0.5
+larinha_buq con 0.3
 t.ortega13 con 0.0
 teagan_mckane con 0.4
 gaura6519 con 0.6
@@ -4718,7 +4718,7 @@ evan.james.942145 con 0.4
 _.tuzca._ con 1.1
 codymc6.8 con 0.3
 andrewlpatrick_ con 0.2
-liliana__cruz_ con 0.5
+liliana__cruz_ con 0.3
 haythembelloumi con 0.5
 elvis8037 con 0.3
 softball_mania2018 con 0.4
@@ -4807,7 +4807,7 @@ samuelecobike con 0.3
 rickinhos67 con 1.2
 brunatamires15 con 0.5
 cacheada3c con 0.5
-sniperribeirao con 0.5
+sniperribeirao con 0.3
 canalftd con 0.9
 _anacarolina23 con 0.5
 nomepraque0000000 con 1.2
@@ -4902,7 +4902,7 @@ ali_abo_osem con 0.2
 gabenugent3 con 0.0
 gabby.wojtowicz con 0.3
 mariana.caroliny.75 con 0.6
-hollywood_vigilance con 0.5
+hollywood_vigilance con 0.3
 khalid_carmichael con 0.1
 juanvillarreal383 con 0.5
 stonded_afro con 0.1
@@ -4943,7 +4943,7 @@ abhishek_autade con 0.9
 official_vishal_7 con 1.0
 mizginafsin.258 con 0.8
 preetkaur3019 con 0.9
-lmsosdod con 1.3
+lmsosdod con 1.1
 jellyslimezzz con 0.5
 buhspkpali con 1.2
 ji.ja.ji.1 con 0.5
@@ -5026,7 +5026,7 @@ uoskeo con 1.1
 hacked_.0 con 1.2
 nooneshere2x con 1.3
 itsemily_k con 0.4
-313_rbj con 0.6
+313_rbj con 0.4
 graycencarter con 0.0
 dora_eze con 0.6
 maryasha_baby con 0.7
@@ -5069,7 +5069,7 @@ iai_jhon con 0.5
 nshdkosldl con 1.3
 gabi_winchesterrr con 0.6
 leneisajunior con 0.5
-caixadesom3 con 1.0
+caixadesom3 con 0.8
 oooknbikb con 0.8
 maah2134 con 0.9
 jamesgomes con 0.6
@@ -5079,7 +5079,7 @@ meujeitosafadinho con 0.6
 fnataly360 con 1.3
 c.gabriel_oficial con 0.6
 fc_stragerthings con 0.7
-fofoqueiras.cm con 0.7
+fofoqueiras.cm con 0.5
 gabrielafiliado con 0.6
 luan_di_ferraz con 0.5
 tania_ribeiros con 0.8
@@ -5204,7 +5204,7 @@ khy_fly_the_great2 con 0.0
 yuri9607 con 0.7
 paulithay.s2 con 0.6
 silvajuninho879 con 0.9
-infamouscrime con 0.4
+infamouscrime con 0.2
 cferrari_15 con 0.1
 esalvaggio con 0.2
 balackian con 0.7
@@ -5244,7 +5244,7 @@ amanndaaraujooficial con 0.5
 feliipeh_z8 con 0.9
 santosstauane con 0.7
 rayanny_viih con 0.6
-linsdecarizoreserva con 0.9
+linsdecarizoreserva con 0.8
 josuesouzapsc con 0.8
 palapheimported con 0.7
 baby_kaaaaaaaaa con 0.5
@@ -5384,7 +5384,7 @@ lexner_krrnz con 0.4
 dpulgar90 con 0.1
 halilkara383819683838 con 0.7
 jose_icaro14 con 0.4
-meli_oquendo con 0.5
+meli_oquendo con 0.3
 kg2___ con 0.2
 vinnyalongi21 con 0.0
 jiolapaco9 con 0.0
@@ -5615,7 +5615,7 @@ stefhany_geovanna con 0.9
 raiih.silv con 0.5
 silliebrazil con 0.9
 leeh_canteiro con 0.6
-insta.models50 con 0.6
+insta.models50 con 0.4
 sebjoe123 con 0.3
 tim_therapperactor1995 con 0.5
 faah_trindade con 0.9
@@ -5629,7 +5629,7 @@ deisenunesbolos con 0.9
 pedrinhosenamoraes con 0.9
 wykiana.marie con 0.3
 _ronniew23 con 0.6
-mike1uzu con 0.5
+mike1uzu con 0.3
 _keepingupwithdess con 0.3
 shaniedazzlef con 0.5
 quartetofantastico1 con 0.8
@@ -5901,7 +5901,7 @@ h._.ppy con 0.8
 matheusz_olliveirakk con 0.6
 brunoestelita con 0.6
 victorbiel713 con 1.1
-hfmultimarcas_ con 0.5
+hfmultimarcas_ con 0.3
 martynsemilly con 0.7
 doos_cachos con 0.5
 thiiago_mendes69 con 0.6
@@ -5949,7 +5949,7 @@ jyslancarlos con 0.9
 mc21.c85 con 0.9
 thamyres6380 con 0.5
 ofcmedeiros con 0.7
-rogerinho_souza1 con 0.5
+rogerinho_souza1 con 0.3
 kaaah_oliveeiraa con 0.6
 vulgooh_lmd con 0.7
 guilhermenicolas89 con 0.8
@@ -6070,7 +6070,7 @@ daniel.oliveira.po520 con 0.9
 geovanaa_b con 0.5
 carrascopjl con 0.8
 imenndes con 0.5
-emidio7355 con 1.3
+emidio7355 con 1.1
 daniel_ravye con 0.9
 cartolafc.times con 0.8
 wender_antonio12 con 0.9
@@ -6091,7 +6091,7 @@ derlaynneangella con 0.9
 sandrasantos5955 con 1.2
 _juan.diogo con 0.8
 rudrian_carlos_oliveira_barbos con 0.8
-thiagoh_th con 0.5
+thiagoh_th con 0.3
 ervan_chaves con 0.5
 lipinhow_rd con 0.6
 cassya_santtoss con 0.8
@@ -6321,7 +6321,7 @@ lukeschneider25_ con 0.1
 cheaterherbo__ con 0.2
 jajajaustin con 0.4
 adin__roy con 0.3
-marcopolo4l con 0.5
+marcopolo4l con 0.3
 wadertom15 con 0.0
 kasialanaa con 0.0
 sethquandahor con 0.4
@@ -6424,7 +6424,7 @@ sydniespeck03 con 0.1
 _allllhn511 con 0.5
 aracelyaguirre_aka27 con 0.3
 _27.ap con 0.7
-jio585 con 0.4
+jio585 con 0.2
 _nelicia_64 con 0.3
 smartzzsmall1795 con 0.5
 alexblazejewski234 con 0.4
@@ -6630,7 +6630,7 @@ _dylantduffy con 0.0
 ariel_w2413 con 0.0
 legalizedobucki con 0.1
 eazya1313 con 0.6
-_nyc.resee_ con 0.5
+_nyc.resee_ con 0.3
 chyniababbie con 0.6
 oliviatruelson1 con 0.2
 drench.__.god con 0.5
@@ -6857,7 +6857,7 @@ adidasx_2 con 0.2
 sweetie_bvby con 0.0
 angiecooortes con 0.7
 ebben532597 con 0.6
-conceitedbabyy.q con 0.6
+conceitedbabyy.q con 0.5
 freyacollin290 con 0.7
 anarosa.roze con 0.5
 _albina_moon_ con 0.1
@@ -6886,7 +6886,7 @@ rachel.gauger con 0.3
 dev_dedev53 con 0.2
 _kary_nava_ con 0.4
 tay_clark17 con 0.2
-blue.dreamz.cc con 0.5
+blue.dreamz.cc con 0.3
 __joshuwa con 0.0
 thevision_17 con 0.7
 alex.dioguardi1 con 0.0
@@ -7172,7 +7172,7 @@ e.m.d2020 con 0.6
 tay_loyalty_before_royalty con 0.3
 prim3time07 con 0.3
 what.fdq con 1.1
-di.yanna con 0.7
+di.yanna con 0.5
 neno.i con 0.0
 bbplayerkid99 con 0.5
 o.horoscopes_daily.o con 0.2
@@ -7213,7 +7213,7 @@ jaedynyoung con 0.0
 allison_boy_101919 con 0.4
 fowziaabukar23 con 1.1
 temptationnn con 0.7
-theylovemaniii con 0.7
+theylovemaniii con 0.5
 jellythesavagefan con 0.2
 mack_3996 con 0.6
 zetty_jun con 0.2
@@ -7228,7 +7228,7 @@ monicanatasya1 con 0.5
 lorenzaflores90 con 0.3
 izzy_ah con 0.1
 anime_is_the_core_to_a_apple con 0.4
-sixt33n._figur3z con 0.5
+sixt33n._figur3z con 0.4
 fayeb_jalaly con 0.7
 kya_duhhh con 0.2
 the_queen_cruz con 0.2
@@ -7287,7 +7287,7 @@ theonehitwonderslv con 0.2
 ashleesimpson00 con 0.5
 kateecusackk con 0.2
 wooinengchong1795 con 0.7
-iamthalesj con 0.6
+iamthalesj con 0.4
 olismith8 con 0.0
 _.let.go_ con 0.2
 nmexpress_ con 0.3
@@ -7350,7 +7350,7 @@ monamoursel con 0.1
 my_baek_99 con 0.6
 jake_albright1848 con 0.2
 su_s_k.y con 0.2
-baddting con 0.5
+baddting con 0.3
 tatianna7724 con 0.4
 thecalcut con 0.7
 amani_matara99 con 0.3
@@ -7475,7 +7475,7 @@ zoey9567 con 0.5
 tavo7061 con 0.7
 yunita_stefania con 0.4
 bouvier.png con 0.5
-champagnecade561 con 0.6
+champagnecade561 con 0.4
 am1019_ con 0.1
 vazquezz_20 con 0.3
 jon_rivera8 con 0.0
@@ -7648,7 +7648,7 @@ _hugh._.mungus_ con 0.4
 queen_bri_082601 con 0.1
 rsx_toby con 0.1
 jakehumes12 con 0.3
-tyler_heffner_1 con 0.5
+tyler_heffner_1 con 0.4
 jon_aina69_ con 0.1
 abby_vangelder con 0.0
 case.carter con 0.3
@@ -7927,7 +7927,7 @@ rick_ricotta con 0.8
 wolfpak_0 con 0.2
 kvng.spazz con 0.4
 mha__1990 con 0.5
-rico_.5x con 0.6
+rico_.5x con 0.5
 adams_xone con 0.4
 robert.diaz2008 con 0.5
 tamarderman.fans con 0.5
@@ -7945,7 +7945,7 @@ tyler_barnes_17 con 0.2
 avaaguad con 0.0
 cyrillekassi con 0.7
 paulina.wernerxo con 0.2
-r_mtm con 0.5
+r_mtm con 0.3
 _nathalie_carolini con 0.3
 laika_catul con 0.7
 kayleigh4234 con 0.4
@@ -7994,7 +7994,7 @@ fabrizio_dinitto con 0.0
 nickloucks20 con 0.2
 zacksmith6256 con 0.2
 nicodias1130 con 0.1
-apollo_surfin con 0.7
+apollo_surfin con 0.5
 thomas.oderkirk con 0.4
 ostanova23 con 0.7
 cutie.x.x.x con 0.2
@@ -8044,7 +8044,7 @@ dammond_glasgow con 0.3
 hips_andships con 0.2
 monsterenerge con 0.4
 stinztherock con 0.2
-tay_whitsonn con 0.5
+tay_whitsonn con 0.3
 nlbrettwarner con 0.2
 __.pursuit__of__happiness.__ con 0.6
 lgiuliano6 con 0.2
@@ -8314,7 +8314,7 @@ squadd_03 con 0.4
 djyan_music con 0.4
 jakeler16 con 0.2
 okayyyespinosa con 0.2
-trapdolll__ con 0.5
+trapdolll__ con 0.3
 ni440xon1117988 con 0.4
 connoralaimo con 0.0
 ni440xon111798 con 1.0
@@ -8462,7 +8462,7 @@ jordansonfleekloveronfleek101 con 0.3
 kassiemski con 0.0
 _tweezzzy con 0.6
 bball_is_life.10 con 0.1
-soufsidehawty con 0.5
+soufsidehawty con 0.4
 tanisha_fernandez con 0.4
 haha_4567_ con 0.5
 shelbybreanna con 0.4
@@ -8634,7 +8634,7 @@ republicanspot con 0.2
 ayeee.k8 con 1.1
 1faded_monkey1 con 0.3
 nate_scheel65 con 0.0
-newyorknative_ con 0.6
+newyorknative_ con 0.4
 kylemoeser2040 con 0.3
 laura2.3 con 0.5
 nike_girl_me con 0.6
@@ -8720,7 +8720,7 @@ connorarvay con 0.0
 _ervin_official_ con 0.3
 brandc00 con 0.4
 shunn.2x con 0.5
-uziidavidd con 0.5
+uziidavidd con 0.4
 utellem_skeeter con 0.1
 _its_shabli con 0.3
 punk_teenage_rebel con 0.3
@@ -8730,7 +8730,7 @@ kennaandtor.fp con 0.3
 josh_oneill696969 con 0.3
 apple_desire con 0.7
 damarisnaranjo con 0.2
-im_fresh_sosa con 0.4
+im_fresh_sosa con 0.2
 manoman778 con 1.0
 danilami3 con 0.3
 _jayyyy3x con 0.2
@@ -8783,7 +8783,7 @@ krystabear.sun con 0.1
 real.lilreggie con 0.0
 amberyerby con 0.2
 hanna_maurine con 0.3
-kenjimeme_ con 1.2
+kenjimeme_ con 1.0
 martinfranky con 1.1
 deleted.acount.xx con 0.8
 jack_roselli con 0.0
@@ -8861,7 +8861,7 @@ deon_willcott con 0.4
 boossabeeer con 0.7
 panihaa con 0.3
 arianajacobs8888 con 0.4
-woahmackz con 0.5
+woahmackz con 0.3
 zeynepsudeloker con 0.2
 ivantadeogarcia con 0.7
 tbh.rates.etc1234 con 0.4
@@ -8908,7 +8908,7 @@ jonascarlosdeoliveira con 0.5
 tylercurtis_21 con 0.1
 htttpgrunge con 0.2
 n0limits.leon con 0.3
-jooninharodrigues con 0.5
+jooninharodrigues con 0.3
 photographerpr con 0.2
 jlex15 con 0.0
 welconetohell con 0.3
@@ -9109,7 +9109,7 @@ b_unique_889 con 0.2
 mikerutaa con 0.1
 waynekurr101 con 0.2
 madiisunnn_ con 0.3
-stylingbymg con 0.5
+stylingbymg con 0.3
 oliviarisolo con 0.0
 jheebs10 con 0.0
 jonny.apple.seed con 0.3
@@ -9350,7 +9350,7 @@ jordyna15 con 0.4
 mariaameliag12 con 0.2
 brian_arceo01 con 0.2
 awk00_beth_ con 0.2
-tysontheboy con 0.5
+tysontheboy con 0.3
 cody_dustin87 con 0.7
 ela_olusoy con 0.2
 mutherfuxkkk con 0.2
@@ -9374,7 +9374,7 @@ maricca_s con 0.2
 plz_unfollow_022 con 1.0
 caniffxmendess con 0.2
 kainenbryantfanpage con 0.2
-msvveoso con 0.7
+msvveoso con 0.5
 knightshockey10 con 0.3
 pocketlabel con 0.1
 stay_strong_through_it_all con 0.2
@@ -9430,7 +9430,7 @@ eazzie_money con 0.5
 lauren_caines28 con 0.0
 annaalorenzini con 0.0
 c.eezee con 0.3
-nellyshairworld con 0.6
+nellyshairworld con 0.4
 futurefoodieofamerica con 0.2
 sizzurm_ con 0.6
 dmv_f1ghts con 0.2
@@ -9458,7 +9458,7 @@ middlechildclothing con 0.7
 shoutoutin2simplesteps con 0.2
 emma_graxce con 0.5
 cattajshsksksjsw con 0.4
-_granttyler con 0.5
+_granttyler con 0.3
 myah_lapiana con 0.3
 itty.goncalves con 0.1
 cam_ismyinstagram con 0.4

@@ -33,7 +33,7 @@ public class FinalResult {
 		if(like_variation>0) {
 			System.out.println("questo valore è più basso del "+ f.format(like_variation*100) + "% rispetto alla media di account simili");
 			if(like_variation>=0.4) {
-				System.out.println("una variazione superiore al 40% può indicare un'interazione bassa dei follower");
+				System.out.println("una variazione superiore al 40% può indicare un'interazione bassa dei propri follower");
 			}
 		}
 		else {
@@ -83,6 +83,10 @@ public class FinalResult {
 		
 		System.out.println("ovvero il " + f.format(fake_tot_perc*100) +"% del totale");
 
+		if(fake_tot_perc>0.15) {
+			System.out.println("maggiore rispetto alla media del 10/15 %");
+		}
+		
 		System.out.println("\n");
 
 		System.out.println("il numero di account che l'utente segue è: " + rs.getFollowing_count());
@@ -95,17 +99,19 @@ public class FinalResult {
 
 		if(isSuspect_following==1) {
 			
-			System.out.println("il numero di account che questo utente segue è maggiore della media per account simili\n");
+			System.out.println("il numero di account che questo utente segue è maggiore della media per account simili"
+					+ "il che spesso indica un tentativo di incremento artificiale delle proprie analytics\n");
 		}
 		
 		else if(isSuspect_following==2) {
 			
-			System.out.println("il numero di account che questo utente segue è molto maggiore rispetto alla media per account simili\n");
+			System.out.println("il numero di account che questo utente segue è molto maggiore rispetto alla media per account simili"
+					+ "il che indica un tentativo di incremento artificiale delle proprie analytics\n");
 		}
 		
 		System.out.println("la follower to following ratio è pari al: " + f.format(rs.getFfr()*100) + "%");
 		
-		if(rs.getFfr()<=1)  System.out.println("più bassa della media, il che può indicare un tentativo di incremento"
+		if(rs.getFfr()<=1.5)  System.out.println("più bassa della media, il che può indicare un tentativo di incremento"
 				+ "artificiale e non omogeneo dei followers tramite meccanisimi come il follow/unfollow\n");
 		
 		System.out.println("\n");
@@ -115,7 +121,7 @@ public class FinalResult {
 		if(rs.getLess1kfandprivate()>=200) {
 			
 			System.out.println("il fatto di seguire questo tipo di profili indica solitamente che la persona è 'conosciuta' direttamente dall'utente"
-					+ "un numero superiore ai 200 non è realistico per questo tipo di relazione e può indicare il tentativo"
+					+ "un numero superiore ai 200 non è usuale per il tipo di relazione e può indicare il tentativo"
 					+ "di incremento artificiale dei followers\n");
 		}
 		

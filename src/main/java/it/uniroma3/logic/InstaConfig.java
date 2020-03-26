@@ -15,8 +15,15 @@ public class InstaConfig {
 	@Bean
 	@Scope("singleton")
 	public Instagram4j config() {
+		
 		Instagram4j instagram = Instagram4j.builder().username(cost.getUsername()).password(cost.getPassword()).build();
 		instagram.setup();
+		
 		return instagram;
 	}
 }
+
+
+
+
+
